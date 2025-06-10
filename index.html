@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>远程桌面软件 - 项目主页</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <header class="bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-600">RemoteX</h1>
+      <nav class="space-x-6">
+        <a href="#features" class="text-gray-700 hover:text-indigo-500">功能特点</a>
+        <a href="#install" class="text-gray-700 hover:text-indigo-500">安装使用</a>
+        <a href="#screenshot" class="text-gray-700 hover:text-indigo-500">界面预览</a>
+        <a href="#contact" class="text-gray-700 hover:text-indigo-500">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-indigo-600 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">高性能远程桌面软件</h2>
+      <p class="text-lg mb-6">支持跨平台、硬件加速、低延迟传输，让你的远程体验如同本地。</p>
+      <a href="#install" class="inline-block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100">立即开始</a>
+    </div>
+  </section>
+
+  <section id="features" class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-8 text-center">核心功能</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-md">
+          <h4 class="text-xl font-semibold mb-2">🖥️ 跨平台支持</h4>
+          <p>适配 Windows、macOS、Linux，未来支持 Web 浏览器。</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-md">
+          <h4 class="text-xl font-semibold mb-2">🚀 编解码优化</h4>
+          <p>基于 VideoToolbox、NVENC、MediaFoundation 等硬件加速方案。</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-md">
+          <h4 class="text-xl font-semibold mb-2">🔒 安全通信</h4>
+          <p>内置加密传输协议，保障数据安全与隐私。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="install" class="bg-gray-100 py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-6 text-center">安装与使用</h3>
+      <pre class="bg-black text-white p-4 rounded-lg overflow-x-auto">
+git clone https://github.com/yourname/remote-x.git
+cd remote-x
+./run.sh --server  # 启动服务端
+./run.sh --client  # 启动客户端
+      </pre>
+      <p class="mt-4 text-center text-sm text-gray-600">更多用法请见 <code>docs/usage.md</code></p>
+    </div>
+  </section>
+
+  <section id="screenshot" class="py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">界面预览</h3>
+      <img src="screenshot.png" alt="界面截图" class="mx-auto rounded-xl shadow-md max-w-full">
+    </div>
+  </section>
+
+  <section id="contact" class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">联系我们</h3>
+      <p>如需协作、技术咨询或企业部署，请发送邮件至：</p>
+      <p class="mt-2 font-mono text-indigo-600">youremail@example.com</p>
+    </div>
+  </section>
+
+  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-500">
+    © 2025 RemoteX 项目. 由开源社区驱动开发.
+  </footer>
+</body>
+</html>
