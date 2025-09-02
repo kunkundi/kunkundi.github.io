@@ -1,171 +1,424 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CrossDesk远程桌面软件 - 项目主页</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrossDesk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
-  <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-900">CrossDesk</h1>
-      <nav class="flex items-center space-x-6">
-        <a href="#features" class="text-gray-700 hover:text-indigo-500">功能特点</a>
-        <a href="#download" class="text-gray-700 hover:text-indigo-500">安装使用</a>
-        <a href="#screenshot" class="text-gray-700 hover:text-indigo-500">界面预览</a>
-        <a href="#contact" class="text-gray-700 hover:text-indigo-500">联系我们</a>
-        <div class="flex items-center space-x-2 border-l pl-4 ml-4">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
-          </svg>
-          <button id="lang-zh" class="text-sm text-gray-500 hover:text-indigo-500">中文</button>
-          <button id="lang-en" class="text-sm text-gray-500 hover:text-indigo-500">English</button>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold text-blue-900">CrossDesk</h1>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-blue-900 to-indigo-800 text-white py-24">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">开源免费的远程桌面软件</h2>
-      <p class="text-lg md:text-xl mb-12">跨平台，支持硬件加速，不限设备数量，让你的远程体验如同本地。</p>
+        <!-- mobile menu toggle -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-gray-600"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
 
-      <a href="https://github.com/kunkundi/crossdesk.git"
-         class="inline-block bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition text-2xl mt-10">
-        访问项目 GitHub
-      </a>
-
-      <h3 class="text-2xl font-semibold mb-6 mt-20">软件下载</h3>
-
-      <div class="flex flex-wrap justify-center gap-6">
-        <!-- Windows Dropdown -->
-        <div class="relative group inline-block">
-          <button
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2">
-            <i class="fa-brands fa-windows text-xl"></i>
-            <span>Windows</span>
-            <svg class="w-4 h-4 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div
-            class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10 pointer-events-auto">
-            <a href="https://downloads.crossdesk.cn/crossdesk-win-x86_64-0.0.1.exe"
-              class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl">Windows x64</a>
-            <!-- <a href="https://downloads.crossdesk.cn/crossdesk-win-x86-0.0.1.exe"
-              class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl">Windows x86</a> -->
+        <!-- desktop navigation -->
+        <nav id="menu" class="hidden md:flex items-center space-x-6">
+          <a href="#features" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">功能特点</span>
+            <span data-lang="en">Features</span>
+          </a>
+          <a href="#download" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">安装使用</span>
+            <span data-lang="en">Installation</span>
+          </a>
+          <a href="#screenshot" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">界面预览</span>
+            <span data-lang="en">Screenshots</span>
+          </a>
+          <a href="#contact" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">联系我们</span>
+            <span data-lang="en">Contact</span>
+          </a>
+          <div class="flex items-center space-x-2 border-l pl-4 ml-4">
+            <button
+              type="button"
+              class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
+            >
+              中文
+            </button>
+            <button
+              type="button"
+              class="lang-en text-sm text-gray-500 hover:text-indigo-500"
+            >
+              English
+            </button>
           </div>
-        </div>
+        </nav>
+      </div>
 
-        <!-- macOS Dropdown -->
-        <div class="relative group inline-block">
-          <button
-            class="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2">
-            <i class="fa-brands fa-apple text-xl"></i>
-            <span>macOS</span>
-            <svg class="w-4 h-4 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div
-            class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10 pointer-events-auto">
-            <a href="https://downloads.crossdesk.cn/crossdesk-macos-x86_64-0.0.1.pkg"
-              class="block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl">macOS x64</a>
-            <a href="https://downloads.crossdesk.cn/crossdesk-macos-arm64-0.0.1.pkg"
-              class="block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl">macOS arm64</a>
+      <!-- mobile navigation -->
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
+        aria-hidden="true"
+      >
+        <div
+          id="mobile-panel"
+          class="absolute right-0 top-0 h-full w-72 sm:w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
+        >
+          <div class="flex justify-between items-center p-4 border-b">
+            <h2 class="text-lg font-bold text-blue-900">
+              <span data-lang="zh">菜单</span>
+              <span data-lang="en">Menu</span>
+            </h2>
+            <button
+              id="menu-close"
+              class="text-gray-600 text-xl"
+              aria-label="Close menu"
+            >
+              <i class="fa fa-times"></i>
+            </button>
           </div>
+          <nav class="flex flex-col p-4 space-y-4">
+            <a href="#features" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">功能特点</span>
+              <span data-lang="en">Features</span>
+            </a>
+            <a href="#download" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">安装使用</span>
+              <span data-lang="en">Installation</span>
+            </a>
+            <a href="#screenshot" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">界面预览</span>
+              <span data-lang="en">Screenshots</span>
+            </a>
+            <a href="#contact" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">联系我们</span>
+              <span data-lang="en">Contact</span>
+            </a>
+            <div class="flex space-x-2 pt-4 border-t">
+              <button
+                type="button"
+                class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
+              >
+                中文
+              </button>
+              <button
+                type="button"
+                class="lang-en text-sm text-gray-500 hover:text-indigo-500"
+              >
+                English
+              </button>
+            </div>
+          </nav>
         </div>
+      </div>
+    </header>
 
-        <!-- Linux Dropdown -->
-        <div class="relative group inline-block">
-          <button
-            class="bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2">
-            <i class="fa-brands fa-linux text-xl"></i>
-            <span>Linux</span>
-            <svg class="w-4 h-4 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div
-            class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10 pointer-events-auto">
-            <a href="https://downloads.crossdesk.cn/crossdesk-linux-x86_64-0.0.1.deb"
-              class="block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl">Linux x64</a>
-            <a href="https://downloads.crossdesk.cn/crossdesk-linux-arm64-0.0.1.deb"
-              class="block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl">Linux arm64</a>
+    <!-- Hero -->
+    <section
+      class="bg-gradient-to-b from-blue-900 to-indigo-800 text-white py-20 md:py-24"
+    >
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span data-lang="zh">开源的远程桌面软件</span>
+          <span data-lang="en">Open-Source Remote Desktop Software</span>
+        </h2>
+
+        <p class="text-base md:text-xl mb-12">
+          <span data-lang="zh"
+            >跨平台，支持硬件加速，不限设备数量，让你的远程体验如同本地。</span
+          >
+          <span data-lang="en"
+            >Cross-platform, hardware-accelerated, unlimited devices, remote as
+            smooth as local.</span
+          >
+        </p>
+
+        <a
+          href="https://github.com/kunkundi/crossdesk.git"
+          class="inline-block bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl mt-10"
+        >
+          <span data-lang="zh">访问项目 GitHub</span>
+          <span data-lang="en">View on GitHub</span>
+        </a>
+
+        <h3 id="download" class="text-2xl font-semibold mb-6 mt-16">
+          <span data-lang="zh">软件下载</span>
+          <span data-lang="en">Download</span>
+        </h3>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <!-- Windows Dropdown -->
+          <div class="relative group inline-block">
+            <button
+              class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            >
+              <i class="fa-brands fa-windows text-xl"></i>
+              <span>Windows</span>
+              <svg
+                class="w-4 h-4 group-hover:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
+            >
+              <a
+                href="https://downloads.crossdesk.cn/crossdesk-win-x86_64-0.0.1.exe"
+                class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
+                >Windows x64</a
+              >
+            </div>
+          </div>
+
+          <!-- macOS Dropdown -->
+          <div class="relative group inline-block">
+            <button
+              class="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            >
+              <i class="fa-brands fa-apple text-xl"></i>
+              <span>macOS</span>
+              <svg
+                class="w-4 h-4 group-hover:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
+            >
+              <a
+                href="https://downloads.crossdesk.cn/crossdesk-macos-x86_64-0.0.1.pkg"
+                class="block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl"
+                >macOS x64</a
+              >
+              <a
+                href="https://downloads.crossdesk.cn/crossdesk-macos-arm64-0.0.1.pkg"
+                class="block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl"
+                >macOS arm64</a
+              >
+            </div>
+          </div>
+
+          <!-- Linux Dropdown -->
+          <div class="relative group inline-block">
+            <button
+              class="bg-green-600 hover:bg-green-700 text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            >
+              <i class="fa-brands fa-linux text-xl"></i>
+              <span>Linux</span>
+              <svg
+                class="w-4 h-4 group-hover:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
+            >
+              <a
+                href="https://downloads.crossdesk.cn/crossdesk-linux-x86_64-0.0.1.deb"
+                class="block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl"
+                >Linux x64</a
+              >
+              <a
+                href="https://downloads.crossdesk.cn/crossdesk-linux-arm64-0.0.1.deb"
+                class="block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl"
+                >Linux arm64</a
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features -->
-  <section id="features" class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold mb-12 text-center">核心功能</h3>
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">🖥️ 跨平台支持</h4>
-          <p>全面兼容 Windows、macOS 与 Linux 操作系统，满足多平台远程访问需求。</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">⚡ 硬件加速支持</h4>
-          <p>支持 NVIDIA Video Codec、VideoToolbox 硬件加速，支持 H.264、AV1 编码格式。</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">∞ 不限设备数量</h4>
-          <p>支持同时管理和连接无限数量的远程设备，满足多场景需求。</p>
+    <!-- Features -->
+    <section id="features" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-bold mb-12 text-center">
+          <span data-lang="zh">核心功能</span>
+          <span data-lang="en">Core Features</span>
+        </h3>
+        <div class="grid md:grid-cols-3 gap-10">
+          <div
+            class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition"
+          >
+            <h4 class="text-xl font-semibold mb-2">
+              <span data-lang="zh">🖥️ 跨平台支持</span>
+              <span data-lang="en">🖥️ Cross-platform Support</span>
+            </h4>
+            <p>
+              <span data-lang="zh"
+                >全面兼容 Windows、macOS 与 Linux
+                操作系统，满足多平台远程访问需求。</span
+              >
+              <span data-lang="en"
+                >Fully compatible with Windows, macOS, and Linux to meet
+                multi-platform remote needs.</span
+              >
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition"
+          >
+            <h4 class="text-xl font-semibold mb-2">
+              ⚡ <span data-lang="zh">硬件加速支持</span
+              ><span data-lang="en">Hardware Acceleration</span>
+            </h4>
+            <p>
+              <span data-lang="zh"
+                >支持 NVIDIA Video Codec、VideoToolbox 硬件加速，支持 H.264、AV1
+                编码格式。</span
+              >
+              <span data-lang="en"
+                >Supports NVIDIA Video Codec, VideoToolbox acceleration, and
+                H.264/AV1 formats.</span
+              >
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition"
+          >
+            <h4 class="text-xl font-semibold mb-2">
+              ∞ <span data-lang="zh">不限设备数量</span
+              ><span data-lang="en">Unlimited Devices</span>
+            </h4>
+            <p>
+              <span data-lang="zh"
+                >支持同时管理和连接无限数量的远程设备，满足多场景需求。</span
+              >
+              <span data-lang="en"
+                >Manage and connect unlimited remote devices for all use
+                cases.</span
+              >
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Screenshot -->
-  <section id="screenshot" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-8">界面预览</h3>
-      <img src="images/win2mac_gui.png" alt="界面截图" class="mx-auto rounded-xl shadow-md max-w-full">
-    </div>
-  </section>
+    <!-- Screenshot -->
+    <section id="screenshot" class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h3 class="text-3xl font-bold mb-8">
+          <span data-lang="zh">界面预览</span>
+          <span data-lang="en">Screenshots</span>
+        </h3>
+        <img
+          src="images/win2mac_gui.png"
+          alt="界面截图"
+          class="mx-auto rounded-xl shadow-md max-w-full"
+        />
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-gray-100 py-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-6">联系我们</h3>
-      <p class="mb-2">如需协作、技术咨询，请发送邮件至：</p>
-      <p class="font-mono text-indigo-600 text-lg">junkun.di@hotmail.com</p>
-    </div>
-  </section>
+    <!-- Contact -->
+    <section id="contact" class="bg-gray-100 py-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h3 class="text-3xl font-bold mb-6">
+          <span data-lang="zh">联系我们</span>
+          <span data-lang="en">Contact Us</span>
+        </h3>
+        <p>
+          <span data-lang="zh">如需协作、技术咨询，请发送邮件至：</span>
+          <span data-lang="en"
+            >For collaboration or tech support, email us at:</span
+          >
+        </p>
+        <p class="font-mono text-indigo-600 text-lg">junkun.di@hotmail.com</p>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
-    © 2025 CrossDesk
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
+      © 2025 CrossDesk
+    </footer>
 
-  <!-- Language Switch Script -->
-  <script>
-    function switchLanguage(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+    <!-- Language + Menu Script -->
+    <script>
+      function switchLanguage(lang) {
+        document.querySelectorAll("[data-lang]").forEach((el) => {
+          el.style.display =
+            el.getAttribute("data-lang") === lang ? "" : "none";
+        });
+        localStorage.setItem("lang", lang);
+      }
+
+      document
+        .querySelectorAll(".lang-zh")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => switchLanguage("zh"))
+        );
+      document
+        .querySelectorAll(".lang-en")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => switchLanguage("en"))
+        );
+
+      const savedLang =
+        localStorage.getItem("lang") ||
+        (navigator.language || "").toLowerCase().startsWith("zh")
+          ? "zh"
+          : "en";
+      switchLanguage(savedLang);
+
+      const menuBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobilePanel = document.getElementById("mobile-panel");
+      const closeBtn = document.getElementById("menu-close");
+
+      function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          mobilePanel.classList.remove("translate-x-full");
+          menuBtn.setAttribute("aria-expanded", "true");
+          mobileMenu.setAttribute("aria-hidden", "false");
+        });
+      }
+      function closeMenu() {
+        mobilePanel.classList.add("translate-x-full");
+        setTimeout(() => {
+          mobileMenu.classList.add("hidden");
+          menuBtn.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
+        }, 300);
+      }
+
+      menuBtn.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+
+      mobileMenu.addEventListener("click", (e) => {
+        if (e.target === mobileMenu) closeMenu();
       });
-      localStorage.setItem('lang', lang);
-    }
 
-    document.getElementById('lang-zh').addEventListener('click', () => switchLanguage('zh'));
-    document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
-
-    const savedLang = localStorage.getItem('lang') || 'zh';
-    switchLanguage(savedLang);
-  </script>
-</body>
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((a) => a.addEventListener("click", closeMenu));
+    </script>
+  </body>
 </html>
