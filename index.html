@@ -8,6 +8,12 @@
     <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- SwiperJS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
 
   <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
@@ -254,67 +260,113 @@
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- Features Carousel -->
     <section id="features" class="py-20 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-6">
-        <h3 class="text-3xl font-bold mb-12 text-center">
-          <span data-lang="zh">核心功能</span>
-          <span data-lang="en">Core Features</span>
-        </h3>
-        <div class="grid md:grid-cols-3 gap-10">
+      <!-- 让轮播撑满全屏，不再限制 max-w -->
+      <div class="w-full">
+        <!-- 高端标题 -->
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold mb-12 text-center">
+            <span data-lang="zh">核心功能</span>
+            <span data-lang="en">Core Features</span>
+          </h3>
           <div
-            class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition"
-          >
-            <h4 class="text-xl font-semibold mb-2">
-              <span data-lang="zh">🖥️ 跨平台支持</span>
-              <span data-lang="en">🖥️ Cross-platform Support</span>
-            </h4>
-            <p>
-              <span data-lang="zh"
-                >全面兼容 Windows、macOS 与 Linux
-                操作系统，满足多平台远程访问需求。</span
+            class="mt-3 w-24 h-1 mx-auto bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
+          ></div>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper w-full">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide flex justify-center">
+              <div
+                class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition text-center max-w-md w-full"
               >
-              <span data-lang="en"
-                >Fully compatible with Windows, macOS, and Linux to meet
-                multi-platform remote needs.</span
+                <h4 class="text-xl font-semibold mb-2">
+                  🖥️ <span data-lang="zh">跨平台支持</span>
+                  <span data-lang="en">Cross-platform Support</span>
+                </h4>
+                <p>
+                  <p class="mb-6">
+                  <span data-lang="zh"
+                    >全面兼容 Windows、macOS 与 Linux
+                    操作系统，满足多平台远程访问需求。</span
+                  >
+                  <span data-lang="en"
+                    >Fully compatible with Windows, macOS, and Linux to meet
+                    multi-platform remote needs.</span
+                  >
+                  </p>
+                </p>
+                <img
+                  src="assets/images/win2mac_gui.png"
+                  alt="跨平台支持"
+                  class="w-20 h-20 mx-auto mt-4"
+                />
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide flex justify-center">
+              <div
+                class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition text-center max-w-md w-full"
               >
-            </p>
+                <h4 class="text-xl font-semibold mb-2">
+                  ⚡ <span data-lang="zh">硬件加速支持</span>
+                  <span data-lang="en">Hardware Acceleration</span>
+                </h4>
+                <p>
+                  <p class="mb-6">
+                  <span data-lang="zh"
+                    >支持 NVIDIA Video Codec、VideoToolbox 硬件加速，支持
+                    H.264、AV1 编码格式。</span
+                  >
+                  <span data-lang="en"
+                    >Supports NVIDIA Video Codec, VideoToolbox acceleration, and
+                    H.264/AV1 formats.</span
+                  >
+                  </p>
+                </p>
+                <img
+                  src="assets/images/win2mac_gui.png"
+                  alt="硬件加速"
+                  class="w-20 h-20 mx-auto mt-4"
+                />
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide flex justify-center">
+              <div
+                class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition text-center max-w-md w-full"
+              >
+                <h4 class="text-xl font-semibold mb-2">
+                  ∞ <span data-lang="zh">不限设备数量</span>
+                  <span data-lang="en">Unlimited Devices</span>
+                </h4>
+                <p>
+                  <p class="mb-6">
+                  <span data-lang="zh"
+                    >支持同时管理和连接无限数量的远程设备，满足多场景需求。</span
+                  >
+                  <span data-lang="en"
+                    >Manage and connect unlimited remote devices for all use
+                    cases.</span
+                  >
+                  </p>
+                </p>
+                <img
+                  src="assets/images/win2mac_gui.png"
+                  alt="不限设备数量"
+                  class="w-20 h-20 mx-auto mt-4"
+                />
+              </div>
+            </div>
           </div>
-          <div
-            class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition"
-          >
-            <h4 class="text-xl font-semibold mb-2">
-              ⚡ <span data-lang="zh">硬件加速支持</span
-              ><span data-lang="en">Hardware Acceleration</span>
-            </h4>
-            <p>
-              <span data-lang="zh"
-                >支持 NVIDIA Video Codec、VideoToolbox 硬件加速，支持 H.264、AV1
-                编码格式。</span
-              >
-              <span data-lang="en"
-                >Supports NVIDIA Video Codec, VideoToolbox acceleration, and
-                H.264/AV1 formats.</span
-              >
-            </p>
-          </div>
-          <div
-            class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition"
-          >
-            <h4 class="text-xl font-semibold mb-2">
-              ∞ <span data-lang="zh">不限设备数量</span
-              ><span data-lang="en">Unlimited Devices</span>
-            </h4>
-            <p>
-              <span data-lang="zh"
-                >支持同时管理和连接无限数量的远程设备，满足多场景需求。</span
-              >
-              <span data-lang="en"
-                >Manage and connect unlimited remote devices for all use
-                cases.</span
-              >
-            </p>
-          </div>
+
+          <!-- Pagination -->
+          <div class="swiper-pagination mt-6 mb-12"></div>
         </div>
       </div>
     </section>
@@ -416,6 +468,17 @@
       mobileMenu
         .querySelectorAll("a")
         .forEach((a) => a.addEventListener("click", closeMenu));
+
+      new Swiper(".mySwiper", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoplay: {
+          delay: 3000, // 每 3 秒切换一次
+          disableOnInteraction: false,
+        },
+        pagination: { el: ".swiper-pagination", clickable: true },
+      });
     </script>
   </body>
 </html>
