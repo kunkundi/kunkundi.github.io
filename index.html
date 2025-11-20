@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CrossDesk</title>
+    <!-- Preload FontAwesome fonts for faster icon loading -->
+    <link
+      rel="preload"
+      href="assets/fontawesome/webfonts/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fontawesome/webfonts/fa-brands-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link href="dist/tailwind.css" rel="stylesheet" />
     <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" />
@@ -141,7 +156,7 @@
 
     <!-- Hero -->
     <section
-      class="bg-gradient-to-b from-blue-900 to-indigo-800 text-white py-20 md:py-24"
+      class="bg-gradient-to-b from-blue-900 to-indigo-800 text-white py-20"
     >
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -149,7 +164,7 @@
           <span data-lang="en">Open-Source Remote Desktop Software</span>
         </h2>
 
-        <p class="text-base md:text-xl mb-12">
+        <p class="text-base md:text-base mb-12">
           <span data-lang="zh"
             >跨平台，支持硬件加速，不限设备数量，让你的远程体验如同本地。</span
           >
@@ -183,12 +198,40 @@
           >
             Self-Hosting
           </a>
+
+          <a
+            href="https://web.crossdesk.cn"
+            class="bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl"
+          >
+            <span data-lang="zh">Web 客户端</span>
+            <span data-lang="en">Web Client</span>
+          </a>
         </div>
 
-        <h3 id="download" class="text-2xl font-semibold mb-6 mt-16">
+        <h3 id="download" class="text-2xl font-semibold mb-6 mt-10">
           <span data-lang="zh">软件下载</span>
           <span data-lang="en">Download</span>
         </h3>
+
+        <div class="flex flex-col items-center gap-3 mb-4 text-sm">
+          <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-tag"></i>
+              <span data-lang="zh">最新版本</span>
+              <span data-lang="en">Latest Version</span>
+              <span id="version-display" class="font-bold">v0.0.0</span>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-calendar"></i>
+              <span data-lang="zh">发布日期</span>
+              <span data-lang="en">Release Date</span>
+              <span id="release-date-display" class="font-bold"
+                >2023-11-20</span
+              >
+            </div>
+          </div>
+        </div>
 
         <div class="flex flex-wrap justify-center gap-4">
           <!-- Windows Dropdown -->
@@ -212,8 +255,9 @@
               class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
             >
               <a
-                href="https://downloads.crossdesk.cn/crossdesk-win-x64-1.1.0-beta-adb6cee.exe"
-                class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
+                href="#"
+                data-download="windows-x64"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
                 >Windows x64</a
               >
             </div>
@@ -240,13 +284,15 @@
               class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
             >
               <a
-                href="https://downloads.crossdesk.cn/crossdesk-macos-x64-1.1.0-beta-adb6cee.pkg"
-                class="block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl"
+                href="#"
+                data-download="macos-x64"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl"
                 >macOS x64</a
               >
               <a
-                href="https://downloads.crossdesk.cn/crossdesk-macos-arm64-1.1.0-beta-adb6cee.pkg"
-                class="block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl"
+                href="#"
+                data-download="macos-arm64"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-red-50 rounded-xl"
                 >macOS arm64</a
               >
             </div>
@@ -273,27 +319,19 @@
               class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
             >
               <a
-                href="https://downloads.crossdesk.cn/crossdesk-linux-amd64-1.1.0-beta-adb6cee.deb"
-                class="block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl"
+                href="#"
+                data-download="linux-amd64"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl"
                 >Linux x64</a
               >
               <a
-                href="https://downloads.crossdesk.cn/crossdesk-linux-arm64-1.1.0-beta-adb6cee.deb"
-                class="block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl"
+                href="#"
+                data-download="linux-arm64"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-green-50 rounded-xl"
                 >Linux arm64</a
               >
             </div>
           </div>
-        </div>
-
-        <div class="w-full flex justify-center mt-16">
-          <a
-            href="https://web.crossdesk.cn"
-            class="bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl"
-          >
-            <span data-lang="zh">Web 客户端</span>
-            <span data-lang="en">Web Client</span>
-          </a>
         </div>
       </div>
     </section>
@@ -315,18 +353,18 @@
                 </h4>
                 <p class="text-gray-600 text-center">
                   <span data-lang="zh"
-                    >全面兼容 Windows、macOS 与 Linux
-                    操作系统，满足多平台远程访问需求。</span
+                    >全面兼容 Windows、macOS 与 Linux 操作系统，支持 Web
+                    客户端访问，满足多平台多场景远程访问需求。</span
                   >
                   <span data-lang="en"
-                    >Fully compatible with Windows, macOS, and Linux to meet
-                    multi-platform remote needs.</span
+                    >Compatible with Windows, macOS, and Linux, with Web client
+                    support for multi-platform remote access.</span
                   >
                 </p>
 
                 <!-- Feature Image -->
                 <img
-                  src="assets/images/cross-platform.png"
+                  src="assets/images/cross-platform-iPhone.png"
                   alt="Cross-platform Support"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -504,6 +542,159 @@
           },
         },
       });
+
+      // Version Management - 版本管理和自动更新下载链接
+      (async function () {
+        const VERSION_API_URL = "https://version.crossdesk.cn/version.json";
+        const CACHE_KEY = "crossdesk_version_cache";
+        const CACHE_TIMESTAMP_KEY = "crossdesk_version_timestamp";
+        const CACHE_DURATION = 60 * 60 * 1000; // 1小时缓存
+
+        // 默认版本数据（作为降级方案）
+        const defaultVersionData = {
+          version: "1.1.0",
+          releaseDate: "2025-11-13",
+          downloads: {
+            "windows-x64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.1.0-20251113-497454a.exe",
+              filename: "crossdesk-win-x64-v1.1.0-20251113-497454a.exe",
+            },
+            "macos-x64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.1.0-20251113-497454a.pkg",
+              filename: "crossdesk-macos-x64-v1.1.0-20251113-497454a.pkg",
+            },
+            "macos-arm64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.1.0-20251113-497454a.pkg",
+              filename: "crossdesk-macos-arm64-v1.1.0-20251113-497454a.pkg",
+            },
+            "linux-amd64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.1.0-20251113-497454a.deb",
+              filename: "crossdesk-linux-amd64-v1.1.0-20251113-497454a.deb",
+            },
+            "linux-arm64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.1.0-20251113-497454a.deb",
+              filename: "crossdesk-linux-arm64-v1.1.0-20251113-497454a.deb",
+            },
+          },
+        };
+
+        let versionData = defaultVersionData;
+
+        // 获取缓存的版本信息
+        function getCachedVersion() {
+          try {
+            const cached = localStorage.getItem(CACHE_KEY);
+            const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+            if (cached && timestamp) {
+              const age = Date.now() - parseInt(timestamp);
+              if (age < CACHE_DURATION) {
+                return JSON.parse(cached);
+              }
+            }
+          } catch (e) {
+            console.warn("读取缓存失败:", e);
+          }
+          return null;
+        }
+
+        // 更新 UI 显示版本信息
+        function updateVersionUI(data) {
+          if (!data) return;
+
+          // 更新版本号显示
+          const versionDisplay = document.getElementById("version-display");
+          if (versionDisplay && data.version) {
+            versionDisplay.textContent = `v${data.version}`;
+          }
+
+          // 更新发布日期显示
+          const dateDisplay = document.getElementById("release-date-display");
+          if (dateDisplay && data.releaseDate) {
+            dateDisplay.textContent = data.releaseDate;
+          }
+
+          // 更新下载链接
+          if (data.downloads) {
+            Object.keys(data.downloads).forEach((key) => {
+              const downloadInfo = data.downloads[key];
+              const link = document.querySelector(`[data-download="${key}"]`);
+              if (link && downloadInfo.url) {
+                link.href = downloadInfo.url;
+                // 可选：添加 tooltip 显示文件名
+                if (downloadInfo.filename) {
+                  link.title = downloadInfo.filename;
+                }
+              }
+            });
+          }
+        }
+
+        // 保存到缓存
+        function saveToCache(data) {
+          try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+            localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+          } catch (e) {
+            console.warn("保存缓存失败:", e);
+          }
+        }
+
+        // 从缓存加载并立即显示
+        const cached = getCachedVersion();
+        if (cached) {
+          versionData = cached;
+          updateVersionUI(versionData);
+        } else {
+          // 如果没有缓存，先显示默认值
+          updateVersionUI(versionData);
+        }
+
+        // 从 API 获取最新版本
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 5000); // 5秒超时
+
+          const response = await fetch(VERSION_API_URL, {
+            method: "GET",
+            mode: "cors",
+            cache: "no-cache",
+            signal: controller.signal,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data && data.version && data.downloads) {
+              versionData = data;
+              updateVersionUI(versionData);
+              saveToCache(data);
+              console.log("✅ 版本信息已更新:", data.version);
+            } else {
+              console.warn("⚠️ API 返回的数据格式不正确");
+            }
+          } else {
+            console.warn(
+              "⚠️ API 请求失败:",
+              response.status,
+              response.statusText
+            );
+          }
+        } catch (error) {
+          if (error.name === "AbortError") {
+            console.warn("⚠️ 请求超时，使用缓存或默认值");
+          } else {
+            console.warn("⚠️ 获取版本信息失败:", error.message);
+          }
+          // 如果 API 请求失败且没有缓存，使用默认值（已经显示）
+          if (!cached) {
+            updateVersionUI(versionData);
+          }
+        }
+      })();
     </script>
   </body>
 </html>
