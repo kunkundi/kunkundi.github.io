@@ -355,7 +355,7 @@
                 </p>
 
                 <img
-                  src="assets/images/cross-platform-iPhone.webp"
+                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
                   alt="Cross-platform Support"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -381,7 +381,7 @@
                 </p>
 
                 <img
-                  src="assets/images/web-client.webp"
+                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
                   alt="Web Client Support"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -407,16 +407,14 @@
                   >
                 </p>
 
-                <!-- Feature Image -->
                 <img
-                  src="assets/images/codecs.webp"
+                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
                   alt="Hardware Acceleration"
                   class="w-24 h-24 mb-4 object-contain"
                 />
               </div>
             </div>
 
-            <!-- Feature 3 -->
             <div class="swiper-slide flex justify-center items-center">
               <div
                 class="bg-white text-gray-800 shadow-lg hover:shadow-2xl transition-all p-8 flex flex-col items-center"
@@ -435,9 +433,8 @@
                   >
                 </p>
 
-                <!-- Feature Image -->
                 <img
-                  src="assets/images/multi-device.webp"
+                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
                   alt="Unlimited Devices"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -445,13 +442,13 @@
             </div>
           </div>
 
-          <!-- Pagination -->
+          <!-- pagination -->
           <div class="swiper-pagination mt-6 mb-12"></div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- contact -->
     <section id="contact" class="bg-gray-100 py-20">
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h3 class="text-3xl font-bold mb-6">
@@ -468,12 +465,12 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- footer -->
     <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
       © 2025 CrossDesk
     </footer>
 
-    <!-- Language + Menu Script -->
+    <!-- language + menu script -->
     <script>
       function switchLanguage(lang) {
         document.querySelectorAll("[data-lang]").forEach((el) => {
@@ -539,7 +536,7 @@
         slidesPerView: 1,
         spaceBetween: 20,
         autoplay: {
-          delay: 3000, // 每 3 秒切换一次
+          delay: 3000, // every 3 seconds
           disableOnInteraction: false,
         },
         pagination: { el: ".swiper-pagination", clickable: true },
@@ -559,14 +556,13 @@
         },
       });
 
-      // Version Management - 版本管理和自动更新下载链接
+      // version Management 
       (async function () {
         const VERSION_API_URL = "https://version.crossdesk.cn/version.json";
         const CACHE_KEY = "crossdesk_version_cache";
         const CACHE_TIMESTAMP_KEY = "crossdesk_version_timestamp";
-        const CACHE_DURATION = 60 * 60 * 1000; // 1小时缓存
+        const CACHE_DURATION = 60 * 60 * 1000; 
 
-        // 默认版本数据（作为降级方案）
         const defaultVersionData = {
           version: "1.1.0",
           releaseDate: "2025-11-13",
@@ -596,7 +592,7 @@
 
         let versionData = defaultVersionData;
 
-        // 获取缓存的版本信息
+        // get cached version
         function getCachedVersion() {
           try {
             const cached = localStorage.getItem(CACHE_KEY);
@@ -613,30 +609,26 @@
           return null;
         }
 
-        // 更新 UI 显示版本信息
+        // update version ui
         function updateVersionUI(data) {
           if (!data) return;
 
-          // 更新版本号显示
           const versionDisplay = document.getElementById("version-display");
           if (versionDisplay && data.version) {
             versionDisplay.textContent = `v${data.version}`;
           }
 
-          // 更新发布日期显示
           const dateDisplay = document.getElementById("release-date-display");
           if (dateDisplay && data.releaseDate) {
             dateDisplay.textContent = data.releaseDate;
           }
 
-          // 更新下载链接
           if (data.downloads) {
             Object.keys(data.downloads).forEach((key) => {
               const downloadInfo = data.downloads[key];
               const link = document.querySelector(`[data-download="${key}"]`);
               if (link && downloadInfo.url) {
                 link.href = downloadInfo.url;
-                // 可选：添加 tooltip 显示文件名
                 if (downloadInfo.filename) {
                   link.title = downloadInfo.filename;
                 }
@@ -645,7 +637,6 @@
           }
         }
 
-        // 保存到缓存
         function saveToCache(data) {
           try {
             localStorage.setItem(CACHE_KEY, JSON.stringify(data));
@@ -655,20 +646,17 @@
           }
         }
 
-        // 从缓存加载并立即显示
         const cached = getCachedVersion();
         if (cached) {
           versionData = cached;
           updateVersionUI(versionData);
         } else {
-          // 如果没有缓存，先显示默认值
           updateVersionUI(versionData);
         }
 
-        // 从 API 获取最新版本
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 5000); // 5秒超时
+          const timeoutId = setTimeout(() => controller.abort(), 5000);
 
           const response = await fetch(VERSION_API_URL, {
             method: "GET",
@@ -705,7 +693,7 @@
           } else {
             console.warn("⚠️ 获取版本信息失败:", error.message);
           }
-          // 如果 API 请求失败且没有缓存，使用默认值（已经显示）
+
           if (!cached) {
             updateVersionUI(versionData);
           }
