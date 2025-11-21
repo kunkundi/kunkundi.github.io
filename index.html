@@ -355,6 +355,8 @@
 
                 <img
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
+                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
+                  data-local="assets/images/cross-platform-iPhone.webp"
                   alt="Cross-platform Support"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -381,6 +383,8 @@
 
                 <img
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
+                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
+                  data-local="assets/images/web-client.webp"
                   alt="Web Client Support"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -408,6 +412,8 @@
 
                 <img
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
+                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
+                  data-local="assets/images/codecs.webp"
                   alt="Hardware Acceleration"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -434,6 +440,8 @@
 
                 <img
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
+                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
+                  data-local="assets/images/multi-device.webp"
                   alt="Unlimited Devices"
                   class="w-24 h-24 mb-4 object-contain"
                 />
@@ -529,6 +537,64 @@
       mobileMenu
         .querySelectorAll("a")
         .forEach((a) => a.addEventListener("click", closeMenu));
+
+      // image load timeoui, use local image
+      function setupImageFallback(img) {
+        const cdnUrl = img.getAttribute("data-cdn");
+        const localUrl = img.getAttribute("data-local");
+        
+        if (!cdnUrl || !localUrl) return;
+        
+        const timeout = 3000; // 3 seconds
+        let timeoutId;
+        let loaded = false;
+        
+        const testImg = new Image();
+        
+        const loadLocal = () => {
+          if (!loaded) {
+            loaded = true;
+            img.src = localUrl;
+          }
+        };
+        
+        timeoutId = setTimeout(() => {
+          if (!loaded) {
+            testImg.onload = null;
+            testImg.onerror = null;
+            loadLocal();
+          }
+        }, timeout);
+        
+        // check CDN status
+        testImg.onload = () => {
+          if (!loaded) {
+            loaded = true;
+            clearTimeout(timeoutId);
+          }
+        };
+        
+        testImg.onerror = () => {
+          if (!loaded) {
+            loadLocal();
+            clearTimeout(timeoutId);
+          }
+        };
+        
+        // begin to test loading image
+        testImg.src = cdnUrl;
+        
+        // if original image loading failed, also switch to local image
+        img.onerror = () => {
+          if (!loaded) {
+            loadLocal();
+            clearTimeout(timeoutId);
+          }
+        };
+      }
+      
+      // setup image fallback
+      document.querySelectorAll('img[data-cdn][data-local]').forEach(setupImageFallback);
 
       new Swiper(".mySwiper", {
         loop: true,
