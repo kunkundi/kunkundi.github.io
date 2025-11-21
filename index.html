@@ -631,6 +631,19 @@
                 if (downloadInfo.filename) {
                   link.title = downloadInfo.filename;
                 }
+                
+                // baidu tracking event
+                const trackDownload = function() {
+                  if (typeof _hmt !== 'undefined') {
+                    const version = data.version || 'unknown';
+                    _hmt.push(['_trackEvent', '下载', '点击下载', `${key}-${version}`]);
+                  }
+                };
+                
+                // remove old event listener and add new one
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+                newLink.addEventListener('click', trackDownload);
               }
             });
           }
