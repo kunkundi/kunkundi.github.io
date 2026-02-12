@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh">
   <head>
     <meta charset="UTF-8" />
@@ -376,6 +376,14 @@
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
                 >Windows x64</a
               >
+              <a
+                href="#"
+                data-download="windows-x64-portable"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
+              >
+                <span data-lang="zh">Windows x64 便携版</span>
+                <span data-lang="en">Windows x64 Portable</span>
+              </a>
             </div>
           </div>
 
@@ -699,12 +707,12 @@
       document
         .querySelectorAll(".lang-zh")
         .forEach((btn) =>
-          btn.addEventListener("click", () => switchLanguage("zh"))
+          btn.addEventListener("click", () => switchLanguage("zh")),
         );
       document
         .querySelectorAll(".lang-en")
         .forEach((btn) =>
-          btn.addEventListener("click", () => switchLanguage("en"))
+          btn.addEventListener("click", () => switchLanguage("en")),
         );
 
       const savedLang =
@@ -840,28 +848,33 @@
         const CACHE_DURATION = 60 * 60 * 1000;
 
         const defaultVersionData = {
-          version: "1.1.0",
-          releaseDate: "2025-11-13",
+          version: "1.2.2",
+          releaseDate: "2026-02-11",
           downloads: {
             "windows-x64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.1.0-20251113-497454a.exe",
-              filename: "crossdesk-win-x64-v1.1.0-20251113-497454a.exe",
+              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.2.2-20260211-957792a.exe",
+              filename: "crossdesk-win-x64-v1.2.2-20260211-957792a.exe",
+            },
+            "windows-x64-portable": {
+              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-portable-v1.2.2-20260211-957792a.zip",
+              filename:
+                "crossdesk-win-x64-portable-v1.2.2-20260211-957792a.zip",
             },
             "macos-x64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.1.0-20251113-497454a.pkg",
-              filename: "crossdesk-macos-x64-v1.1.0-20251113-497454a.pkg",
+              url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.2.2-20260211-957792a.pkg",
+              filename: "crossdesk-macos-x64-v1.2.2-20260211-957792a.pkg",
             },
             "macos-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.1.0-20251113-497454a.pkg",
-              filename: "crossdesk-macos-arm64-v1.1.0-20251113-497454a.pkg",
+              url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.2.2-20260211-957792a.pkg",
+              filename: "crossdesk-macos-arm64-v1.2.2-20260211-957792a.pkg",
             },
             "linux-amd64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.1.0-20251113-497454a.deb",
-              filename: "crossdesk-linux-amd64-v1.1.0-20251113-497454a.deb",
+              url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.2.2-20260211-957792a.deb",
+              filename: "crossdesk-linux-amd64-v1.2.2-20260211-957792a.deb",
             },
             "linux-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.1.0-20251113-497454a.deb",
-              filename: "crossdesk-linux-arm64-v1.1.0-20251113-497454a.deb",
+              url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.2.2-20260211-957792a.deb",
+              filename: "crossdesk-linux-arm64-v1.2.2-20260211-957792a.deb",
             },
           },
         };
@@ -977,7 +990,7 @@
             console.warn(
               "⚠️ API 请求失败:",
               response.status,
-              response.statusText
+              response.statusText,
             );
           }
         } catch (error) {
