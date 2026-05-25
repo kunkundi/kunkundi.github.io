@@ -131,6 +131,109 @@
       .github-badge-hover:hover {
         filter: brightness(0.95);
       }
+      .hero-glass-section {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: #c8c8c8;
+        color: #1f2937;
+      }
+      .hero-glass-section::before {
+        content: "CrossDesk";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        color: rgba(0, 0, 0, 1);
+        font-family:
+          Verdana,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Arial Black",
+          "Helvetica Neue",
+          sans-serif;
+        font-size: 3.25rem;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .hero-glass-section::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        pointer-events: none;
+      }
+      .hero-glass-content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-glass-section h1 {
+        overflow-wrap: anywhere;
+      }
+      .hero-glass-section p {
+        color: #475569;
+      }
+      .hero-glass-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.6);
+        color: #1e3a8a;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+      .hero-glass-button:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: translateY(-1px);
+      }
+      .hero-version-chip {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.6);
+        color: #334155;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+      @media (min-width: 768px) {
+        .hero-glass-section::before {
+          font-size: 7rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .hero-glass-section::before {
+          font-size: 20rem;
+        }
+      }
+      @media (max-width: 640px) {
+        .hero-glass-section::before {
+          font-size: 4rem;
+        }
+        .hero-glass-section p {
+          max-width: 17rem;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        .hero-glass-button {
+          width: 100%;
+          max-width: 18rem;
+        }
+        .hero-download-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     </style>
 
     <script>
@@ -313,11 +416,9 @@
     </header>
 
     <!-- hero -->
-    <section
-      class="bg-gradient-to-b from-blue-900 to-indigo-800 text-white py-20"
-    >
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+    <section class="hero-glass-section py-20">
+      <div class="hero-glass-content max-w-4xl mx-auto px-6 text-center">
+        <h1 class="text-2xl md:text-4xl font-bold leading-tight mb-4">
           <span data-lang="zh">开源跨平台远程桌面软件</span>
           <span data-lang="en">Open-Source Cross-platform Remote Desktop</span>
         </h1>
@@ -335,7 +436,7 @@
         <div class="w-full flex flex-wrap justify-center gap-10">
           <a
             href="https://github.com/kunkundi/crossdesk.git"
-            class="bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl"
+            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
           >
             <span data-lang="zh">访问项目 GitHub</span>
             <span data-lang="en">View on GitHub</span>
@@ -343,7 +444,7 @@
 
           <a
             href="//github.com/kunkundi/crossdesk/blob/self-hosted-server/README.md#自托管服务器"
-            class="bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl"
+            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
             data-lang="zh"
           >
             自托管
@@ -351,7 +452,7 @@
 
           <a
             href="//github.com/kunkundi/crossdesk/blob/self-hosted-server/README_EN.md#self-hosted-server"
-            class="bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl"
+            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
             data-lang="en"
           >
             Self-Hosting
@@ -359,7 +460,7 @@
 
           <a
             href="https://web.crossdesk.cn"
-            class="bg-white hover:bg-gray-300 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow transition text-lg md:text-2xl"
+            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
           >
             <span data-lang="zh">Web 客户端</span>
             <span data-lang="en">Web Client</span>
@@ -375,7 +476,9 @@
           <div
             class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3"
           >
-            <div class="flex items-center space-x-2 whitespace-nowrap">
+            <div
+              class="hero-version-chip flex items-center space-x-2 whitespace-nowrap"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="20"
@@ -384,7 +487,7 @@
               >
                 <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                 <path
-                  fill="#ffffff"
+                  fill="currentColor"
                   d="M401.2 39.1L549.4 189.4c27.7 28.1 27.7 73.1 0 101.2L393 448.9c-9.3 9.4-24.5 9.5-33.9 .2s-9.5-24.5-.2-33.9L515.3 256.8c9.2-9.3 9.2-24.4 0-33.7L367 72.9c-9.3-9.4-9.2-24.6 .2-33.9s24.6-9.2 33.9 .2zM32.1 229.5L32.1 96c0-35.3 28.7-64 64-64l133.5 0c17 0 33.3 6.7 45.3 18.7l144 144c25 25 25 65.5 0 90.5L285.4 418.7c-25 25-65.5 25-90.5 0l-144-144c-12-12-18.7-28.3-18.7-45.3zm144-85.5a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"
                 />
               </svg>
@@ -393,7 +496,9 @@
               <span id="version-display" class="font-bold">v0.0.0</span>
             </div>
 
-            <div class="flex items-center space-x-2 whitespace-nowrap">
+            <div
+              class="hero-version-chip flex items-center space-x-2 whitespace-nowrap"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="20"
@@ -402,7 +507,7 @@
               >
                 <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                 <path
-                  fill="#ffffff"
+                  fill="currentColor"
                   d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z"
                 />
               </svg>
@@ -415,7 +520,7 @@
           </div>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4">
+        <div class="hero-download-buttons flex flex-wrap justify-center gap-4">
           <!-- windows dropdown -->
           <div class="relative group inline-block">
             <button
