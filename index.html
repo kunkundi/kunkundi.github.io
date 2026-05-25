@@ -1,23 +1,38 @@
 <!doctype html>
-<html lang="zh">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrossDesk</title>
-    <link rel="canonical" href="https://www.crossdesk.cn" />
+    <title>CrossDesk - 开源跨平台远程桌面软件，支持 Web 客户端</title>
+    <meta
+      name="description"
+      content="CrossDesk 是免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。"
+    />
+    <meta
+      name="keywords"
+      content="CrossDesk,远程桌面,远程控制,开源远程桌面,跨平台远程桌面,Web 远程桌面,自托管远程桌面,Windows 远程桌面,macOS 远程桌面,Linux 远程桌面"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="CrossDesk" />
+    <meta name="application-name" content="CrossDesk" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <link rel="canonical" href="https://www.crossdesk.cn/" />
     <link href="dist/tailwind.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.webp" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="stylesheet" href="assets/swiper/swiper-bundle.min.css" />
     <script src="assets/swiper/swiper-bundle.min.js"></script>
     <!-- OpenGraph Meta -->
     <meta
       property="og:title"
-      content="CrossDesk - 一款轻量级的跨平台远程桌面软件，支持 Web 客户端"
+      content="CrossDesk - 开源跨平台远程桌面软件，支持 Web 客户端"
     />
     <meta
       property="og:description"
-      content="免费、轻量且易用的远程桌面软件，支持 Windows、Linux、macOS 和 Web Client。"
+      content="免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。"
     />
     <meta
       property="og:image"
@@ -28,29 +43,86 @@
       content="https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp"
     />
     <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="3721" />
+    <meta property="og:image:height" content="1969" />
     <meta property="og:image:alt" content="CrossDesk 跨平台远程桌面软件截图" />
-    <meta property="og:url" content="https://www.crossdesk.cn" />
+    <meta property="og:url" content="https://www.crossdesk.cn/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CrossDesk" />
     <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="CrossDesk - 一款轻量级的跨平台远程桌面软件"
+      content="CrossDesk - 开源跨平台远程桌面软件，支持 Web 客户端"
     />
     <meta
       name="twitter:description"
-      content="免费、轻量且易用的远程桌面软件，支持 Windows、Linux、macOS 以及 Web Client。"
+      content="免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端。"
     />
     <meta
       name="twitter:image"
       content="https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp"
     />
     <meta name="twitter:image:alt" content="CrossDesk 跨平台远程桌面软件截图" />
+    <meta name="twitter:url" content="https://www.crossdesk.cn/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.crossdesk.cn/#website",
+            "name": "CrossDesk",
+            "url": "https://www.crossdesk.cn/",
+            "description": "CrossDesk 是免费、轻量且易用的开源跨平台远程桌面软件。",
+            "inLanguage": ["zh-CN", "en"],
+            "publisher": {
+              "@id": "https://www.crossdesk.cn/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.crossdesk.cn/#organization",
+            "name": "CrossDesk",
+            "url": "https://www.crossdesk.cn/",
+            "sameAs": ["https://github.com/kunkundi/crossdesk"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://www.crossdesk.cn/#software",
+            "name": "CrossDesk",
+            "url": "https://www.crossdesk.cn/",
+            "description": "免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。",
+            "applicationCategory": "RemoteAccessApplication",
+            "operatingSystem": "Windows, macOS, Linux, Web",
+            "creator": {
+              "@id": "https://www.crossdesk.cn/#organization"
+            },
+            "image": "https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp",
+            "screenshot": [
+              "https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp",
+              "https://www.crossdesk.cn/assets/images/web-client.webp",
+              "https://www.crossdesk.cn/assets/images/codecs.webp",
+              "https://www.crossdesk.cn/assets/images/multi-device.webp"
+            ],
+            "downloadUrl": "https://www.crossdesk.cn/#download",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "CNY"
+            },
+            "sameAs": [
+              "https://github.com/kunkundi/crossdesk",
+              "https://web.crossdesk.cn/"
+            ]
+          }
+        ]
+      }
+    </script>
 
     <style>
       .github-badge-hover {
@@ -78,7 +150,12 @@
       <div
         class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <h1 class="text-2xl font-bold text-blue-900">CrossDesk</h1>
+        <a
+          href="/"
+          class="text-2xl font-bold text-blue-900"
+          aria-label="CrossDesk 首页"
+          >CrossDesk</a
+        >
 
         <!-- mobile menu toggle -->
         <button
@@ -240,10 +317,10 @@
       class="bg-gradient-to-b from-blue-900 to-indigo-800 text-white py-20"
     >
       <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          <span data-lang="zh">开源的远程桌面软件</span>
-          <span data-lang="en">Open-Source Remote Desktop Software</span>
-        </h2>
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          <span data-lang="zh">开源跨平台远程桌面软件</span>
+          <span data-lang="en">Open-Source Cross-platform Remote Desktop</span>
+        </h1>
 
         <p class="text-base md:text-base mb-12">
           <span data-lang="zh"
@@ -289,10 +366,10 @@
           </a>
         </div>
 
-        <h3 id="download" class="text-2xl font-semibold mb-6 mt-10">
+        <h2 id="download" class="text-2xl font-semibold mb-6 mt-10">
           <span data-lang="zh">软件下载</span>
           <span data-lang="en">Download</span>
-        </h3>
+        </h2>
 
         <div class="flex flex-col items-center gap-3 mb-4 text-sm">
           <div
@@ -486,16 +563,16 @@
     <section id="features" class="py-20 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <!-- swiper -->
-        <div class="swiper mySwiper overflow-hidden w-full">
+        <div id="screenshot" class="swiper mySwiper overflow-hidden w-full">
           <div class="swiper-wrapper">
             <div class="swiper-slide flex justify-center items-center">
               <div
                 class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
               >
-                <h4 class="text-2xl font-semibold mb-4">
+                <h3 class="text-2xl font-semibold mb-4">
                   <span data-lang="zh">多平台支持</span>
                   <span data-lang="en">Cross-platform Support</span>
-                </h4>
+                </h3>
                 <p class="text-gray-600 text-center">
                   <span data-lang="zh"
                     >全面兼容 Windows、macOS 与 Linux 操作系统。</span
@@ -509,7 +586,11 @@
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
                   data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
                   data-local="assets/images/cross-platform-iPhone.webp"
-                  alt="Cross-platform Support"
+                  alt="CrossDesk 支持 Windows、macOS、Linux 和移动端的跨平台远程桌面界面"
+                  width="3721"
+                  height="1969"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full max-w-4xl h-auto mb-4 object-contain"
                 />
               </div>
@@ -519,10 +600,10 @@
               <div
                 class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
               >
-                <h4 class="text-2xl font-semibold mb-4">
+                <h3 class="text-2xl font-semibold mb-4">
                   <span data-lang="zh">Web 客户端</span>
                   <span data-lang="en">Web Client Support</span>
-                </h4>
+                </h3>
                 <p class="text-gray-600 text-center">
                   <span data-lang="zh"
                     >支持 Web 客户端访问，满足多平台多场景远程访问需求。</span
@@ -537,7 +618,11 @@
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
                   data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
                   data-local="assets/images/web-client.webp"
-                  alt="Web Client Support"
+                  alt="CrossDesk Web 客户端远程访问界面"
+                  width="1003"
+                  height="640"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full max-w-4xl h-auto mb-4 object-contain"
                 />
               </div>
@@ -547,10 +632,10 @@
               <div
                 class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
               >
-                <h4 class="text-2xl font-semibold mb-4">
+                <h3 class="text-2xl font-semibold mb-4">
                   <span data-lang="zh">硬件加速支持</span>
                   <span data-lang="en">Hardware Acceleration</span>
-                </h4>
+                </h3>
                 <p class="text-gray-600 text-center">
                   <span data-lang="zh"
                     >支持 NVIDIA Video Codec、Video Toolbox 硬件加速，支持
@@ -566,7 +651,11 @@
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
                   data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
                   data-local="assets/images/codecs.webp"
-                  alt="Hardware Acceleration"
+                  alt="CrossDesk 支持 NVIDIA Video Codec、Video Toolbox、H.264 和 AV1 硬件加速"
+                  width="6400"
+                  height="3600"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full max-w-4xl h-auto mb-4 object-contain"
                 />
               </div>
@@ -576,10 +665,10 @@
               <div
                 class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
               >
-                <h4 class="text-2xl font-semibold mb-4">
+                <h3 class="text-2xl font-semibold mb-4">
                   <span data-lang="zh">多设备支持</span>
                   <span data-lang="en">Multi-device Support</span>
-                </h4>
+                </h3>
                 <p class="text-gray-600 text-center">
                   <span data-lang="zh"
                     >可同时连接和管理多个远程设备，灵活满足多种使用场景。</span
@@ -594,7 +683,11 @@
                   src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
                   data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
                   data-local="assets/images/multi-device.webp"
-                  alt="Unlimited Devices"
+                  alt="CrossDesk 同时连接和管理多个远程设备"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full max-w-4xl h-auto mb-4 object-contain"
                 />
               </div>
@@ -614,10 +707,10 @@
     >
       <div class="max-w-4xl mx-auto px-6">
         <div class="text-center">
-          <h3 class="text-3xl font-bold mb-6 text-gray-800">
+          <h2 class="text-3xl font-bold mb-6 text-gray-800">
             <span data-lang="zh">开源社区</span>
             <span data-lang="en">Open Source Community</span>
-          </h3>
+          </h2>
           <p class="text-gray-600 mb-10">
             <span data-lang="zh"
               >CrossDesk 作为一个开源项目，离不开社区的支持。
@@ -651,7 +744,9 @@
             >
               <img
                 src="https://api.star-history.com/svg?repos=kunkundi/crossdesk&type=date&legend=top-left"
-                alt="Star History Chart"
+                alt="CrossDesk GitHub Star 增长趋势图"
+                loading="lazy"
+                decoding="async"
                 class="w-full h-auto rounded-lg"
               />
             </a>
@@ -663,10 +758,10 @@
     <!-- contact -->
     <section id="contact" class="bg-white py-20">
       <div class="max-w-4xl mx-auto px-6 text-center">
-        <h3 class="text-3xl font-bold mb-6 text-gray-800">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">
           <span data-lang="zh">反馈与建议</span>
           <span data-lang="en">Feedback</span>
-        </h3>
+        </h2>
         <p class="text-gray-600 mb-4">
           <span data-lang="zh"
             >如需协作、技术咨询或反馈建议，欢迎通过以下方式联系：</span
@@ -701,6 +796,7 @@
           el.style.display =
             el.getAttribute("data-lang") === lang ? "" : "none";
         });
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
         localStorage.setItem("lang", lang);
       }
 
@@ -717,9 +813,9 @@
 
       const savedLang =
         localStorage.getItem("lang") ||
-        (navigator.language || "").toLowerCase().startsWith("zh")
+        ((navigator.language || "").toLowerCase().startsWith("zh")
           ? "zh"
-          : "en";
+          : "en");
       switchLanguage(savedLang);
 
       const menuBtn = document.getElementById("menu-toggle");
