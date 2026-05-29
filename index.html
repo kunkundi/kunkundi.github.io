@@ -369,8 +369,8 @@
             <span class="realtime-stat-divider" aria-hidden="true"></span>
             <span class="realtime-stat-item">
               <span class="realtime-stat-label">
-                <span data-lang="zh">连接中</span>
-                <span data-lang="en">Active Connections</span>
+                <span data-lang="zh">远控中</span>
+                <span data-lang="en">Ongoing Sessions</span>
               </span>
               <strong class="realtime-stat-value" data-active-connection-count
                 >--</strong
@@ -490,8 +490,8 @@
               <span class="realtime-stat-divider" aria-hidden="true"></span>
               <span class="realtime-stat-item">
                 <span class="realtime-stat-label">
-                  <span data-lang="zh">连接中</span>
-                  <span data-lang="en">Active Connections</span>
+                  <span data-lang="zh">远控中</span>
+                  <span data-lang="en">Ongoing Sessions</span>
                 </span>
                 <strong class="realtime-stat-value" data-active-connection-count
                   >--</strong
@@ -1140,7 +1140,13 @@
       }
 
       function updateStatsUI(data) {
-        const onlineDeviceCount = formatStatsCount(data?.online_device_count);
+        const onlineDeviceBaseCount = Number(data?.online_device_count);
+        const onlineWebClientCount = Number(data?.online_web_client_count);
+        const onlineDeviceTotalCount = Number.isFinite(onlineDeviceBaseCount)
+          ? onlineDeviceBaseCount +
+            (Number.isFinite(onlineWebClientCount) ? onlineWebClientCount : 0)
+          : data?.online_device_count;
+        const onlineDeviceCount = formatStatsCount(onlineDeviceTotalCount);
         const activeConnectionCount = formatStatsCount(
           data?.active_connection_count,
         );
