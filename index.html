@@ -125,6 +125,42 @@
     </script>
 
     <style>
+      .site-header-inner {
+        max-width: 90rem;
+        gap: 2rem;
+      }
+      #menu-toggle {
+        display: block;
+        flex: 0 0 auto;
+      }
+      #menu {
+        display: none;
+      }
+      .site-desktop-nav {
+        align-items: center;
+        gap: 1rem;
+      }
+      .site-desktop-nav > a,
+      .site-desktop-nav > div {
+        flex: 0 0 auto;
+      }
+      .site-desktop-nav > a {
+        white-space: nowrap;
+      }
+      @media (min-width: 1360px) {
+        .site-header-inner {
+          width: fit-content;
+          max-width: calc(100% - 3rem);
+          justify-content: flex-start;
+          gap: 3rem;
+        }
+        #menu-toggle {
+          display: none;
+        }
+        #menu {
+          display: flex;
+        }
+      }
       .hero-glass-section {
         position: relative;
         isolation: isolate;
@@ -245,7 +281,7 @@
     <!-- Header -->
     <header class="bg-white shadow sticky top-0 z-50">
       <div
-        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+        class="site-header-inner mx-auto px-6 py-4 flex justify-between items-center"
       >
         <a
           href="/"
@@ -276,7 +312,7 @@
         </button>
 
         <!-- desktop navigation -->
-        <nav id="menu" class="hidden md:flex items-center space-x-6">
+        <nav id="menu" class="site-desktop-nav">
           <a href="#features" class="text-gray-700 hover:text-indigo-500">
             <span data-lang="zh">功能特点</span>
             <span data-lang="en">Features</span>
@@ -293,11 +329,18 @@
             <span data-lang="zh">反馈与建议</span>
             <span data-lang="en">Feedback</span>
           </a>
+          <a
+            href="/code-signing.html"
+            class="text-gray-700 hover:text-indigo-500"
+          >
+            <span data-lang="zh">代码签名</span>
+            <span data-lang="en">Code Signing</span>
+          </a>
           <a href="/privacy.html" class="text-gray-700 hover:text-indigo-500">
             <span data-lang="zh">隐私政策</span>
             <span data-lang="en">Privacy Policy</span>
           </a>
-          <div class="flex items-center space-x-2 border-l pl-4 ml-4">
+          <div class="flex items-center space-x-2 border-l pl-4">
             <button
               type="button"
               class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
@@ -402,6 +445,13 @@
             <a href="#contact" class="text-gray-700 hover:text-indigo-500">
               <span data-lang="zh">反馈与建议</span>
               <span data-lang="en">Feedback</span>
+            </a>
+            <a
+              href="/code-signing.html"
+              class="text-gray-700 hover:text-indigo-500"
+            >
+              <span data-lang="zh">代码签名</span>
+              <span data-lang="en">Code Signing</span>
             </a>
             <a href="/privacy.html" class="text-gray-700 hover:text-indigo-500">
               <span data-lang="zh">隐私政策</span>
@@ -855,172 +905,10 @@
       </div>
     </section>
 
-    <!-- Community / Star History -->
-    <section
-      id="community"
-      class="bg-gradient-to-b from-blue-50 to-indigo-50 py-20"
-    >
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center">
-          <h2 class="text-3xl font-bold mb-6 text-gray-800">
-            <span data-lang="zh">开源社区</span>
-            <span data-lang="en">Open Source Community</span>
-          </h2>
-          <p class="text-gray-600 mb-10">
-            <span data-lang="zh"
-              >CrossDesk 作为一个开源项目，离不开社区的支持。
-              <br />
-              <br />
-              目前项目仍在不断迭代中，可能存在一些尚未完善的地方，欢迎您在使用过程中提出宝贵建议与反馈，帮助
-              CrossDesk 持续优化。如果 CrossDesk 对您有所帮助，也欢迎在 GitHub
-              上点亮一颗 Star ⭐，您的支持将推动项目不断前进。</span
-            >
-            <span data-lang="en"
-              >CrossDesk thrives on community support.
-              <br />
-              <br />
-              The project is actively evolving and may still have areas that
-              need improvement. We welcome your feedback and suggestions to help
-              CrossDesk continue refining the experience. If CrossDesk has been
-              helpful to you, please consider giving it a Star ⭐ on GitHub—your
-              support inspires ongoing development.</span
-            >
-          </p>
-        </div>
-        <div class="text-center">
-          <div
-            class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 mx-auto"
-          >
-            <a
-              href="https://github.com/kunkundi/crossdesk"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block"
-            >
-              <img
-                src="https://api.star-history.com/svg?repos=kunkundi/crossdesk&type=date&legend=top-left"
-                alt="CrossDesk GitHub Star 增长趋势图"
-                loading="lazy"
-                decoding="async"
-                class="w-full h-auto rounded-lg"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Code signing policy -->
-    <section
-      id="code-signing-policy"
-      class="bg-white py-20"
-      aria-labelledby="code-signing-policy-title"
-    >
-      <div class="max-w-3xl mx-auto px-6">
-        <div
-          class="bg-white text-gray-800 rounded-xl shadow p-6 text-left border border-gray-200"
-        >
-          <h2
-            id="code-signing-policy-title"
-            class="text-xl font-semibold mb-3 text-blue-900"
-          >
-            Code signing policy
-          </h2>
-          <p class="text-sm text-gray-600 mb-3">
-            <span data-lang="zh"
-              >CrossDesk 使用 SignPath.io 为本项目构建的官方 Windows
-              发布包提供代码签名。</span
-            >
-            <span data-lang="en"
-              >CrossDesk uses SignPath.io to code-sign official Windows releases
-              built from this project.</span
-            >
-          </p>
-          <p class="text-sm font-semibold mb-3">
-            Free code signing provided by
-            <a
-              href="https://signpath.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-indigo-600 hover:text-indigo-800"
-              >SignPath.io</a
-            >, certificate by
-            <a
-              href="https://signpath.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-indigo-600 hover:text-indigo-800"
-              >SignPath Foundation</a
-            >.
-          </p>
-          <div data-lang="zh" class="text-sm text-gray-600">
-            <p class="mb-2">
-              <strong>代码提交与审核：</strong>
-              <a
-                href="https://github.com/kunkundi"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-indigo-600 hover:text-indigo-800"
-                >kunkundi</a
-              >
-            </p>
-            <p class="mb-2">
-              <strong>签名审批：</strong>
-              <a
-                href="https://github.com/kunkundi"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-indigo-600 hover:text-indigo-800"
-                >kunkundi</a
-              >
-            </p>
-            <p>
-              <strong>隐私政策：</strong>
-              <a
-                href="/privacy.html#中文"
-                class="text-indigo-600 hover:text-indigo-800"
-                >查看 CrossDesk 隐私政策</a
-              >
-            </p>
-          </div>
-          <div data-lang="en" class="text-sm text-gray-600">
-            <p class="mb-2">
-              <strong>Committers and reviewers:</strong>
-              <a
-                href="https://github.com/kunkundi"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-indigo-600 hover:text-indigo-800"
-                >kunkundi</a
-              >
-            </p>
-            <p class="mb-2">
-              <strong>Approvers:</strong>
-              <a
-                href="https://github.com/kunkundi"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-indigo-600 hover:text-indigo-800"
-                >kunkundi</a
-              >
-            </p>
-            <p>
-              <strong>Privacy policy:</strong>
-              <a
-                href="/privacy.html#english"
-                class="text-indigo-600 hover:text-indigo-800"
-                >Read the CrossDesk Privacy Policy</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- contact -->
     <section
       id="contact"
-      class="bg-gradient-to-b from-blue-50 to-indigo-50 py-20 border-t border-gray-200"
+      class="bg-gradient-to-b from-blue-50 to-indigo-50 py-20 border-t border-indigo-100"
     >
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">
@@ -1037,11 +925,11 @@
           >
         </p>
         <div
-          class="inline-block bg-white px-6 py-3 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300"
+          class="inline-block bg-white px-6 py-3 rounded-xl shadow-sm border border-indigo-100 hover:shadow-md transition-all duration-300"
         >
           <a
             href="mailto:junkun.di@hotmail.com"
-            class="text-lg hover:text-indigo-700 transition-colors"
+            class="text-lg text-indigo-700 hover:text-indigo-900 transition-colors"
           >
             junkun.di@hotmail.com
           </a>
@@ -1053,7 +941,7 @@
     <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
       <div class="flex flex-wrap justify-center gap-4 px-6">
         <span>© 2025 CrossDesk</span>
-        <a href="#code-signing-policy" class="hover:text-indigo-700"
+        <a href="/code-signing.html" class="hover:text-indigo-700"
           >Code signing policy</a
         >
         <a href="/privacy.html" class="hover:text-indigo-700">
