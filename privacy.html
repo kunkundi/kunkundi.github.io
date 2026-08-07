@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrossDesk Privacy Policy | CrossDesk 隐私政策</title>
+    <meta
+      name="description"
+      content="CrossDesk 桌面客户端及默认网络服务的隐私政策。Privacy Policy for the CrossDesk desktop client and default network services."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CrossDesk" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <link rel="canonical" href="https://www.crossdesk.cn/privacy.html" />
+    <link href="dist/tailwind.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <style>
+      .privacy-glass-section {
+        position: relative;
+        isolation: isolate;
+        min-height: calc(100vh - 4.5rem);
+        overflow: hidden;
+        background: #c8c8c8;
+        color: #1f2937;
+      }
+
+      .privacy-glass-section::before {
+        content: "CrossDesk";
+        position: absolute;
+        top: 9rem;
+        left: 50%;
+        z-index: 0;
+        transform: translateX(-50%);
+        color: rgba(0, 0, 0, 1);
+        font-family:
+          Verdana,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Arial Black",
+          "Helvetica Neue",
+          sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      .privacy-glass-section::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        pointer-events: none;
+      }
+
+      .privacy-glass-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .privacy-glass-card {
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.16);
+      }
+
+      @media (min-width: 768px) {
+        .privacy-glass-section::before {
+          top: 12rem;
+          font-size: 7rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .privacy-glass-section::before {
+          top: 15rem;
+          font-size: 20rem;
+        }
+      }
+
+      .policy-content h2 {
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        color: #1e3a8a;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .policy-content h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1f2937;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+
+      .policy-content p {
+        margin-bottom: 0.75rem;
+      }
+
+      .policy-content ul {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        list-style: disc;
+      }
+
+      .policy-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .policy-content a {
+        color: #4f46e5;
+      }
+
+      .policy-content a:hover {
+        color: #3730a3;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-800 font-sans leading-relaxed">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="/"
+          class="text-2xl font-bold text-blue-900"
+          aria-label="CrossDesk 首页"
+          >CrossDesk</a
+        >
+
+        <!-- mobile menu toggle -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-gray-600"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="20"
+            width="17.5"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
+
+        <!-- desktop navigation -->
+        <nav id="menu" class="hidden md:flex items-center space-x-6">
+          <a href="/#features" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">功能特点</span>
+            <span data-lang="en">Features</span>
+          </a>
+          <a href="/#download" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">安装使用</span>
+            <span data-lang="en">Installation</span>
+          </a>
+          <a href="/#screenshot" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">界面预览</span>
+            <span data-lang="en">Screenshots</span>
+          </a>
+          <a href="/#contact" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">反馈与建议</span>
+            <span data-lang="en">Feedback</span>
+          </a>
+          <a href="/privacy.html" class="text-gray-700 hover:text-indigo-500">
+            <span data-lang="zh">隐私政策</span>
+            <span data-lang="en">Privacy Policy</span>
+          </a>
+          <div class="flex items-center space-x-2 border-l pl-4 ml-4">
+            <button
+              type="button"
+              class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
+            >
+              中文
+            </button>
+            <button
+              type="button"
+              class="lang-en text-sm text-gray-500 hover:text-indigo-500"
+            >
+              English
+            </button>
+          </div>
+          <div
+            class="realtime-stats realtime-stats--desktop"
+            aria-live="polite"
+          >
+            <span class="realtime-stat-item">
+              <span class="realtime-stat-label">
+                <span data-lang="zh">在线设备</span>
+                <span data-lang="en">Online Devices</span>
+              </span>
+              <strong class="realtime-stat-value" data-online-device-count
+                >--</strong
+              >
+            </span>
+            <span class="realtime-stat-divider" aria-hidden="true"></span>
+            <span class="realtime-stat-item">
+              <span class="realtime-stat-label">
+                <span data-lang="zh">远控中</span>
+                <span data-lang="en">Ongoing Sessions</span>
+              </span>
+              <strong class="realtime-stat-value" data-active-connection-count
+                >--</strong
+              >
+            </span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <a
+              href="https://github.com/kunkundi/crossdesk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block cursor-pointer"
+            >
+              <img
+                src="https://img.shields.io/github/stars/kunkundi/crossdesk?style=social"
+                alt="GitHub Stars"
+                style="height: 22px; width: auto"
+                class="github-badge-hover"
+              />
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- mobile navigation -->
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
+        aria-hidden="true"
+      >
+        <div
+          id="mobile-panel"
+          class="absolute right-0 top-0 h-full w-72 sm:w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
+        >
+          <div class="flex justify-between items-center p-4 border-b">
+            <h2 class="text-lg font-bold text-blue-900">
+              <span data-lang="zh">菜单</span>
+              <span data-lang="en">Menu</span>
+            </h2>
+            <button
+              id="menu-close"
+              class="text-gray-600 text-xl"
+              aria-label="Close menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                width="12.5"
+                viewBox="0 0 320 512"
+              >
+                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  d="M311.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L243.2 256 73.9 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav class="flex flex-col p-4 space-y-4">
+            <a href="/#features" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">功能特点</span>
+              <span data-lang="en">Features</span>
+            </a>
+            <a href="/#download" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">安装使用</span>
+              <span data-lang="en">Installation</span>
+            </a>
+            <a href="/#screenshot" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">界面预览</span>
+              <span data-lang="en">Screenshots</span>
+            </a>
+            <a href="/#contact" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">反馈与建议</span>
+              <span data-lang="en">Feedback</span>
+            </a>
+            <a href="/privacy.html" class="text-gray-700 hover:text-indigo-500">
+              <span data-lang="zh">隐私政策</span>
+              <span data-lang="en">Privacy Policy</span>
+            </a>
+            <div class="flex space-x-2 pt-4 border-t">
+              <button
+                type="button"
+                class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
+              >
+                中文
+              </button>
+              <button
+                type="button"
+                class="lang-en text-sm text-gray-500 hover:text-indigo-500"
+              >
+                English
+              </button>
+            </div>
+            <div class="flex space-x-2 pt-4 border-t">
+              <a
+                href="https://github.com/kunkundi/crossdesk"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block cursor-pointer"
+              >
+                <img
+                  src="https://img.shields.io/github/stars/kunkundi/crossdesk?style=social"
+                  alt="GitHub Stars"
+                  style="height: 22px; width: auto"
+                  class="github-badge-hover"
+                />
+              </a>
+            </div>
+            <div
+              class="realtime-stats realtime-stats--mobile pt-4 border-t"
+              aria-live="polite"
+            >
+              <span class="realtime-stat-item">
+                <span class="realtime-stat-label">
+                  <span data-lang="zh">在线设备</span>
+                  <span data-lang="en">Online Devices</span>
+                </span>
+                <strong class="realtime-stat-value" data-online-device-count
+                  >--</strong
+                >
+              </span>
+              <span class="realtime-stat-divider" aria-hidden="true"></span>
+              <span class="realtime-stat-item">
+                <span class="realtime-stat-label">
+                  <span data-lang="zh">远控中</span>
+                  <span data-lang="en">Ongoing Sessions</span>
+                </span>
+                <strong class="realtime-stat-value" data-active-connection-count
+                  >--</strong
+                >
+              </span>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="privacy-glass-section py-12">
+      <div class="privacy-glass-content max-w-4xl mx-auto px-6">
+        <div class="privacy-glass-card rounded-xl p-8">
+          <header class="border-b border-gray-200 pb-6">
+            <h1 class="text-3xl font-bold text-blue-900 mb-3">
+              <span data-lang="zh">CrossDesk 隐私政策</span>
+              <span data-lang="en">CrossDesk Privacy Policy</span>
+            </h1>
+            <p class="text-sm text-gray-500 mb-3">
+              <span data-lang="zh">最后更新：2026 年 8 月 8 日</span>
+              <span data-lang="en">Last updated: August 8, 2026</span>
+            </p>
+          </header>
+
+          <article id="中文" data-lang="zh" lang="zh-CN" class="policy-content">
+            <h3>适用范围</h3>
+            <p>
+              本隐私政策适用于 CrossDesk
+              桌面客户端及项目提供的默认网络服务。用户自行部署或指定的服务器由相应服务器运营者负责，其数据处理方式不在本政策控制范围内。
+            </p>
+
+            <h3>网络通信</h3>
+            <p>
+              CrossDesk
+              是远程桌面软件，需要通过网络完成设备发现、连接协商及远程会话。客户端可能进行以下网络通信：
+            </p>
+            <ul>
+              <li>
+                <strong>默认服务：</strong> 未启用自托管时，客户端会连接预配置的
+                CrossDesk
+                服务（<code>api.crossdesk.cn</code>），用于设备注册、信令、网络地址转换（NAT）穿透，并在无法建立直接连接时提供中继。
+              </li>
+              <li>
+                <strong>版本检查：</strong> 客户端启动时会从 CrossDesk
+                版本服务（<code>version.crossdesk.cn</code>）获取最新版本信息。当前即使启用自托管，版本检查仍会访问
+                CrossDesk 版本服务。
+              </li>
+              <li>
+                <strong>远程会话：</strong>
+                用户主动发起或接受远程连接后，CrossDesk
+                会根据使用的功能在设备之间传输屏幕画面、音频、键盘和鼠标输入、剪贴板文本以及用户选择传输的文件。剪贴板文本可能在远程会话期间自动同步。这些数据可能通过直接连接传输，也可能在必要时通过配置的中继服务器转发。
+              </li>
+              <li>
+                <strong>自托管：</strong>
+                用户可以在设置中指定自己的信令及中继服务器。自托管服务器的日志、数据保存和访问规则由其运营者决定。
+              </li>
+            </ul>
+
+            <h3>处理的信息</h3>
+            <p>为提供上述功能，CrossDesk 可能处理：</p>
+            <ul>
+              <li>连接所需的设备标识及认证信息；</li>
+              <li>IP 地址、端口、连接时间、连接状态等必要的网络元数据；</li>
+              <li>版本检查请求产生的标准网络请求信息；</li>
+              <li>
+                用户授权的远程会话中处理的屏幕、音频、控制指令、剪贴板及文件内容。
+              </li>
+            </ul>
+
+            <h3>信息的使用与保存</h3>
+            <ul>
+              <li>
+                设备标识、连接设置及用户偏好会保存在本地设备上，以便后续使用。
+              </li>
+              <li>
+                通过官方信令和中继服务处理的信息仅用于建立、维持和转发 CrossDesk
+                连接，以及服务运行、安全防护和故障排查。
+              </li>
+              <li>
+                中继传输的远程会话内容仅用于实时转发，不用于广告或用户画像。
+              </li>
+              <li>
+                CrossDesk
+                桌面客户端不包含广告功能，也不会主动上传诊断日志、崩溃报告或用户行为分析数据。
+              </li>
+              <li>
+                自托管服务器可能保存的日志和数据由其运营者控制，请向相应运营者了解其隐私与保存政策。
+              </li>
+            </ul>
+
+            <h3>用户选择</h3>
+            <p>用户可以：</p>
+            <ul>
+              <li>配置自托管服务器，以替代默认信令和中继服务；</li>
+              <li>决定是否发起或接受远程会话；</li>
+              <li>决定是否选择并传输文件；</li>
+              <li>结束远程会话，以停止会话数据传输；</li>
+              <li>删除 CrossDesk 的本地配置、缓存及日志文件。</li>
+            </ul>
+
+            <h3>政策更新与联系方式</h3>
+            <p>
+              本政策可能随着 CrossDesk
+              功能或网络服务的变化而更新。更新内容将在本文件中发布。如有隐私相关问题，请联系
+              <a href="mailto:junkun.di@hotmail.com">junkun.di@hotmail.com</a>。
+            </p>
+          </article>
+
+          <article id="english" data-lang="en" lang="en" class="policy-content">
+            <h3>Scope</h3>
+            <p>
+              This Privacy Policy applies to the CrossDesk desktop client and
+              the default network services provided by the project. Servers
+              deployed or selected by users are operated by their respective
+              administrators, and their data-processing practices are outside
+              the control of this policy.
+            </p>
+
+            <h3>Network communications</h3>
+            <p>
+              CrossDesk is remote desktop software and requires network
+              communications for device discovery, connection negotiation, and
+              remote sessions. The client may perform the following
+              communications:
+            </p>
+            <ul>
+              <li>
+                <strong>Default services:</strong> Unless self-hosting is
+                enabled, the client connects to preconfigured CrossDesk services
+                (<code>api.crossdesk.cn</code>) for device registration,
+                signaling, network address translation (NAT) traversal, and
+                relay when a direct connection cannot be established.
+              </li>
+              <li>
+                <strong>Update checks:</strong> On startup, the client retrieves
+                current release information from the CrossDesk version service
+                (<code>version.crossdesk.cn</code>). Update checks currently
+                continue to use the CrossDesk version service even when
+                self-hosting is enabled.
+              </li>
+              <li>
+                <strong>Remote sessions:</strong> After a user initiates or
+                accepts a remote connection, CrossDesk transmits the data
+                required by enabled features between devices. This may include
+                screen content, audio, keyboard and mouse input, clipboard text,
+                and files selected by the user. Clipboard text may be
+                synchronized automatically during a remote session. Data may
+                travel over a direct connection or through the configured relay
+                server when necessary.
+              </li>
+              <li>
+                <strong>Self-hosting:</strong> Users may configure their own
+                signaling and relay servers. Logging, retention, and access
+                policies for a self-hosted server are determined by its
+                operator.
+              </li>
+            </ul>
+
+            <h3>Information processed</h3>
+            <p>To provide these functions, CrossDesk may process:</p>
+            <ul>
+              <li>
+                device identifiers and authentication information required for
+                connections;
+              </li>
+              <li>
+                necessary network metadata, such as IP addresses, ports,
+                connection times, and connection status;
+              </li>
+              <li>
+                standard network request information generated by update checks;
+                and
+              </li>
+              <li>
+                screen, audio, control, clipboard, and file content processed
+                during a remote session authorized by the user.
+              </li>
+            </ul>
+
+            <h3>Use and storage of information</h3>
+            <ul>
+              <li>
+                Device identifiers, connection settings, and user preferences
+                are stored locally for subsequent use.
+              </li>
+              <li>
+                Information processed by the official signaling and relay
+                services is used only to establish, maintain, and relay
+                CrossDesk connections and for service operation, security, and
+                troubleshooting.
+              </li>
+              <li>
+                Remote-session content passing through a relay is used only for
+                real-time forwarding and is not used for advertising or user
+                profiling.
+              </li>
+              <li>
+                The CrossDesk desktop client does not contain advertising
+                functionality and does not intentionally upload diagnostic logs,
+                crash reports, or behavioral analytics.
+              </li>
+              <li>
+                Logs and data that may be retained by self-hosted servers are
+                controlled by their operators. Contact the relevant operator for
+                its privacy and retention practices.
+              </li>
+            </ul>
+
+            <h3>User choices</h3>
+            <p>Users may:</p>
+            <ul>
+              <li>
+                configure a self-hosted server instead of the default signaling
+                and relay services;
+              </li>
+              <li>choose whether to initiate or accept a remote session;</li>
+              <li>choose whether to select and transfer files;</li>
+              <li>
+                end a remote session to stop session-data transmission; and
+              </li>
+              <li>
+                remove local CrossDesk configuration, cache, and log files.
+              </li>
+            </ul>
+
+            <h3>Changes and contact</h3>
+            <p>
+              This policy may be updated as CrossDesk features or network
+              services change. Updates will be published in this file. For
+              privacy-related questions, contact
+              <a href="mailto:junkun.di@hotmail.com">junkun.di@hotmail.com</a>.
+            </p>
+          </article>
+        </div>
+
+        <p class="text-center text-sm text-gray-500 mt-6">
+          <a href="/#code-signing-policy" class="hover:text-indigo-700"
+            >Code signing policy</a
+          >
+        </p>
+      </div>
+    </main>
+
+    <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
+      © 2025 CrossDesk
+    </footer>
+
+    <!-- language + menu + realtime stats script -->
+    <script>
+      function switchLanguage(lang) {
+        document.querySelectorAll("[data-lang]").forEach((el) => {
+          el.style.display =
+            el.getAttribute("data-lang") === lang ? "" : "none";
+        });
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        localStorage.setItem("lang", lang);
+      }
+
+      function selectLanguage(lang) {
+        switchLanguage(lang);
+        window.history.replaceState(
+          null,
+          "",
+          lang === "zh" ? "#中文" : "#english",
+        );
+      }
+
+      document
+        .querySelectorAll(".lang-zh")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => selectLanguage("zh")),
+        );
+      document
+        .querySelectorAll(".lang-en")
+        .forEach((btn) =>
+          btn.addEventListener("click", () => selectLanguage("en")),
+        );
+
+      function getHashLanguage() {
+        const hash = decodeURIComponent(window.location.hash).toLowerCase();
+        if (hash === "#中文") return "zh";
+        if (hash === "#english") return "en";
+        return null;
+      }
+
+      const selectedLang =
+        getHashLanguage() ||
+        localStorage.getItem("lang") ||
+        ((navigator.language || "").toLowerCase().startsWith("zh")
+          ? "zh"
+          : "en");
+      switchLanguage(selectedLang);
+
+      window.addEventListener("hashchange", () => {
+        const hashLanguage = getHashLanguage();
+        if (hashLanguage) switchLanguage(hashLanguage);
+      });
+
+      const menuBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobilePanel = document.getElementById("mobile-panel");
+      const closeBtn = document.getElementById("menu-close");
+
+      function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          mobilePanel.classList.remove("translate-x-full");
+          menuBtn.setAttribute("aria-expanded", "true");
+          mobileMenu.setAttribute("aria-hidden", "false");
+        });
+      }
+      function closeMenu() {
+        mobilePanel.classList.add("translate-x-full");
+        setTimeout(() => {
+          mobileMenu.classList.add("hidden");
+          menuBtn.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
+        }, 300);
+      }
+
+      menuBtn.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+
+      mobileMenu.addEventListener("click", (event) => {
+        if (event.target === mobileMenu) closeMenu();
+      });
+
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((link) => link.addEventListener("click", closeMenu));
+
+      const STATS_API_URL = "https://api.crossdesk.cn:9099/stats";
+      const STATS_REFRESH_INTERVAL = 10000;
+      const STATS_REQUEST_TIMEOUT = 5000;
+
+      function formatStatsCount(value) {
+        const count = Number(value);
+        return Number.isFinite(count) ? count.toLocaleString() : "--";
+      }
+
+      function updateStatsUI(data) {
+        const onlineDeviceBaseCount = Number(data?.online_device_count);
+        const onlineWebClientCount = Number(data?.online_web_client_count);
+        const onlineDeviceTotalCount = Number.isFinite(onlineDeviceBaseCount)
+          ? onlineDeviceBaseCount +
+            (Number.isFinite(onlineWebClientCount) ? onlineWebClientCount : 0)
+          : data?.online_device_count;
+        const onlineDeviceCount = formatStatsCount(onlineDeviceTotalCount);
+        const activeConnectionCount = formatStatsCount(
+          data?.active_connection_count,
+        );
+
+        document
+          .querySelectorAll("[data-online-device-count]")
+          .forEach((el) => {
+            el.textContent = onlineDeviceCount;
+          });
+        document
+          .querySelectorAll("[data-active-connection-count]")
+          .forEach((el) => {
+            el.textContent = activeConnectionCount;
+          });
+      }
+
+      async function fetchRealtimeStats() {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(
+          () => controller.abort(),
+          STATS_REQUEST_TIMEOUT,
+        );
+
+        try {
+          const response = await fetch(STATS_API_URL, {
+            method: "GET",
+            mode: "cors",
+            cache: "no-store",
+            signal: controller.signal,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
+          }
+
+          const data = await response.json();
+          updateStatsUI(data);
+        } catch (error) {
+          if (error.name === "AbortError") {
+            console.warn("获取在线统计超时");
+          } else {
+            console.warn("获取在线统计失败:", error.message);
+          }
+        } finally {
+          clearTimeout(timeoutId);
+        }
+      }
+
+      fetchRealtimeStats();
+      setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
+    </script>
+  </body>
+</html>
