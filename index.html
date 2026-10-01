@@ -226,6 +226,21 @@
         background: rgba(255, 255, 255, 0.8);
         transform: translateY(-1px);
       }
+      .android-download-button {
+        background: #0f766e;
+      }
+      .android-download-button:hover {
+        background: #115e59;
+      }
+      .ios-download-button {
+        background: #475569;
+      }
+      .ios-download-button:hover {
+        background: #334155;
+      }
+      .mobile-download-note {
+        margin-top: 1rem;
+      }
       .hero-version-chip {
         padding: 0.5rem 0.75rem;
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -517,7 +532,7 @@
 
     <!-- hero -->
     <section class="hero-glass-section py-20">
-      <div class="hero-glass-content max-w-4xl mx-auto px-6 text-center">
+      <div class="hero-glass-content max-w-6xl mx-auto px-6 text-center">
         <h1 class="text-2xl md:text-4xl font-bold leading-tight mb-4">
           <span data-lang="zh">开源跨平台远程桌面软件</span>
           <span data-lang="en">Open-Source Cross-platform Remote Desktop</span>
@@ -760,7 +775,82 @@
               >
             </div>
           </div>
+
+          <!-- iOS download -->
+          <a
+            href="https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
+            data-download="ios-arm64"
+            aria-describedby="ios-download-note"
+            title="crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
+            class="download-link ios-download-button text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="20"
+              width="15"
+              viewBox="0 0 384 512"
+              aria-hidden="true"
+            >
+              <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <path
+                fill="currentColor"
+                d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8 .9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.5 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+              />
+            </svg>
+            <span>iOS</span>
+          </a>
+
+          <!-- Android download -->
+          <a
+            href="https://downloads.crossdesk.cn/crossdesk-android-arm64-unsigned-v1.6.0-20261002.apk"
+            data-download="android-arm64"
+            aria-describedby="android-download-note"
+            title="crossdesk-android-arm64-unsigned-v1.6.0-20261002.apk"
+            class="download-link android-download-button text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="20"
+              width="20"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M6.5 9 5 6.5M17.5 9 19 6.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M4 17a8 8 0 0 1 16 0H4Zm4-4a1 1 0 1 0 2 0 1 1 0 1 0-2 0Zm6 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0Z"
+              />
+            </svg>
+            <span>Android</span>
+          </a>
         </div>
+        <p id="ios-download-note" class="mobile-download-note text-xs">
+          <span data-lang="zh"
+            >iOS <span data-download-version="ios-arm64">v0.0.1</span> · arm64 ·
+            iOS 16.0+ · 未签名 ZIP，安装前需自行签名。</span
+          >
+          <span data-lang="en"
+            >iOS <span data-download-version="ios-arm64">v0.0.1</span> · arm64 ·
+            iOS 16.0+ · Unsigned ZIP; sign the app before installation.</span
+          >
+        </p>
+        <p id="android-download-note" class="mobile-download-note text-xs">
+          <span data-lang="zh"
+            >Android <span data-download-version="android-arm64">v1.6.0</span> ·
+            arm64 · Android 8.0+ · 未签名 APK，安装前需自行签名。</span
+          >
+          <span data-lang="en"
+            >Android <span data-download-version="android-arm64">v1.6.0</span> ·
+            arm64 · Android 8.0+ · Unsigned APK; sign it before installation.</span
+          >
+        </p>
       </div>
     </section>
 
@@ -1178,33 +1268,43 @@
         const CACHE_DURATION = 60 * 60 * 1000;
 
         const defaultVersionData = {
-          version: "1.2.2",
-          releaseDate: "2026-02-11",
+          version: "1.6.0-20260930",
+          releaseDate: "2026-09-30",
           downloads: {
             "windows-x64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.2.2-20260211-957792a.exe",
-              filename: "crossdesk-win-x64-v1.2.2-20260211-957792a.exe",
+              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.6.0-20260930.exe",
+              filename: "crossdesk-win-x64-v1.6.0-20260930.exe",
             },
             "windows-x64-portable": {
-              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-portable-v1.2.2-20260211-957792a.zip",
+              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-portable-v1.6.0-20260930.zip",
               filename:
-                "crossdesk-win-x64-portable-v1.2.2-20260211-957792a.zip",
+                "crossdesk-win-x64-portable-v1.6.0-20260930.zip",
             },
             "macos-x64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.2.2-20260211-957792a.pkg",
-              filename: "crossdesk-macos-x64-v1.2.2-20260211-957792a.pkg",
+              url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.6.0-20260930.pkg",
+              filename: "crossdesk-macos-x64-v1.6.0-20260930.pkg",
             },
             "macos-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.2.2-20260211-957792a.pkg",
-              filename: "crossdesk-macos-arm64-v1.2.2-20260211-957792a.pkg",
+              url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.6.0-20260930.pkg",
+              filename: "crossdesk-macos-arm64-v1.6.0-20260930.pkg",
             },
             "linux-amd64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.2.2-20260211-957792a.deb",
-              filename: "crossdesk-linux-amd64-v1.2.2-20260211-957792a.deb",
+              url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb",
+              filename: "crossdesk-linux-amd64-v1.6.0-20260930.deb",
             },
             "linux-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.2.2-20260211-957792a.deb",
-              filename: "crossdesk-linux-arm64-v1.2.2-20260211-957792a.deb",
+              url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb",
+              filename: "crossdesk-linux-arm64-v1.6.0-20260930.deb",
+            },
+            "ios-arm64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
+              filename: "crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
+              version: "0.0.1-20260930",
+            },
+            "android-arm64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-android-arm64-unsigned-v1.6.0-20261002.apk",
+              filename: "crossdesk-android-arm64-unsigned-v1.6.0-20261002.apk",
+              version: "1.6.0-20261002",
             },
           },
         };
@@ -1243,19 +1343,33 @@
           }
 
           if (data.downloads) {
-            Object.keys(data.downloads).forEach((key) => {
-              const downloadInfo = data.downloads[key];
+            const downloads = {
+              "ios-arm64": defaultVersionData.downloads["ios-arm64"],
+              "android-arm64": defaultVersionData.downloads["android-arm64"],
+              ...data.downloads,
+            };
+            Object.keys(downloads).forEach((key) => {
+              const downloadInfo = downloads[key];
               const link = document.querySelector(`[data-download="${key}"]`);
-              if (link && downloadInfo.url) {
+              if (link && downloadInfo && downloadInfo.url) {
                 link.href = downloadInfo.url;
                 if (downloadInfo.filename) {
                   link.title = downloadInfo.filename;
                 }
 
+                if (downloadInfo.version) {
+                  document
+                    .querySelectorAll(`[data-download-version="${key}"]`)
+                    .forEach((label) => {
+                      label.textContent = `v${downloadInfo.version.replace(/^v/, "").split("-")[0]}`;
+                    });
+                }
+
                 // baidu tracking event
                 const trackDownload = function () {
                   if (typeof _hmt !== "undefined") {
-                    const version = data.version || "unknown";
+                    const version =
+                      downloadInfo.version || data.version || "unknown";
                     _hmt.push([
                       "_trackEvent",
                       "下载",
