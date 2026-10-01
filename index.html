@@ -821,7 +821,6 @@
           <a
             href="https://downloads.crossdesk.cn/crossdesk-android-arm64-v1.6.0-20261002.apk"
             data-download="android-arm64"
-            aria-describedby="android-download-note"
             title="crossdesk-android-arm64-v1.6.0-20261002.apk"
             class="download-link android-download-button text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
           >
@@ -852,22 +851,6 @@
           <span data-lang="zh">iOS 尚未上架 App Store，敬请期待。</span>
           <span data-lang="en"
             >iOS is not available on the App Store yet. Coming soon.</span
-          >
-        </p>
-        <p id="android-download-note" class="mobile-download-note text-xs">
-          <span data-lang="zh"
-            >Android <span data-download-version="android-arm64">v1.6.0</span> ·
-            arm64 · Android 8.0+ ·
-            <span data-android-signing-note="zh"
-              >已签名 APK，可直接安装。</span
-            ></span
-          >
-          <span data-lang="en"
-            >Android <span data-download-version="android-arm64">v1.6.0</span> ·
-            arm64 · Android 8.0+ ·
-            <span data-android-signing-note="en"
-              >Signed APK; ready to install.</span
-            ></span
           >
         </p>
       </div>
@@ -1391,33 +1374,6 @@
                 link.href = downloadInfo.url;
                 if (downloadInfo.filename) {
                   link.title = downloadInfo.filename;
-                }
-
-                if (downloadInfo.version) {
-                  document
-                    .querySelectorAll(`[data-download-version="${key}"]`)
-                    .forEach((label) => {
-                      label.textContent = `v${downloadInfo.version.replace(/^v/, "").split("-")[0]}`;
-                    });
-                }
-
-                if (key === "android-arm64") {
-                  const filename =
-                    downloadInfo.filename || downloadInfo.url.split("/").pop();
-                  const signed = /^crossdesk-android-arm64-v[0-9]/.test(filename);
-                  document
-                    .querySelectorAll("[data-android-signing-note]")
-                    .forEach((label) => {
-                      const zh =
-                        label.getAttribute("data-android-signing-note") === "zh";
-                      label.textContent = signed
-                        ? zh
-                          ? "已签名 APK，可直接安装。"
-                          : "Signed APK; ready to install."
-                        : zh
-                          ? "未签名 APK，安装前需自行签名。"
-                          : "Unsigned APK; sign it before installation.";
-                    });
                 }
 
                 // baidu tracking event
