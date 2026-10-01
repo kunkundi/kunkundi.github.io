@@ -241,6 +241,24 @@
       .mobile-download-note {
         margin-top: 1rem;
       }
+      .coming-soon-message {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        width: max-content;
+        max-width: calc(100% - 2rem);
+        padding: 0.875rem 1.25rem;
+        border-radius: 0.75rem;
+        background: #334155;
+        color: white;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+      .coming-soon-message:empty {
+        display: none;
+      }
       .hero-version-chip {
         padding: 0.5rem 0.75rem;
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -776,13 +794,12 @@
             </div>
           </div>
 
-          <!-- iOS download -->
-          <a
-            href="https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
-            data-download="ios-arm64"
+          <!-- iOS coming soon -->
+          <button
+            type="button"
+            id="ios-coming-soon"
             aria-describedby="ios-download-note"
-            title="crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
-            class="download-link ios-download-button text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            class="ios-download-button text-white font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -798,7 +815,7 @@
               />
             </svg>
             <span>iOS</span>
-          </a>
+          </button>
 
           <!-- Android download -->
           <a
@@ -832,13 +849,9 @@
           </a>
         </div>
         <p id="ios-download-note" class="mobile-download-note text-xs">
-          <span data-lang="zh"
-            >iOS <span data-download-version="ios-arm64">v0.0.1</span> · arm64 ·
-            iOS 16.0+ · 未签名 ZIP，安装前需自行签名。</span
-          >
+          <span data-lang="zh">iOS 尚未上架 App Store，敬请期待。</span>
           <span data-lang="en"
-            >iOS <span data-download-version="ios-arm64">v0.0.1</span> · arm64 ·
-            iOS 16.0+ · Unsigned ZIP; sign the app before installation.</span
+            >iOS is not available on the App Store yet. Coming soon.</span
           >
         </p>
         <p id="android-download-note" class="mobile-download-note text-xs">
@@ -1041,6 +1054,14 @@
       </div>
     </footer>
 
+    <div
+      id="ios-coming-soon-message"
+      class="coming-soon-message"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
     <!-- language + menu script -->
     <script>
       function switchLanguage(lang) {
@@ -1069,6 +1090,21 @@
           ? "zh"
           : "en");
       switchLanguage(savedLang);
+
+      const iosComingSoonMessage = document.getElementById(
+        "ios-coming-soon-message",
+      );
+      let iosComingSoonTimeout;
+      document.getElementById("ios-coming-soon").addEventListener("click", () => {
+        clearTimeout(iosComingSoonTimeout);
+        iosComingSoonMessage.textContent =
+          document.documentElement.lang === "zh-CN"
+            ? "iOS 尚未上架 App Store，敬请期待。"
+            : "iOS is not available on the App Store yet. Coming soon.";
+        iosComingSoonTimeout = setTimeout(() => {
+          iosComingSoonMessage.textContent = "";
+        }, 5000);
+      });
 
       const menuBtn = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -1296,11 +1332,6 @@
               url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb",
               filename: "crossdesk-linux-arm64-v1.6.0-20260930.deb",
             },
-            "ios-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
-              filename: "crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
-              version: "0.0.1-20260930",
-            },
             "android-arm64": {
               url: "https://downloads.crossdesk.cn/crossdesk-android-arm64-unsigned-v1.6.0-20261002.apk",
               filename: "crossdesk-android-arm64-unsigned-v1.6.0-20261002.apk",
@@ -1344,7 +1375,6 @@
 
           if (data.downloads) {
             const downloads = {
-              "ios-arm64": defaultVersionData.downloads["ios-arm64"],
               "android-arm64": defaultVersionData.downloads["android-arm64"],
               ...data.downloads,
             };
