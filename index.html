@@ -164,11 +164,20 @@
       .hero-glass-section {
         position: relative;
         isolation: isolate;
-        overflow: hidden;
+        /* Keep download menus above the following Swiper carousel. */
+        z-index: 2;
+        padding-bottom: 2rem;
         background: #c8c8c8;
         color: #1f2937;
       }
-      .hero-glass-section::before {
+      .hero-glass-background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .hero-glass-background::before {
         content: "CrossDesk";
         position: absolute;
         top: 50%;
@@ -190,7 +199,7 @@
         white-space: nowrap;
         pointer-events: none;
       }
-      .hero-glass-section::after {
+      .hero-glass-background::after {
         content: "";
         position: absolute;
         inset: 0;
@@ -247,26 +256,25 @@
         --platform-hover: #e5b31b;
         --platform-text: #1d1d1f;
       }
-      .linux-download-menu {
-        left: 50%;
-        width: 20rem;
-        max-width: calc(100vw - 3rem);
-        transform: translateX(-50%);
-        text-align: left;
-      }
       .linux-download-dropdown:focus-within .linux-download-menu {
         display: block;
+      }
+      .linux-download-dropdown:focus-within button > svg:last-child {
+        transform: rotate(180deg);
       }
       .linux-download-menu .download-link:hover,
       .linux-download-menu .download-link:focus-visible {
         background: #fefce8;
       }
+      .download-package-label {
+        display: block;
+        color: #64748b;
+        font-size: 0.6875rem;
+        line-height: 1rem;
+      }
       .download-link[aria-disabled="true"] {
         color: #64748b;
         cursor: not-allowed;
-      }
-      .download-link[href] .download-pending {
-        display: none;
       }
       .ios-download-button {
         --platform-color: #1d1d1f;
@@ -278,7 +286,11 @@
         --platform-text: #1d1d1f;
       }
       .mobile-download-note {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        line-height: 1.6;
+      }
+      .mobile-download-note + .mobile-download-note {
+        margin-top: 0.5rem;
       }
       .hero-version-chip {
         padding: 0.5rem 0.75rem;
@@ -291,17 +303,17 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       }
       @media (min-width: 768px) {
-        .hero-glass-section::before {
+        .hero-glass-background::before {
           font-size: 7rem;
         }
       }
       @media (min-width: 1024px) {
-        .hero-glass-section::before {
+        .hero-glass-background::before {
           font-size: 20rem;
         }
       }
       @media (max-width: 640px) {
-        .hero-glass-section::before {
+        .hero-glass-background::before {
           font-size: 4rem;
         }
         .hero-glass-section p {
@@ -571,6 +583,7 @@
 
     <!-- hero -->
     <section class="hero-glass-section py-20">
+      <div class="hero-glass-background" aria-hidden="true"></div>
       <div class="hero-glass-content max-w-6xl mx-auto px-6 text-center">
         <h1 class="text-2xl md:text-4xl font-bold leading-tight mb-4">
           <span data-lang="zh">开源跨平台远程桌面软件</span>
@@ -756,15 +769,18 @@
             </button>
             <div
               id="linux-download-menu"
-              class="linux-download-menu absolute top-full bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
+              class="linux-download-menu absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
             >
               <a
                 href="https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb"
                 data-download="linux-amd64"
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
               >
-                <span data-lang="zh">x64 · 常规包 (.deb)</span>
-                <span data-lang="en">x64 · Standard (.deb)</span>
+                <span>Linux x64</span>
+                <span class="download-package-label">
+                  <span data-lang="zh">标准版</span>
+                  <span data-lang="en">Standard</span>
+                </span>
               </a>
               <a
                 data-download="linux-amd64-virtual-desktop-xfce"
@@ -772,11 +788,10 @@
                 aria-disabled="true"
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
               >
-                <span data-lang="zh">x64 · Xfce 虚拟桌面包 (.deb)</span>
-                <span data-lang="en">x64 · Xfce virtual desktop (.deb)</span>
-                <span class="download-pending">
-                  <span data-lang="zh">· 待发布</span>
-                  <span data-lang="en">· Coming soon</span>
+                <span>Linux x64</span>
+                <span class="download-package-label">
+                  <span data-lang="zh">虚拟桌面版</span>
+                  <span data-lang="en">Virtual Desktop</span>
                 </span>
               </a>
               <a
@@ -784,8 +799,11 @@
                 data-download="linux-arm64"
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
               >
-                <span data-lang="zh">arm64 · 常规包 (.deb)</span>
-                <span data-lang="en">arm64 · Standard (.deb)</span>
+                <span>Linux arm64</span>
+                <span class="download-package-label">
+                  <span data-lang="zh">标准版</span>
+                  <span data-lang="en">Standard</span>
+                </span>
               </a>
               <a
                 data-download="linux-arm64-virtual-desktop-xfce"
@@ -793,11 +811,10 @@
                 aria-disabled="true"
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
               >
-                <span data-lang="zh">arm64 · Xfce 虚拟桌面包 (.deb)</span>
-                <span data-lang="en">arm64 · Xfce virtual desktop (.deb)</span>
-                <span class="download-pending">
-                  <span data-lang="zh">· 待发布</span>
-                  <span data-lang="en">· Coming soon</span>
+                <span>Linux arm64</span>
+                <span class="download-package-label">
+                  <span data-lang="zh">虚拟桌面版</span>
+                  <span data-lang="en">Virtual Desktop</span>
                 </span>
               </a>
             </div>
@@ -904,10 +921,10 @@
         </div>
         <p id="linux-download-note" class="mobile-download-note text-xs">
           <span data-lang="zh"
-            >Linux：已有桌面选常规包；需要独立桌面选 Xfce 虚拟桌面包。每个架构二选一。</span
+            >Linux：已有桌面选标准版；无桌面环境或需独立桌面选虚拟桌面版（Xfce）。</span
           >
           <span data-lang="en"
-            >Linux: choose Standard for an existing desktop, or Xfce virtual desktop for an independent session. Install one package per architecture.</span
+            >Linux: choose Standard to use an existing desktop, or Virtual Desktop (Xfce) if you have no desktop environment or need a separate session.</span
           >
         </p>
         <p id="ios-download-note" class="mobile-download-note text-xs">
