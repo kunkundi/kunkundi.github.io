@@ -247,6 +247,27 @@
         --platform-hover: #e5b31b;
         --platform-text: #1d1d1f;
       }
+      .linux-download-menu {
+        left: 50%;
+        width: 20rem;
+        max-width: calc(100vw - 3rem);
+        transform: translateX(-50%);
+        text-align: left;
+      }
+      .linux-download-dropdown:focus-within .linux-download-menu {
+        display: block;
+      }
+      .linux-download-menu .download-link:hover,
+      .linux-download-menu .download-link:focus-visible {
+        background: #fefce8;
+      }
+      .download-link[aria-disabled="true"] {
+        color: #64748b;
+        cursor: not-allowed;
+      }
+      .download-link[href] .download-pending {
+        display: none;
+      }
       .ios-download-button {
         --platform-color: #1d1d1f;
         --platform-hover: #333336;
@@ -258,24 +279,6 @@
       }
       .mobile-download-note {
         margin-top: 1rem;
-      }
-      .coming-soon-message {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        width: max-content;
-        max-width: calc(100% - 2rem);
-        padding: 0.875rem 1.25rem;
-        border-radius: 0.75rem;
-        background: #334155;
-        color: white;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      }
-      .coming-soon-message:empty {
-        display: none;
       }
       .hero-version-chip {
         padding: 0.5rem 0.75rem;
@@ -721,8 +724,11 @@
           </div>
 
           <!-- linux dropdown -->
-          <div class="relative group inline-block">
+          <div class="linux-download-dropdown relative group inline-block">
             <button
+              type="button"
+              aria-controls="linux-download-menu"
+              aria-describedby="linux-download-note"
               class="platform-download-button linux-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
             >
               <svg
@@ -749,20 +755,51 @@
               </svg>
             </button>
             <div
-              class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
+              id="linux-download-menu"
+              class="linux-download-menu absolute top-full bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
             >
               <a
-                href="#"
+                href="https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb"
                 data-download="linux-amd64"
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
-                >Linux x64</a
               >
+                <span data-lang="zh">x64 · 常规包 (.deb)</span>
+                <span data-lang="en">x64 · Standard (.deb)</span>
+              </a>
               <a
-                href="#"
+                data-download="linux-amd64-virtual-desktop-xfce"
+                role="link"
+                aria-disabled="true"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
+              >
+                <span data-lang="zh">x64 · Xfce 虚拟桌面包 (.deb)</span>
+                <span data-lang="en">x64 · Xfce virtual desktop (.deb)</span>
+                <span class="download-pending">
+                  <span data-lang="zh">· 待发布</span>
+                  <span data-lang="en">· Coming soon</span>
+                </span>
+              </a>
+              <a
+                href="https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb"
                 data-download="linux-arm64"
                 class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
-                >Linux arm64</a
               >
+                <span data-lang="zh">arm64 · 常规包 (.deb)</span>
+                <span data-lang="en">arm64 · Standard (.deb)</span>
+              </a>
+              <a
+                data-download="linux-arm64-virtual-desktop-xfce"
+                role="link"
+                aria-disabled="true"
+                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
+              >
+                <span data-lang="zh">arm64 · Xfce 虚拟桌面包 (.deb)</span>
+                <span data-lang="en">arm64 · Xfce virtual desktop (.deb)</span>
+                <span class="download-pending">
+                  <span data-lang="zh">· 待发布</span>
+                  <span data-lang="en">· Coming soon</span>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -812,12 +849,12 @@
             </div>
           </div>
 
-          <!-- iOS coming soon -->
-          <button
-            type="button"
-            id="ios-coming-soon"
+          <!-- iOS download -->
+          <a
+            href="https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
+            data-download="ios-arm64"
             aria-describedby="ios-download-note"
-            class="platform-download-button ios-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            class="download-link platform-download-button ios-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -833,7 +870,7 @@
               />
             </svg>
             <span>iOS</span>
-          </button>
+          </a>
 
           <!-- Android download -->
           <a
@@ -865,10 +902,20 @@
             <span>Android</span>
           </a>
         </div>
-        <p id="ios-download-note" class="mobile-download-note text-xs">
-          <span data-lang="zh">iOS 尚未上架 App Store，敬请期待。</span>
+        <p id="linux-download-note" class="mobile-download-note text-xs">
+          <span data-lang="zh"
+            >Linux：已有桌面选常规包；需要独立桌面选 Xfce 虚拟桌面包。每个架构二选一。</span
+          >
           <span data-lang="en"
-            >iOS is not available on the App Store yet. Coming soon.</span
+            >Linux: choose Standard for an existing desktop, or Xfce virtual desktop for an independent session. Install one package per architecture.</span
+          >
+        </p>
+        <p id="ios-download-note" class="mobile-download-note text-xs">
+          <span data-lang="zh"
+            >iOS 发布包为未签名 ZIP，需自行签名后安装到 iPhone / iPad。</span
+          >
+          <span data-lang="en"
+            >The iOS release is an unsigned ZIP. Sign the app before installing it on an iPhone or iPad.</span
           >
         </p>
       </div>
@@ -1061,14 +1108,6 @@
       </div>
     </footer>
 
-    <div
-      id="ios-coming-soon-message"
-      class="coming-soon-message"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    ></div>
-
     <!-- language + menu script -->
     <script>
       function switchLanguage(lang) {
@@ -1097,21 +1136,6 @@
           ? "zh"
           : "en");
       switchLanguage(savedLang);
-
-      const iosComingSoonMessage = document.getElementById(
-        "ios-coming-soon-message",
-      );
-      let iosComingSoonTimeout;
-      document.getElementById("ios-coming-soon").addEventListener("click", () => {
-        clearTimeout(iosComingSoonTimeout);
-        iosComingSoonMessage.textContent =
-          document.documentElement.lang === "zh-CN"
-            ? "iOS 尚未上架 App Store，敬请期待。"
-            : "iOS is not available on the App Store yet. Coming soon.";
-        iosComingSoonTimeout = setTimeout(() => {
-          iosComingSoonMessage.textContent = "";
-        }, 5000);
-      });
 
       const menuBtn = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -1339,6 +1363,11 @@
               url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb",
               filename: "crossdesk-linux-arm64-v1.6.0-20260930.deb",
             },
+            "ios-arm64": {
+              url: "https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
+              filename: "crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
+              version: "0.0.1-20260930",
+            },
             "android-arm64": {
               url: "https://downloads.crossdesk.cn/crossdesk-android-arm64-v1.6.0-20261002.apk",
               filename: "crossdesk-android-arm64-v1.6.0-20261002.apk",
@@ -1382,16 +1411,19 @@
 
           if (data.downloads) {
             const downloads = {
-              "android-arm64": defaultVersionData.downloads["android-arm64"],
+              ...defaultVersionData.downloads,
               ...data.downloads,
             };
-            Object.keys(downloads).forEach((key) => {
+            document.querySelectorAll("[data-download]").forEach((link) => {
+              const key = link.dataset.download;
               const downloadInfo = downloads[key];
-              const link = document.querySelector(`[data-download="${key}"]`);
-              if (link && downloadInfo && downloadInfo.url) {
-                link.href = downloadInfo.url;
+              // Replace links to clear tracking handlers from a prior cache/API update.
+              const newLink = link.cloneNode(true);
+              if (downloadInfo && downloadInfo.url) {
+                newLink.href = downloadInfo.url;
+                newLink.removeAttribute("aria-disabled");
                 if (downloadInfo.filename) {
-                  link.title = downloadInfo.filename;
+                  newLink.title = downloadInfo.filename;
                 }
 
                 // baidu tracking event
@@ -1408,11 +1440,14 @@
                   }
                 };
 
-                // remove old event listener and add new one
-                const newLink = link.cloneNode(true);
-                link.parentNode.replaceChild(newLink, link);
                 newLink.addEventListener("click", trackDownload);
+              } else {
+                // A package becomes downloadable only after it appears in the manifest.
+                newLink.removeAttribute("href");
+                newLink.removeAttribute("title");
+                newLink.setAttribute("aria-disabled", "true");
               }
+              link.parentNode.replaceChild(newLink, link);
             });
           }
         }
