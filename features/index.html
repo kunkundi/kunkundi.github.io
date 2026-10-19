@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrossDesk 功能介绍 - 跨平台远程桌面、Web 远控与桌面墙</title>
+    <meta
+      name="description"
+      content="了解 CrossDesk 的跨平台远程控制、Web 与移动端连接、桌面墙多设备管理、硬件加速和自托管能力，选择适合你的远程桌面使用方式。"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#255397" />
+    <link rel="canonical" href="https://www.crossdesk.cn/features/" />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://www.crossdesk.cn/features/"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.crossdesk.cn/en/features/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.crossdesk.cn/features/"
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/dist/tailwind.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CrossDesk" />
+    <meta
+      property="og:title"
+      content="CrossDesk 功能介绍 - 跨平台远程桌面、Web 远控与桌面墙"
+    />
+    <meta
+      property="og:description"
+      content="了解 CrossDesk 的跨平台远程控制、Web 与移动端连接、桌面墙多设备管理、硬件加速和自托管能力，选择适合你的远程桌面使用方式。"
+    />
+    <meta property="og:url" content="https://www.crossdesk.cn/features/" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp"
+    />
+    <meta property="og:image:alt" content="CrossDesk 跨平台远程桌面客户端" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CrossDesk 功能介绍 - 跨平台远程桌面、Web 远控与桌面墙"
+    />
+    <meta
+      name="twitter:description"
+      content="了解 CrossDesk 的跨平台远程控制、Web 与移动端连接、桌面墙多设备管理、硬件加速和自托管能力，选择适合你的远程桌面使用方式。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp"
+    />
+    <meta name="twitter:image:alt" content="CrossDesk 跨平台远程桌面客户端" />
+    <script src="/assets/language.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.crossdesk.cn/features/#webpage",
+            "url": "https://www.crossdesk.cn/features/",
+            "name": "CrossDesk 功能介绍 - 跨平台远程桌面、Web 远控与桌面墙",
+            "description": "了解 CrossDesk 的跨平台远程控制、Web 与移动端连接、桌面墙多设备管理、硬件加速和自托管能力，选择适合你的远程桌面使用方式。",
+            "inLanguage": "zh-CN",
+            "isPartOf": {
+              "@id": "https://www.crossdesk.cn/#website"
+            },
+            "about": {
+              "@id": "https://www.crossdesk.cn/#software"
+            },
+            "breadcrumb": {
+              "@id": "https://www.crossdesk.cn/features/#breadcrumb"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.crossdesk.cn/features/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "首页",
+                "item": "https://www.crossdesk.cn/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "功能介绍",
+                "item": "https://www.crossdesk.cn/features/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?59ee84b8ffd5c391de4a551f969cce68";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <link rel="stylesheet" href="/assets/guides.css" />
+  </head>
+  <body class="guide-page">
+    <a class="skip-link" href="#main"
+      ><span data-lang="zh">跳至正文</span
+      ><span data-lang="en">Skip to content</span></a
+    >
+    <header class="site-header">
+      <div class="site-header-inner page-shell">
+        <a href="/" class="brand" aria-label="CrossDesk">
+          <img src="/apple-touch-icon.png" width="36" height="36" alt="" />
+          <span>Cross<span class="brand-desk">Desk</span></span>
+        </a>
+        <span class="brand-caption"
+          ><span data-lang="zh">开源远程桌面</span
+          ><span data-lang="en">Open-source remote desktop</span></span
+        >
+        <nav id="menu" class="site-desktop-nav" aria-label="Main navigation">
+          <a href="/features/" aria-current="page"
+            ><span data-lang="zh">功能特点</span
+            ><span data-lang="en">Features</span></a
+          >
+          <a href="/download/"
+            ><span data-lang="zh">下载</span
+            ><span data-lang="en">Download</span></a
+          >
+          <a href="/#screenshot"
+            ><span data-lang="zh">界面预览</span
+            ><span data-lang="en">Preview</span></a
+          >
+          <a href="/#contact"
+            ><span data-lang="zh">反馈与建议</span
+            ><span data-lang="en">Contact</span></a
+          >
+          <a href="/self-hosting/"
+            ><span data-lang="zh">自托管</span
+            ><span data-lang="en">Self-hosting</span></a
+          >
+        </nav>
+        <div class="header-actions">
+          <div
+            class="language-switch"
+            role="group"
+            aria-label="Language / 语言"
+          >
+            <a
+              class="lang-zh"
+              href="/features/"
+              hreflang="zh-CN"
+              lang="zh-CN"
+              aria-current="page"
+            >
+              中
+            </a>
+            <span aria-hidden="true">/</span>
+            <a class="lang-en" href="/en/features/" hreflang="en" lang="en">
+              EN
+            </a>
+          </div>
+          <a
+            class="button header-cta"
+            href="https://github.com/kunkundi/crossdesk"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub
+            <span class="github-stars"
+              ><svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z"
+                /></svg
+              ><span data-github-stars>Star</span></span
+            ></a
+          >
+          <button
+            id="menu-toggle"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="打开菜单 / Open menu"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" hidden>
+        <nav class="page-shell" aria-label="Mobile navigation">
+          <a href="/features/" aria-current="page"
+            ><span data-lang="zh">功能特点</span
+            ><span data-lang="en">Features</span></a
+          >
+          <a href="/download/"
+            ><span data-lang="zh">下载</span
+            ><span data-lang="en">Download</span></a
+          >
+          <a href="/#screenshot"
+            ><span data-lang="zh">界面预览</span
+            ><span data-lang="en">Preview</span></a
+          >
+          <a href="/#contact"
+            ><span data-lang="zh">反馈与建议</span
+            ><span data-lang="en">Contact</span></a
+          >
+          <a href="/#sponsor"
+            ><span data-lang="zh">赞助支持</span
+            ><span data-lang="en">Sponsor</span></a
+          >
+          <a href="/code-signing-policy.html"
+            ><span data-lang="zh">代码签名政策</span
+            ><span data-lang="en">Code signing policy</span></a
+          >
+          <a href="/privacy.html"
+            ><span data-lang="zh">隐私政策</span
+            ><span data-lang="en">Privacy policy</span></a
+          >
+          <a
+            class="github-link"
+            href="https://github.com/kunkundi/crossdesk"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub
+            <span class="github-stars"
+              ><svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z"
+                /></svg
+              ><span data-github-stars>Star</span></span
+            ></a
+          >
+          <a href="/self-hosting/"
+            ><span data-lang="zh">自托管部署</span
+            ><span data-lang="en">Self-hosting</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-intro page-shell">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a class="text-link" href="/"
+            ><span data-lang="zh">首页</span><span data-lang="en">Home</span></a
+          ><span aria-hidden="true">/</span
+          ><span aria-current="page"
+            ><span data-lang="zh">功能介绍</span
+            ><span data-lang="en">Features</span></span
+          >
+        </nav>
+        <h1>
+          <span data-lang="zh">CrossDesk 远程桌面功能</span
+          ><span data-lang="en">CrossDesk remote desktop features</span>
+        </h1>
+        <p class="page-lead">
+          <span data-lang="zh"
+            >从单台电脑的远程操作，到桌面墙中的多设备管理，让常用设备随时可达。</span
+          ><span data-lang="en"
+            >From a single remote computer to a wall of connected desktops, keep
+            your devices within reach.</span
+          >
+        </p>
+        <div class="guide-actions">
+          <a class="button button-primary" href="/download/"
+            ><span data-lang="zh">下载客户端</span
+            ><span data-lang="en">Download clients</span></a
+          ><a class="button" href="/self-hosting/"
+            ><span data-lang="zh">自托管部署</span
+            ><span data-lang="en">Self-hosting</span></a
+          >
+        </div>
+      </section>
+      <section
+        id="desktop"
+        class="guide-section page-shell"
+        aria-labelledby="desktop-title"
+      >
+        <h2 id="desktop-title">
+          <span data-lang="zh">跨平台远程桌面</span
+          ><span data-lang="en">Cross-platform remote desktop</span>
+        </h2>
+        <div class="guide-split">
+          <div class="guide-prose">
+            <p>
+              <span data-lang="zh"
+                >在 Windows、macOS 与 Linux
+                电脑之间发起远程会话。主窗口集中显示本机
+                ID、远程连接入口与近期设备，方便重新连接常用电脑。</span
+              ><span data-lang="en"
+                >Start remote sessions between Windows, macOS, and Linux
+                computers. The main window brings your device ID, connection
+                controls, and recent devices together for quick
+                reconnection.</span
+              >
+            </p>
+            <p>
+              <span data-lang="zh"
+                >远程会话提供键鼠操作、音频、文本剪贴板与文件传输；可用能力取决于客户端平台与版本。</span
+              ><span data-lang="en"
+                >Remote sessions support keyboard and mouse input, audio, text
+                clipboard sharing, and file transfer. Availability depends on
+                the client platform and version.</span
+              >
+            </p>
+            <a class="text-link" href="/download/"
+              ><span data-lang="zh">下载桌面客户端 →</span
+              ><span data-lang="en">Download desktop clients →</span></a
+            >
+          </div>
+          <figure>
+            <img
+              src="/assets/images/desktop-main-zh.webp"
+              data-src-zh="/assets/images/desktop-main-zh.webp"
+              data-src-en="/assets/images/desktop-main-en.webp"
+              alt="CrossDesk 桌面主窗口：本机凭据、远程连接和近期设备"
+              data-alt-zh="CrossDesk 桌面主窗口：本机凭据、远程连接和近期设备"
+              data-alt-en="CrossDesk desktop app with local credentials, remote connection controls, and recent devices"
+              width="1280"
+              height="944"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+      <section
+        id="deskhub"
+        class="guide-section page-shell"
+        aria-labelledby="deskhub-title"
+      >
+        <h2 id="deskhub-title">
+          <span data-lang="zh">桌面墙：集中管理多台设备</span
+          ><span data-lang="en">DeskHub: manage multiple devices</span>
+        </h2>
+        <div class="guide-split">
+          <div class="guide-prose">
+            <p>
+              <span data-lang="zh"
+                >在同一窗口查看多台远程设备的画面，按分组组织设备，放大需要操作的桌面，并执行批量连接、断开或文件分发。</span
+              ><span data-lang="en"
+                >Preview multiple remote devices in one window, organize them
+                into groups, expand the desktop you want to control, and
+                connect, disconnect, or distribute files in batches.</span
+              >
+            </p>
+            <p>
+              <span data-lang="zh"
+                >桌面墙支持群控及画面传输设置。群控会向已连接设备发送相同的坐标和按键；设备屏幕尺寸不同，操作结果也可能不同。</span
+              ><span data-lang="en"
+                >DeskHub supports group control and streaming settings. Group
+                control sends identical coordinates and keys to connected
+                devices, so results can differ across screen sizes.</span
+              >
+            </p>
+            <p class="guide-note">
+              <span data-lang="zh"
+                >分辨率、帧率与带宽调节按被控端能力生效。</span
+              ><span data-lang="en"
+                >Resolution, frame rate, and bandwidth controls depend on the
+                remote device’s capabilities.</span
+              >
+            </p>
+          </div>
+          <figure>
+            <img
+              src="/assets/images/desktop-deskhub-zh.webp"
+              data-src-zh="/assets/images/desktop-deskhub-zh.webp"
+              data-src-en="/assets/images/desktop-deskhub-en.webp"
+              alt="CrossDesk 桌面墙预览与设备分组，使用演示数据"
+              data-alt-zh="CrossDesk 桌面墙预览与设备分组，使用演示数据"
+              data-alt-en="CrossDesk DeskHub previews and device groups using demonstration data"
+              width="1920"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+      <section
+        id="web-mobile"
+        class="guide-section page-shell"
+        aria-labelledby="web-mobile-title"
+      >
+        <h2 id="web-mobile-title">
+          <span data-lang="zh">浏览器与移动端访问</span
+          ><span data-lang="en">Browser and mobile access</span>
+        </h2>
+        <div class="guide-split">
+          <div class="guide-prose">
+            <p>
+              <span data-lang="zh"
+                >在 Web 客户端输入设备 ID 与密码即可发起连接。iOS 和 Android
+                原生客户端也可作为控制端，让手机或平板访问电脑。</span
+              ><span data-lang="en"
+                >Enter a device ID and password in the Web client to start a
+                connection. Native iOS and Android clients also let you control
+                a computer from a phone or tablet.</span
+              >
+            </p>
+            <p class="guide-note">
+              <span data-lang="zh"
+                >被控电脑需要安装并运行
+                CrossDesk。移动端和浏览器端的功能范围与桌面客户端可能不同。</span
+              ><span data-lang="en"
+                >The remote computer must have CrossDesk installed and running.
+                Mobile and browser clients may support a different set of
+                features from desktop clients.</span
+              >
+            </p>
+            <a class="text-link" href="https://web.crossdesk.cn/"
+              ><span data-lang="zh">打开 Web 客户端 →</span
+              ><span data-lang="en">Open web client →</span></a
+            >
+          </div>
+          <figure>
+            <img
+              src="/assets/images/web-client-current.webp"
+              data-src-zh="/assets/images/web-client-current.webp"
+              data-src-en="/assets/images/web-client-current.webp"
+              alt="CrossDesk Web 客户端设备连接页面"
+              data-alt-zh="CrossDesk Web 客户端设备连接页面"
+              data-alt-en="CrossDesk Web client device connection page"
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+      <section
+        id="performance"
+        class="guide-section page-shell"
+        aria-labelledby="performance-title"
+      >
+        <h2 id="performance-title">
+          <span data-lang="zh">硬件加速与连接方式</span
+          ><span data-lang="en">Hardware acceleration and connectivity</span>
+        </h2>
+        <div class="guide-prose">
+          <p>
+            <span data-lang="zh"
+              >CrossDesk 基于 MiniRTC，支持 H.264 / AV1
+              视频和硬件编解码。NVIDIA、VideoToolbox
+              等加速能力取决于设备、系统和构建配置。</span
+            ><span data-lang="en"
+              >Built on MiniRTC, CrossDesk supports H.264 / AV1 video and
+              hardware codecs. NVIDIA, VideoToolbox, and other acceleration
+              options depend on hardware, operating system, and build
+              configuration.</span
+            >
+          </p>
+          <p>
+            <span data-lang="zh"
+              >连接优先尝试 P2P 直连，无法直连时可通过 TURN
+              中继。你也可以部署自己的信令与中继服务。</span
+            ><span data-lang="en"
+              >Connections attempt P2P access first and can use a TURN relay
+              when a direct connection is unavailable. You can also deploy your
+              own signaling and relay services.</span
+            >
+          </p>
+          <a class="text-link" href="/self-hosting/"
+            ><span data-lang="zh">查看自托管部署指南 →</span
+            ><span data-lang="en">Read the self-hosting guide →</span></a
+          >
+        </div>
+      </section>
+      <section
+        id="explore"
+        class="guide-section page-shell"
+        aria-labelledby="explore-title"
+      >
+        <h2 id="explore-title">
+          <span data-lang="zh">继续了解 CrossDesk</span
+          ><span data-lang="en">Explore CrossDesk</span>
+        </h2>
+        <nav class="related-links" aria-label="Related pages">
+          <a class="button" href="/download/"
+            ><span data-lang="zh">下载</span
+            ><span data-lang="en">Download</span></a
+          ><a class="button" href="/self-hosting/"
+            ><span data-lang="zh">自托管部署</span
+            ><span data-lang="en">Self-hosting</span></a
+          ><a class="button" href="https://web.crossdesk.cn/"
+            ><span data-lang="zh">Web 客户端</span
+            ><span data-lang="en">Web client</span></a
+          >
+        </nav>
+      </section>
+    </main>
+    <footer class="site-footer page-shell">
+      <div class="footer-bottom">
+        <span>© 2026 CrossDesk</span>
+        <nav aria-label="Site links">
+          <a href="/download/"
+            ><span data-lang="zh">下载</span
+            ><span data-lang="en">Download</span></a
+          >
+          <a href="/features/"
+            ><span data-lang="zh">功能介绍</span
+            ><span data-lang="en">Features</span></a
+          >
+          <a href="/self-hosting/"
+            ><span data-lang="zh">自托管</span
+            ><span data-lang="en">Self-hosting</span></a
+          >
+          <a href="/code-signing-policy.html"
+            ><span data-lang="zh">代码签名政策</span
+            ><span data-lang="en">Code signing policy</span></a
+          ><a href="/privacy.html"
+            ><span data-lang="zh">隐私政策</span
+            ><span data-lang="en">Privacy policy</span></a
+          >
+        </nav>
+        <a href="#main"
+          ><span data-lang="zh">回到顶部</span
+          ><span data-lang="en">Back to top</span></a
+        >
+      </div>
+    </footer>
+    <script src="/assets/site.js" defer></script>
+  </body>
+</html>

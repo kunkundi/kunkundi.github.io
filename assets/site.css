@@ -271,6 +271,11 @@ img {
   text-decoration-color: #b9cfe9;
   text-underline-offset: 5px;
 }
+.section-guide-link {
+  margin: -10px 0 24px;
+  color: var(--muted);
+  font-size: 13px;
+}
 .button:active {
   transform: translateY(1px);
 }

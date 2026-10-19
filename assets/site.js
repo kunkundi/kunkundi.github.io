@@ -84,7 +84,7 @@ document.addEventListener("keydown", (event) => {
 // Manual previews stay still until the visitor selects a view or swipes.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const previewButtons = [...document.querySelectorAll("[data-slide]")];
-if (typeof Swiper !== "undefined") {
+if (typeof Swiper !== "undefined" && document.querySelector(".mySwiper")) {
   const preview = new Swiper(".mySwiper", {
     loop: true,
     slidesPerView: 1,
@@ -223,55 +223,28 @@ async function fetchRealtimeStats() {
   }
 }
 
-fetchRealtimeStats();
-setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
+if (document.querySelector("[data-online-device-count]")) {
+  fetchRealtimeStats();
+  setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
+}
 
 // version Management
 (async function () {
+  if (!document.querySelector("[data-download]")) return;
   const VERSION_API_URL = "https://version.crossdesk.cn/version.json";
   const CACHE_KEY = "crossdesk_version_cache";
   const CACHE_TIMESTAMP_KEY = "crossdesk_version_timestamp";
   const CACHE_DURATION = 60 * 60 * 1000;
 
   const defaultVersionData = {
-    version: "1.6.0-20260930",
-    releaseDate: "2026-09-30",
-    downloads: {
-      "windows-x64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.6.0-20260930.exe",
-        filename: "crossdesk-win-x64-v1.6.0-20260930.exe",
-      },
-      "windows-x64-portable": {
-        url: "https://downloads.crossdesk.cn/crossdesk-win-x64-portable-v1.6.0-20260930.zip",
-        filename: "crossdesk-win-x64-portable-v1.6.0-20260930.zip",
-      },
-      "macos-x64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.6.0-20260930.pkg",
-        filename: "crossdesk-macos-x64-v1.6.0-20260930.pkg",
-      },
-      "macos-arm64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.6.0-20260930.pkg",
-        filename: "crossdesk-macos-arm64-v1.6.0-20260930.pkg",
-      },
-      "linux-amd64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb",
-        filename: "crossdesk-linux-amd64-v1.6.0-20260930.deb",
-      },
-      "linux-arm64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb",
-        filename: "crossdesk-linux-arm64-v1.6.0-20260930.deb",
-      },
-      "ios-arm64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
-        filename: "crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
-        version: "0.0.1-20260930",
-      },
-      "android-arm64": {
-        url: "https://downloads.crossdesk.cn/crossdesk-android-arm64-v1.6.0-20261002.apk",
-        filename: "crossdesk-android-arm64-v1.6.0-20261002.apk",
-        version: "1.6.0-20261002",
-      },
-    },
+    version: document.getElementById("version-display")?.textContent.trim().replace(/^v/, ""),
+    releaseDate: document.getElementById("release-date-display")?.textContent.trim(),
+    downloads: Object.fromEntries(
+      [...document.querySelectorAll("a[data-download][href]")].map((link) => [
+        link.dataset.download,
+        { url: link.href, filename: link.getAttribute("title") || "" },
+      ]),
+    ),
   };
 
   let versionData = defaultVersionData;
@@ -305,6 +278,7 @@ setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
     const dateDisplay = document.getElementById("release-date-display");
     if (dateDisplay && data.releaseDate) {
       dateDisplay.textContent = data.releaseDate;
+      if (dateDisplay.tagName === "TIME") dateDisplay.dateTime = data.releaseDate;
     }
 
     if (data.downloads) {
