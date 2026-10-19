@@ -18,7 +18,7 @@
     />
     <meta name="author" content="CrossDesk" />
     <meta name="application-name" content="CrossDesk" />
-    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="theme-color" content="#255397" />
     <link rel="canonical" href="https://www.crossdesk.cn/" />
     <link href="dist/tailwind.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" />
@@ -36,16 +36,19 @@
     />
     <meta
       property="og:image"
-      content="https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp"
+      content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp"
     />
     <meta
       property="og:image:secure_url"
-      content="https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp"
+      content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp"
     />
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="3721" />
     <meta property="og:image:height" content="1969" />
-    <meta property="og:image:alt" content="CrossDesk 跨平台远程桌面软件截图" />
+    <meta
+      property="og:image:alt"
+      content="CrossDesk 多平台界面展示（演示数据）"
+    />
     <meta property="og:url" content="https://www.crossdesk.cn/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CrossDesk" />
@@ -64,9 +67,12 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp"
+      content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp"
     />
-    <meta name="twitter:image:alt" content="CrossDesk 跨平台远程桌面软件截图" />
+    <meta
+      name="twitter:image:alt"
+      content="CrossDesk 多平台界面展示（演示数据）"
+    />
     <meta name="twitter:url" content="https://www.crossdesk.cn/" />
 
     <script type="application/ld+json">
@@ -98,16 +104,18 @@
             "url": "https://www.crossdesk.cn/",
             "description": "免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。",
             "applicationCategory": "RemoteAccessApplication",
-            "operatingSystem": "Windows, macOS, Linux, Web",
+            "operatingSystem": "Windows, macOS, Linux, iOS, Android, Web",
             "creator": {
               "@id": "https://www.crossdesk.cn/#organization"
             },
-            "image": "https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp",
+            "image": "https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp",
             "screenshot": [
-              "https://www.crossdesk.cn/assets/images/cross-platform-iPhone.webp",
-              "https://www.crossdesk.cn/assets/images/web-client.webp",
-              "https://www.crossdesk.cn/assets/images/codecs.webp",
-              "https://www.crossdesk.cn/assets/images/multi-device.webp"
+              "https://www.crossdesk.cn/assets/images/desktop-main-zh.webp",
+              "https://www.crossdesk.cn/assets/images/web-client-current.webp",
+              "https://www.crossdesk.cn/assets/images/desktop-deskhub-zh.webp",
+              "https://www.crossdesk.cn/assets/images/macos-controlled-desktop.webp",
+              "https://www.crossdesk.cn/assets/images/ios-native-connected-landscape.webp",
+              "https://www.crossdesk.cn/assets/images/ios-native-connected-device.webp"
             ],
             "downloadUrl": "https://www.crossdesk.cn/#download",
             "offers": {
@@ -124,214 +132,13 @@
       }
     </script>
 
-    <style>
-      .site-header-inner {
-        max-width: 90rem;
-        gap: 2rem;
-      }
-      #menu-toggle {
-        display: block;
-        flex: 0 0 auto;
-      }
-      #menu {
-        display: none;
-      }
-      .site-desktop-nav {
-        align-items: center;
-        gap: 1rem;
-      }
-      .site-desktop-nav > a,
-      .site-desktop-nav > div {
-        flex: 0 0 auto;
-      }
-      .site-desktop-nav > a {
-        white-space: nowrap;
-      }
-      @media (min-width: 1360px) {
-        .site-header-inner {
-          width: fit-content;
-          max-width: calc(100% - 3rem);
-          justify-content: flex-start;
-          gap: 3rem;
-        }
-        #menu-toggle {
-          display: none;
-        }
-        #menu {
-          display: flex;
-        }
-      }
-      .hero-glass-section {
-        position: relative;
-        isolation: isolate;
-        /* Keep download menus above the following Swiper carousel. */
-        z-index: 2;
-        padding-bottom: 2rem;
-        background: #c8c8c8;
-        color: #1f2937;
-      }
-      .hero-glass-background {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        overflow: hidden;
-        pointer-events: none;
-      }
-      .hero-glass-background::before {
-        content: "CrossDesk";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 0;
-        transform: translate(-50%, -50%);
-        color: rgba(0, 0, 0, 1);
-        font-family:
-          Verdana,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Arial Black",
-          "Helvetica Neue",
-          sans-serif;
-        font-size: 3.25rem;
-        font-weight: 900;
-        letter-spacing: 0.05em;
-        line-height: 1;
-        white-space: nowrap;
-        pointer-events: none;
-      }
-      .hero-glass-background::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        pointer-events: none;
-      }
-      .hero-glass-content {
-        position: relative;
-        z-index: 2;
-      }
-      .hero-glass-section h1 {
-        overflow-wrap: anywhere;
-      }
-      .hero-glass-section p {
-        color: #475569;
-      }
-      .hero-glass-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 3.25rem;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.6);
-        color: #1e3a8a;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      }
-      .hero-glass-button:hover {
-        background: rgba(255, 255, 255, 0.8);
-        transform: translateY(-1px);
-      }
-      .platform-download-button {
-        background: var(--platform-color);
-        color: var(--platform-text, #ffffff);
-      }
-      .platform-download-button:hover {
-        background: var(--platform-hover);
-      }
-      .windows-download-button {
-        --platform-color: #0078d4;
-        --platform-hover: #0067b8;
-      }
-      .macos-download-button {
-        --platform-color: #e5e5e7;
-        --platform-hover: #d2d2d7;
-        --platform-text: #1d1d1f;
-      }
-      .linux-download-button {
-        --platform-color: #fcc624;
-        --platform-hover: #e5b31b;
-        --platform-text: #1d1d1f;
-      }
-      .linux-download-dropdown:focus-within .linux-download-menu {
-        display: block;
-      }
-      .linux-download-dropdown:focus-within button > svg:last-child {
-        transform: rotate(180deg);
-      }
-      .linux-download-menu .download-link:hover,
-      .linux-download-menu .download-link:focus-visible {
-        background: #fefce8;
-      }
-      .download-package-label {
-        display: block;
-        color: #64748b;
-        font-size: 0.6875rem;
-        line-height: 1rem;
-      }
-      .download-link[aria-disabled="true"] {
-        color: #64748b;
-        cursor: not-allowed;
-      }
-      .ios-download-button {
-        --platform-color: #1d1d1f;
-        --platform-hover: #333336;
-      }
-      .android-download-button {
-        --platform-color: #3ddc84;
-        --platform-hover: #2fc777;
-        --platform-text: #1d1d1f;
-      }
-      .mobile-download-note {
-        margin-top: 1.5rem;
-        line-height: 1.6;
-      }
-      .mobile-download-note + .mobile-download-note {
-        margin-top: 0.5rem;
-      }
-      .hero-version-chip {
-        padding: 0.5rem 0.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.6);
-        color: #334155;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      }
-      @media (min-width: 768px) {
-        .hero-glass-background::before {
-          font-size: 7rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .hero-glass-background::before {
-          font-size: 20rem;
-        }
-      }
-      @media (max-width: 640px) {
-        .hero-glass-background::before {
-          font-size: 4rem;
-        }
-        .hero-glass-section p {
-          max-width: 17rem;
-          margin-right: auto;
-          margin-left: auto;
-        }
-        .hero-glass-button {
-          width: 100%;
-          max-width: 18rem;
-        }
-        .hero-download-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-      }
-    </style>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/site.css" />
     <script>
       var _hmt = _hmt || [];
       (function () {
@@ -343,493 +150,576 @@
     </script>
   </head>
 
-  <body class="bg-white text-gray-800 font-sans leading-relaxed">
-    <!-- Header -->
-    <header class="bg-white shadow sticky top-0 z-50">
-      <div
-        class="site-header-inner mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <a
-          href="/"
-          class="text-2xl font-bold text-blue-900"
-          aria-label="CrossDesk 首页"
-          >CrossDesk</a
+  <body>
+    <a class="skip-link" href="#main"
+      ><span data-lang="zh">跳至正文</span
+      ><span data-lang="en">Skip to content</span></a
+    >
+    <header class="site-header">
+      <div class="site-header-inner page-shell">
+        <a href="/" class="brand" aria-label="CrossDesk">
+          <img src="apple-touch-icon.png" width="36" height="36" alt="" />
+          <span>Cross<span class="brand-desk">Desk</span></span>
+        </a>
+        <span class="brand-caption"
+          ><span data-lang="zh">开源远程桌面</span
+          ><span data-lang="en">Open-source remote desktop</span></span
         >
-
-        <!-- mobile menu toggle -->
-        <button
-          id="menu-toggle"
-          class="md:hidden text-gray-600"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          aria-label="Open menu"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="20"
-            width="17.5"
-            viewBox="0 0 448 512"
+        <nav id="menu" class="site-desktop-nav" aria-label="Main navigation">
+          <a href="#features"
+            ><span data-lang="zh">功能特点</span
+            ><span data-lang="en">Features</span></a
           >
-            <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
-        </button>
-
-        <!-- desktop navigation -->
-        <nav id="menu" class="site-desktop-nav">
-          <a href="#features" class="text-gray-700 hover:text-indigo-500">
-            <span data-lang="zh">功能特点</span>
-            <span data-lang="en">Features</span>
-          </a>
-          <a href="#download" class="text-gray-700 hover:text-indigo-500">
-            <span data-lang="zh">安装使用</span>
-            <span data-lang="en">Installation</span>
-          </a>
-          <a href="#screenshot" class="text-gray-700 hover:text-indigo-500">
-            <span data-lang="zh">界面预览</span>
-            <span data-lang="en">Screenshots</span>
-          </a>
-          <a href="#contact" class="text-gray-700 hover:text-indigo-500">
-            <span data-lang="zh">反馈与建议</span>
-            <span data-lang="en">Feedback</span>
-          </a>
-          <a
-            href="/code-signing-policy.html"
-            class="text-gray-700 hover:text-indigo-500"
+          <a href="#download"
+            ><span data-lang="zh">安装使用</span
+            ><span data-lang="en">Download</span></a
           >
-            <span data-lang="zh">代码签名政策</span>
-            <span data-lang="en">Code Signing Policy</span>
-          </a>
-          <a href="/privacy.html" class="text-gray-700 hover:text-indigo-500">
-            <span data-lang="zh">隐私政策</span>
-            <span data-lang="en">Privacy Policy</span>
-          </a>
-          <div class="flex items-center space-x-2 border-l pl-4">
-            <button
-              type="button"
-              class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
-            >
-              中文
-            </button>
-            <button
-              type="button"
-              class="lang-en text-sm text-gray-500 hover:text-indigo-500"
-            >
-              English
-            </button>
-          </div>
-          <div
-            class="realtime-stats realtime-stats--desktop"
-            aria-live="polite"
+          <a href="#screenshot"
+            ><span data-lang="zh">界面预览</span
+            ><span data-lang="en">Preview</span></a
           >
-            <span class="realtime-stat-item">
-              <span class="realtime-stat-label">
-                <span data-lang="zh">在线设备</span>
-                <span data-lang="en">Online Devices</span>
-              </span>
-              <strong class="realtime-stat-value" data-online-device-count
-                >--</strong
-              >
-            </span>
-            <span class="realtime-stat-divider" aria-hidden="true"></span>
-            <span class="realtime-stat-item">
-              <span class="realtime-stat-label">
-                <span data-lang="zh">远控中</span>
-                <span data-lang="en">Ongoing Sessions</span>
-              </span>
-              <strong class="realtime-stat-value" data-active-connection-count
-                >--</strong
-              >
-            </span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <a
-              href="https://github.com/kunkundi/crossdesk"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-block cursor-pointer"
-            >
-              <img
-                src="https://img.shields.io/github/stars/kunkundi/crossdesk?style=social"
-                alt="GitHub Stars"
-                style="height: 22px; width: auto"
-                class="github-badge-hover"
-              />
-            </a>
-          </div>
+          <a href="#contact"
+            ><span data-lang="zh">反馈与建议</span
+            ><span data-lang="en">Contact</span></a
+          >
+          <a href="#sponsor"
+            ><span data-lang="zh">赞助支持</span
+            ><span data-lang="en">Sponsor</span></a
+          >
         </nav>
-      </div>
-
-      <!-- mobile navigation -->
-      <div
-        id="mobile-menu"
-        class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
-        aria-hidden="true"
-      >
-        <div
-          id="mobile-panel"
-          class="absolute right-0 top-0 h-full w-72 sm:w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
-        >
-          <div class="flex justify-between items-center p-4 border-b">
-            <h2 class="text-lg font-bold text-blue-900">
-              <span data-lang="zh">菜单</span>
-              <span data-lang="en">Menu</span>
-            </h2>
-            <button
-              id="menu-close"
-              class="text-gray-600 text-xl"
-              aria-label="Close menu"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="20"
-                width="12.5"
-                viewBox="0 0 320 512"
-              >
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  d="M311.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L243.2 256 73.9 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-                />
-              </svg>
+        <div class="header-actions">
+          <div
+            class="language-switch"
+            role="group"
+            aria-label="Language / 语言"
+          >
+            <button type="button" class="lang-zh" aria-pressed="true">
+              中
+            </button>
+            <span aria-hidden="true">/</span>
+            <button type="button" class="lang-en" aria-pressed="false">
+              EN
             </button>
           </div>
-          <nav class="flex flex-col p-4 space-y-4">
-            <a href="#features" class="text-gray-700 hover:text-indigo-500">
-              <span data-lang="zh">功能特点</span>
-              <span data-lang="en">Features</span>
-            </a>
-            <a href="#download" class="text-gray-700 hover:text-indigo-500">
-              <span data-lang="zh">安装使用</span>
-              <span data-lang="en">Installation</span>
-            </a>
-            <a href="#screenshot" class="text-gray-700 hover:text-indigo-500">
-              <span data-lang="zh">界面预览</span>
-              <span data-lang="en">Screenshots</span>
-            </a>
-            <a href="#contact" class="text-gray-700 hover:text-indigo-500">
-              <span data-lang="zh">反馈与建议</span>
-              <span data-lang="en">Feedback</span>
-            </a>
-            <a
-              href="/code-signing-policy.html"
-              class="text-gray-700 hover:text-indigo-500"
+          <a
+            class="button header-cta"
+            href="https://github.com/kunkundi/crossdesk"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub
+            <span class="github-stars"
+              ><svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z"
+                /></svg
+              ><span data-github-stars>Star</span></span
+            ></a
+          >
+          <button
+            id="menu-toggle"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="打开菜单 / Open menu"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
             >
-              <span data-lang="zh">代码签名政策</span>
-              <span data-lang="en">Code Signing Policy</span>
-            </a>
-            <a href="/privacy.html" class="text-gray-700 hover:text-indigo-500">
-              <span data-lang="zh">隐私政策</span>
-              <span data-lang="en">Privacy Policy</span>
-            </a>
-            <div class="flex space-x-2 pt-4 border-t">
-              <button
-                type="button"
-                class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
-              >
-                中文
-              </button>
-              <button
-                type="button"
-                class="lang-en text-sm text-gray-500 hover:text-indigo-500"
-              >
-                English
-              </button>
-            </div>
-            <div class="flex space-x-2 pt-4 border-t">
-              <a
-                href="https://github.com/kunkundi/crossdesk"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block cursor-pointer"
-              >
-                <img
-                  src="https://img.shields.io/github/stars/kunkundi/crossdesk?style=social"
-                  alt="GitHub Stars"
-                  style="height: 22px; width: auto"
-                  class="github-badge-hover"
-                />
-              </a>
-            </div>
-            <div
-              class="realtime-stats realtime-stats--mobile pt-4 border-t"
-              aria-live="polite"
-            >
-              <span class="realtime-stat-item">
-                <span class="realtime-stat-label">
-                  <span data-lang="zh">在线设备</span>
-                  <span data-lang="en">Online Devices</span>
-                </span>
-                <strong class="realtime-stat-value" data-online-device-count
-                  >--</strong
-                >
-              </span>
-              <span class="realtime-stat-divider" aria-hidden="true"></span>
-              <span class="realtime-stat-item">
-                <span class="realtime-stat-label">
-                  <span data-lang="zh">远控中</span>
-                  <span data-lang="en">Ongoing Sessions</span>
-                </span>
-                <strong class="realtime-stat-value" data-active-connection-count
-                  >--</strong
-                >
-              </span>
-            </div>
-          </nav>
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
         </div>
+      </div>
+      <div id="mobile-menu" hidden>
+        <nav class="page-shell" aria-label="Mobile navigation">
+          <a href="#features"
+            ><span data-lang="zh">功能特点</span
+            ><span data-lang="en">Features</span></a
+          >
+          <a href="#download"
+            ><span data-lang="zh">安装使用</span
+            ><span data-lang="en">Download</span></a
+          >
+          <a href="#screenshot"
+            ><span data-lang="zh">界面预览</span
+            ><span data-lang="en">Preview</span></a
+          >
+          <a href="#contact"
+            ><span data-lang="zh">反馈与建议</span
+            ><span data-lang="en">Contact</span></a
+          >
+          <a href="#sponsor"
+            ><span data-lang="zh">赞助支持</span
+            ><span data-lang="en">Sponsor</span></a
+          >
+          <a href="/code-signing-policy.html"
+            ><span data-lang="zh">代码签名政策</span
+            ><span data-lang="en">Code signing policy</span></a
+          >
+          <a href="/privacy.html"
+            ><span data-lang="zh">隐私政策</span
+            ><span data-lang="en">Privacy policy</span></a
+          >
+          <a
+            class="github-link"
+            href="https://github.com/kunkundi/crossdesk"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub
+            <span class="github-stars"
+              ><svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z"
+                /></svg
+              ><span data-github-stars>Star</span></span
+            ></a
+          >
+        </nav>
       </div>
     </header>
 
-    <!-- hero -->
-    <section class="hero-glass-section py-20">
-      <div class="hero-glass-background" aria-hidden="true"></div>
-      <div class="hero-glass-content max-w-6xl mx-auto px-6 text-center">
-        <h1 class="text-2xl md:text-4xl font-bold leading-tight mb-4">
-          <span data-lang="zh">开源跨平台远程桌面软件</span>
-          <span data-lang="en">Open-Source Cross-platform Remote Desktop</span>
-        </h1>
-
-        <p class="text-base md:text-base mb-12">
-          <span data-lang="zh"
-            >跨平台，支持硬件加速，不限设备数量，让你的远程体验如同本地。</span
-          >
-          <span data-lang="en"
-            >Cross-platform, hardware-accelerated, unlimited devices, remote as
-            smooth as local.</span
-          >
-        </p>
-
-        <div class="w-full flex flex-wrap justify-center gap-10">
-          <a
-            href="https://github.com/kunkundi/crossdesk.git"
-            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
-          >
-            <span data-lang="zh">访问项目 GitHub</span>
-            <span data-lang="en">View on GitHub</span>
-          </a>
-
-          <a
-            href="//github.com/kunkundi/crossdesk/blob/self-hosted-server/README.md#自托管服务器"
-            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
-            data-lang="zh"
-          >
-            自托管
-          </a>
-
-          <a
-            href="//github.com/kunkundi/crossdesk/blob/self-hosted-server/README_EN.md#self-hosted-server"
-            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
-            data-lang="en"
-          >
-            Self-Hosting
-          </a>
-
-          <a
-            href="https://web.crossdesk.cn"
-            class="hero-glass-button font-semibold px-6 py-3 rounded-xl transition text-lg md:text-2xl"
-          >
-            <span data-lang="zh">Web 客户端</span>
-            <span data-lang="en">Web Client</span>
-          </a>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-layout page-shell">
+          <div class="hero-wordmark" aria-hidden="true">CrossDesk</div>
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              <span data-lang="zh"
+                >跨平台远程桌面，<br /><span class="text-blue"
+                  >随时连接你的设备。</span
+                ></span
+              ><span data-lang="en"
+                >Your desktop.<br /><span class="text-blue"
+                  >Anywhere you are.</span
+                ></span
+              >
+            </h1>
+            <p class="hero-description">
+              <span data-lang="zh"
+                >免费、轻量、易用。跨越 Windows、macOS 与
+                Linux，支持硬件加速与多设备连接，让远程工作回归简单。</span
+              ><span data-lang="en"
+                >Free, lightweight, and easy to use. Connect across Windows,
+                macOS, and Linux with hardware acceleration and support for
+                multiple devices.</span
+              >
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#download"
+                ><span data-lang="zh">下载 CrossDesk</span
+                ><span data-lang="en">Download CrossDesk</span></a
+              >
+              <a
+                class="button button-secondary"
+                href="https://web.crossdesk.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span data-lang="zh">打开 Web 客户端</span
+                ><span data-lang="en">Open web client</span></a
+              >
+            </div>
+            <div class="hero-links">
+              <a class="text-link" href="https://github.com/kunkundi/crossdesk"
+                ><span data-lang="zh">查看源代码</span
+                ><span data-lang="en">Explore the source</span>
+              </a>
+              <a
+                class="text-link"
+                href="https://github.com/kunkundi/crossdesk/blob/self-hosted-server/README.md#自托管服务器"
+                data-lang="zh"
+                >自托管部署
+              </a>
+              <a
+                class="text-link"
+                href="https://github.com/kunkundi/crossdesk/blob/self-hosted-server/README_EN.md#self-hosted-server"
+                data-lang="en"
+                >Self-hosting guide
+              </a>
+              <a class="text-link" href="#sponsor"
+                ><span data-lang="zh">赞助支持</span
+                ><span data-lang="en">Sponsor</span>
+              </a>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <img
+              src="assets/images/cross-platform-current-zh.webp"
+              data-src-zh="assets/images/cross-platform-current-zh.webp"
+              data-src-en="assets/images/cross-platform-current-en.webp"
+              width="3721"
+              height="1969"
+              alt="CrossDesk 多设备展示：Windows 桌面客户端、MacBook 上展开被控状态栏的 macOS 桌面、Linux 笔记本上的 Web 客户端，以及一台横屏 iPhone，展示 iOS 原生客户端已连接远程桌面并展开悬浮控制窗的模拟器实截"
+              data-alt-zh="CrossDesk 多设备展示：Windows 桌面客户端、MacBook 上展开被控状态栏的 macOS 桌面、Linux 笔记本上的 Web 客户端，以及一台横屏 iPhone，展示 iOS 原生客户端已连接远程桌面并展开悬浮控制窗的模拟器实截"
+              data-alt-en="CrossDesk device montage: the Windows desktop app, a remotely controlled macOS desktop with its status panel expanded on a MacBook, the Web client on a Linux laptop, and one landscape iPhone showing a connected native iOS remote session with floating controls expanded, captured in the simulator"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
+        <div class="hero-bottom page-shell">
+          <div class="live-stats" aria-live="polite">
+            <span
+              ><span data-lang="zh">在线设备</span
+              ><span data-lang="en">Online devices</span>
+              <strong data-online-device-count>--</strong></span
+            >
+            <span
+              ><span data-lang="zh">远控中</span
+              ><span data-lang="en">Active sessions</span>
+              <strong data-active-connection-count>--</strong></span
+            >
+          </div>
+        </div>
+      </section>
 
-        <h2 id="download" class="text-2xl font-semibold mb-6 mt-10">
-          <span data-lang="zh">软件下载</span>
-          <span data-lang="en">Download</span>
-        </h2>
+      <section
+        id="features"
+        class="capability-strip page-shell"
+        aria-label="功能特点 / Features"
+      >
+        <article>
+          <span class="capability-index">01</span>
+          <div>
+            <h2>
+              <span data-lang="zh">跨平台，自由访问</span
+              ><span data-lang="en">Connect across platforms</span>
+            </h2>
+            <p>
+              <span data-lang="zh"
+                >桌面端、移动端与浏览器，选择适合你的连接方式。</span
+              ><span data-lang="en"
+                >Access your devices from a desktop, mobile app, or
+                browser.</span
+              >
+            </p>
+          </div>
+        </article>
+        <article>
+          <span class="capability-index">02</span>
+          <div>
+            <h2>
+              <span data-lang="zh">硬件加速，流畅交互</span
+              ><span data-lang="en">Hardware-accelerated</span>
+            </h2>
+            <p>
+              <span data-lang="zh">支持 NVIDIA 与 VideoToolbox 硬件加速。</span
+              ><span data-lang="en"
+                >With NVIDIA and VideoToolbox acceleration.</span
+              >
+            </p>
+          </div>
+        </article>
+        <article>
+          <span class="capability-index">03</span>
+          <div>
+            <h2>
+              <span data-lang="zh">开放源码，自主部署</span
+              ><span data-lang="en">Open source. Self-hosted.</span>
+            </h2>
+            <p>
+              <span data-lang="zh">自托管连接服务，让数据流转自主可控。</span
+              ><span data-lang="en"
+                >Self-host your connection services and stay in control of your
+                data flow.</span
+              >
+            </p>
+          </div>
+        </article>
+      </section>
 
-        <div class="flex flex-col items-center gap-3 mb-4 text-sm">
+      <section
+        id="download"
+        class="downloads-section page-shell"
+        aria-labelledby="download-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">
+              <span data-lang="zh">即刻开始 / DOWNLOAD</span
+              ><span data-lang="en">GET STARTED / DOWNLOAD</span>
+            </p>
+            <h2 id="download-title">
+              <span data-lang="zh">你的设备，即刻连接。</span
+              ><span data-lang="en">Your next connection starts here.</span>
+            </h2>
+          </div>
+          <p class="section-summary">
+            <span data-lang="zh"
+              >选择适合你设备的客户端，<br />开启轻量、自由的远程体验。</span
+            ><span data-lang="en"
+              >Choose a client for your device.<br />Make room for a simpler
+              remote experience.</span
+            >
+          </p>
+        </div>
+        <div class="download-panel">
+          <div class="release-meta">
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3"
+            >
+              <div
+                class="version-chip flex items-center space-x-2 whitespace-nowrap"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20"
+                  width="22.5"
+                  viewBox="0 0 576 512"
+                >
+                  <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path
+                    fill="currentColor"
+                    d="M401.2 39.1L549.4 189.4c27.7 28.1 27.7 73.1 0 101.2L393 448.9c-9.3 9.4-24.5 9.5-33.9 .2s-9.5-24.5-.2-33.9L515.3 256.8c9.2-9.3 9.2-24.4 0-33.7L367 72.9c-9.3-9.4-9.2-24.6 .2-33.9s24.6-9.2 33.9 .2zM32.1 229.5L32.1 96c0-35.3 28.7-64 64-64l133.5 0c17 0 33.3 6.7 45.3 18.7l144 144c25 25 25 65.5 0 90.5L285.4 418.7c-25 25-65.5 25-90.5 0l-144-144c-12-12-18.7-28.3-18.7-45.3zm144-85.5a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"
+                  />
+                </svg>
+                <span data-lang="zh">最新版本</span>
+                <span data-lang="en">Latest Version</span>
+                <span id="version-display" class="font-bold">v0.0.0</span>
+              </div>
+
+              <div
+                class="version-chip flex items-center space-x-2 whitespace-nowrap"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20"
+                  width="17.5"
+                  viewBox="0 0 448 512"
+                >
+                  <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path
+                    fill="currentColor"
+                    d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z"
+                  />
+                </svg>
+                <span data-lang="zh">发布日期</span>
+                <span data-lang="en">Release Date</span>
+                <span id="release-date-display" class="font-bold"
+                  >2023-11-20</span
+                >
+              </div>
+            </div>
+          </div>
+
           <div
-            class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3"
+            class="hero-download-buttons flex flex-wrap justify-center gap-4"
           >
-            <div
-              class="hero-version-chip flex items-center space-x-2 whitespace-nowrap"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="20"
-                width="22.5"
-                viewBox="0 0 576 512"
+            <!-- windows dropdown -->
+            <div class="download-dropdown" data-platform="windows">
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="windows-download-menu"
+                class="platform-download-button windows-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
               >
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  fill="currentColor"
-                  d="M401.2 39.1L549.4 189.4c27.7 28.1 27.7 73.1 0 101.2L393 448.9c-9.3 9.4-24.5 9.5-33.9 .2s-9.5-24.5-.2-33.9L515.3 256.8c9.2-9.3 9.2-24.4 0-33.7L367 72.9c-9.3-9.4-9.2-24.6 .2-33.9s24.6-9.2 33.9 .2zM32.1 229.5L32.1 96c0-35.3 28.7-64 64-64l133.5 0c17 0 33.3 6.7 45.3 18.7l144 144c25 25 25 65.5 0 90.5L285.4 418.7c-25 25-65.5 25-90.5 0l-144-144c-12-12-18.7-28.3-18.7-45.3zm144-85.5a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"
-                />
-              </svg>
-              <span data-lang="zh">最新版本</span>
-              <span data-lang="en">Latest Version</span>
-              <span id="version-display" class="font-bold">v0.0.0</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20"
+                  width="17.5"
+                  viewBox="0 0 448 512"
+                >
+                  <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path
+                    fill="currentColor"
+                    d="M0 93.7l183.6-25.3 0 177.4-183.6 0 0-152.1zM0 418.3l183.6 25.3 0-175.2-183.6 0 0 149.9zm203.8 28l244.2 33.7 0-211.6-244.2 0 0 177.9zm0-380.6l0 180.1 244.2 0 0-213.8-244.2 33.7z"
+                  />
+                </svg>
+                <span>Windows</span>
+                <svg
+                  class="w-4 h-4 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="windows-download-menu" class="download-menu" hidden>
+                <a
+                  href="#"
+                  data-download="windows-x64"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
+                  >Windows x64</a
+                >
+                <a
+                  href="#"
+                  data-download="windows-x64-portable"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
+                >
+                  <span data-lang="zh">Windows x64 便携版</span>
+                  <span data-lang="en">Windows x64 Portable</span>
+                </a>
+              </div>
             </div>
 
-            <div
-              class="hero-version-chip flex items-center space-x-2 whitespace-nowrap"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="20"
-                width="17.5"
-                viewBox="0 0 448 512"
+            <!-- linux dropdown -->
+            <div class="download-dropdown" data-platform="linux">
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="linux-download-menu"
+                aria-describedby="linux-download-note"
+                class="platform-download-button linux-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
               >
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  fill="currentColor"
-                  d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z"
-                />
-              </svg>
-              <span data-lang="zh">发布日期</span>
-              <span data-lang="en">Release Date</span>
-              <span id="release-date-display" class="font-bold"
-                >2023-11-20</span
-              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20"
+                  width="17.5"
+                  viewBox="0 0 448 512"
+                >
+                  <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path
+                    fill="currentColor"
+                    d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5 .2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4 .2-.8 .7-.6 1.1 .3 1.3 2.3 1.1 3.4 1.7zM199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6 .2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5 .1-1.3 .6-3.4 1.5-3.2 2.9 .1 1 1.8 1.5 2.8 1.4zM420 403.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72 .5-45.9 5.1-131.2-75.8-131.3-102.4-.2-76.8 103.4-77.9 135.2-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9 .6 7.9 1.2 11.8 1.2 8.1 2.5 15.7 .8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1 .6 2.3 1.4 4.6 2.5 6.7l0 .1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3 .4-8.2-4.4-17.3-15.5-29.7zM223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8zM183.1 75.8c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4 .7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1zm-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3-1.4-4.9 0-9 4.2-12.3zm3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4l0-.2c2.4-7.6 .6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9zm-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7 .8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4 .6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1 .8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7 .4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2zm257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6 .8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1 .3-.2 .7-.3 1-.5 .8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6zM173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5z"
+                  />
+                </svg>
+                <span>Linux</span>
+                <svg
+                  class="w-4 h-4 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="linux-download-menu" class="download-menu" hidden>
+                <a
+                  href="https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb"
+                  data-download="linux-amd64"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
+                >
+                  <span>Linux x64</span>
+                  <span class="download-package-label">
+                    <span data-lang="zh">标准版</span>
+                    <span data-lang="en">Standard</span>
+                  </span>
+                </a>
+                <a
+                  data-download="linux-amd64-virtual-desktop-xfce"
+                  role="link"
+                  aria-disabled="true"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
+                >
+                  <span>Linux x64</span>
+                  <span class="download-package-label">
+                    <span data-lang="zh">虚拟桌面版</span>
+                    <span data-lang="en">Virtual Desktop</span>
+                  </span>
+                </a>
+                <a
+                  href="https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb"
+                  data-download="linux-arm64"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
+                >
+                  <span>Linux arm64</span>
+                  <span class="download-package-label">
+                    <span data-lang="zh">标准版</span>
+                    <span data-lang="en">Standard</span>
+                  </span>
+                </a>
+                <a
+                  data-download="linux-arm64-virtual-desktop-xfce"
+                  role="link"
+                  aria-disabled="true"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
+                >
+                  <span>Linux arm64</span>
+                  <span class="download-package-label">
+                    <span data-lang="zh">虚拟桌面版</span>
+                    <span data-lang="en">Virtual Desktop</span>
+                  </span>
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="hero-download-buttons flex flex-wrap justify-center gap-4">
-          <!-- windows dropdown -->
-          <div class="relative group inline-block">
-            <button
-              class="platform-download-button windows-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="20"
-                width="17.5"
-                viewBox="0 0 448 512"
+            <!-- macOS dropdown -->
+            <div class="download-dropdown" data-platform="macos">
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="macos-download-menu"
+                class="platform-download-button macos-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
               >
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  fill="currentColor"
-                  d="M0 93.7l183.6-25.3 0 177.4-183.6 0 0-152.1zM0 418.3l183.6 25.3 0-175.2-183.6 0 0 149.9zm203.8 28l244.2 33.7 0-211.6-244.2 0 0 177.9zm0-380.6l0 180.1 244.2 0 0-213.8-244.2 33.7z"
-                />
-              </svg>
-              <span>Windows</span>
-              <svg
-                class="w-4 h-4 group-hover:rotate-180 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div
-              class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
-            >
-              <a
-                href="#"
-                data-download="windows-x64"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
-                >Windows x64</a
-              >
-              <a
-                href="#"
-                data-download="windows-x64-portable"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
-              >
-                <span data-lang="zh">Windows x64 便携版</span>
-                <span data-lang="en">Windows x64 Portable</span>
-              </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="20"
+                  width="15"
+                  viewBox="0 0 384 512"
+                >
+                  <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path
+                    fill="currentColor"
+                    d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8 .9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.5 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+                  />
+                </svg>
+                <span>macOS</span>
+                <svg
+                  class="w-4 h-4 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="macos-download-menu" class="download-menu" hidden>
+                <a
+                  href="#"
+                  data-download="macos-x64"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 rounded-xl"
+                  >macOS x64</a
+                >
+                <a
+                  href="#"
+                  data-download="macos-arm64"
+                  class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 rounded-xl"
+                  >macOS arm64</a
+                >
+              </div>
             </div>
-          </div>
 
-          <!-- linux dropdown -->
-          <div class="linux-download-dropdown relative group inline-block">
-            <button
-              type="button"
-              aria-controls="linux-download-menu"
-              aria-describedby="linux-download-note"
-              class="platform-download-button linux-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="20"
-                width="17.5"
-                viewBox="0 0 448 512"
-              >
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  fill="currentColor"
-                  d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5 .2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4 .2-.8 .7-.6 1.1 .3 1.3 2.3 1.1 3.4 1.7zM199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6 .2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5 .1-1.3 .6-3.4 1.5-3.2 2.9 .1 1 1.8 1.5 2.8 1.4zM420 403.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72 .5-45.9 5.1-131.2-75.8-131.3-102.4-.2-76.8 103.4-77.9 135.2-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9 .6 7.9 1.2 11.8 1.2 8.1 2.5 15.7 .8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1 .6 2.3 1.4 4.6 2.5 6.7l0 .1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3 .4-8.2-4.4-17.3-15.5-29.7zM223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8zM183.1 75.8c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4 .7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1zm-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3-1.4-4.9 0-9 4.2-12.3zm3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4l0-.2c2.4-7.6 .6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9zm-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7 .8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4 .6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1 .8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7 .4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2zm257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6 .8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1 .3-.2 .7-.3 1-.5 .8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6zM173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5z"
-                />
-              </svg>
-              <span>Linux</span>
-              <svg
-                class="w-4 h-4 group-hover:rotate-180 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div
-              id="linux-download-menu"
-              class="linux-download-menu absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
-            >
-              <a
-                href="https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb"
-                data-download="linux-amd64"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
-              >
-                <span>Linux x64</span>
-                <span class="download-package-label">
-                  <span data-lang="zh">标准版</span>
-                  <span data-lang="en">Standard</span>
-                </span>
-              </a>
-              <a
-                data-download="linux-amd64-virtual-desktop-xfce"
-                role="link"
-                aria-disabled="true"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
-              >
-                <span>Linux x64</span>
-                <span class="download-package-label">
-                  <span data-lang="zh">虚拟桌面版</span>
-                  <span data-lang="en">Virtual Desktop</span>
-                </span>
-              </a>
-              <a
-                href="https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb"
-                data-download="linux-arm64"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
-              >
-                <span>Linux arm64</span>
-                <span class="download-package-label">
-                  <span data-lang="zh">标准版</span>
-                  <span data-lang="en">Standard</span>
-                </span>
-              </a>
-              <a
-                data-download="linux-arm64-virtual-desktop-xfce"
-                role="link"
-                aria-disabled="true"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-yellow-50 rounded-xl"
-              >
-                <span>Linux arm64</span>
-                <span class="download-package-label">
-                  <span data-lang="zh">虚拟桌面版</span>
-                  <span data-lang="en">Virtual Desktop</span>
-                </span>
-              </a>
-            </div>
-          </div>
-
-          <!-- macOS dropdown -->
-          <div class="relative group inline-block">
-            <button
-              class="platform-download-button macos-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            <!-- iOS download -->
+            <a
+              href="https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
+              data-download="ios-arm64"
+              aria-describedby="ios-download-note"
+              class="download-link platform-download-button ios-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="20"
                 width="15"
                 viewBox="0 0 384 512"
+                aria-hidden="true"
               >
                 <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                 <path
@@ -837,699 +727,365 @@
                   d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8 .9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.5 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
                 />
               </svg>
-              <span>macOS</span>
+              <span>iOS</span>
+            </a>
+
+            <!-- Android download -->
+            <a
+              href="https://downloads.crossdesk.cn/crossdesk-android-arm64-v1.6.0-20261002.apk"
+              data-download="android-arm64"
+              title="crossdesk-android-arm64-v1.6.0-20261002.apk"
+              class="download-link platform-download-button android-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
+            >
               <svg
-                class="w-4 h-4 group-hover:rotate-180 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                width="20"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-                <path d="M19 9l-7 7-7-7" />
+                <path
+                  d="M6.5 9 5 6.5M17.5 9 19 6.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M4 17a8 8 0 0 1 16 0H4Zm4-4a1 1 0 1 0 2 0 1 1 0 1 0-2 0Zm6 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0Z"
+                />
               </svg>
-            </button>
-            <div
-              class="absolute left-0 top-full w-40 bg-white border border-gray-300 rounded-xl shadow-lg hidden group-hover:block z-10"
-            >
-              <a
-                href="#"
-                data-download="macos-x64"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 rounded-xl"
-                >macOS x64</a
-              >
-              <a
-                href="#"
-                data-download="macos-arm64"
-                class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 rounded-xl"
-                >macOS arm64</a
-              >
-            </div>
+              <span>Android</span>
+            </a>
           </div>
-
-          <!-- iOS download -->
-          <a
-            href="https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip"
-            data-download="ios-arm64"
-            aria-describedby="ios-download-note"
-            class="download-link platform-download-button ios-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="20"
-              width="15"
-              viewBox="0 0 384 512"
-              aria-hidden="true"
+          <p id="linux-download-note" class="mobile-download-note text-xs">
+            <span data-lang="zh"
+              >Linux：已有桌面选标准版；无桌面环境或需独立桌面选虚拟桌面版（Xfce）。</span
             >
-              <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-              <path
-                fill="currentColor"
-                d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8 .9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.5 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
-              />
-            </svg>
-            <span>iOS</span>
-          </a>
-
-          <!-- Android download -->
-          <a
-            href="https://downloads.crossdesk.cn/crossdesk-android-arm64-v1.6.0-20261002.apk"
-            data-download="android-arm64"
-            title="crossdesk-android-arm64-v1.6.0-20261002.apk"
-            class="download-link platform-download-button android-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="20"
-              width="20"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+            <span data-lang="en"
+              >Linux: choose Standard to use an existing desktop, or Virtual
+              Desktop (Xfce) if you have no desktop environment or need a
+              separate session.</span
             >
-              <path
-                d="M6.5 9 5 6.5M17.5 9 19 6.5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-              <path
-                fill="currentColor"
-                fill-rule="evenodd"
-                d="M4 17a8 8 0 0 1 16 0H4Zm4-4a1 1 0 1 0 2 0 1 1 0 1 0-2 0Zm6 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0Z"
-              />
-            </svg>
-            <span>Android</span>
-          </a>
+          </p>
+          <p id="ios-download-note" class="mobile-download-note text-xs">
+            <span data-lang="zh"
+              >iOS 发布包为未签名 ZIP，需自行签名后安装到 iPhone / iPad。</span
+            >
+            <span data-lang="en"
+              >The iOS release is an unsigned ZIP. Sign the app before
+              installing it on an iPhone or iPad.</span
+            >
+          </p>
         </div>
-        <p id="linux-download-note" class="mobile-download-note text-xs">
-          <span data-lang="zh"
-            >Linux：已有桌面选标准版；无桌面环境或需独立桌面选虚拟桌面版（Xfce）。</span
-          >
-          <span data-lang="en"
-            >Linux: choose Standard to use an existing desktop, or Virtual Desktop (Xfce) if you have no desktop environment or need a separate session.</span
-          >
-        </p>
-        <p id="ios-download-note" class="mobile-download-note text-xs">
-          <span data-lang="zh"
-            >iOS 发布包为未签名 ZIP，需自行签名后安装到 iPhone / iPad。</span
-          >
-          <span data-lang="en"
-            >The iOS release is an unsigned ZIP. Sign the app before installing it on an iPhone or iPad.</span
-          >
-        </p>
-      </div>
-    </section>
+      </section>
 
-    <!-- features carousel -->
-    <section id="features" class="py-20 pt-4 bg-white">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- swiper -->
-        <div id="screenshot" class="swiper mySwiper overflow-hidden w-full">
+      <section
+        id="screenshot"
+        class="preview-section page-shell"
+        aria-labelledby="preview-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">
+              <span data-lang="zh">产品一览 / WORKSPACE</span
+              ><span data-lang="en">TAKE A CLOSER LOOK / WORKSPACE</span>
+            </p>
+            <h2 id="preview-title">
+              <span data-lang="zh">跨越设备，<br />桌面触手可及。</span
+              ><span data-lang="en"
+                >Across devices.<br />Your desktop, within reach.</span
+              >
+            </h2>
+          </div>
+          <p class="section-summary">
+            <span data-lang="zh"
+              >从跨平台连接到多设备管理，<br />每一次操作都清晰直观。</span
+            ><span data-lang="en"
+              >From cross-platform access to multiple devices,<br />keep every
+              interaction clear and simple.</span
+            >
+          </p>
+        </div>
+        <div
+          class="preview-tabs"
+          role="group"
+          aria-label="界面预览 / Product previews"
+        >
+          <button type="button" data-slide="0" aria-pressed="true">
+            <span data-lang="zh">桌面客户端</span
+            ><span data-lang="en">Desktop app</span>
+          </button>
+          <button type="button" data-slide="1" aria-pressed="false">
+            <span data-lang="zh">Web 客户端</span
+            ><span data-lang="en">Web client</span>
+          </button>
+          <button type="button" data-slide="2" aria-pressed="false">
+            <span data-lang="zh">桌面墙</span
+            ><span data-lang="en">DeskHub</span>
+          </button>
+          <button type="button" data-slide="3" aria-pressed="false">
+            <span data-lang="zh">移动客户端</span
+            ><span data-lang="en">Mobile client</span>
+          </button>
+        </div>
+        <div
+          id="product-preview"
+          class="swiper mySwiper overflow-hidden w-full"
+        >
           <div class="swiper-wrapper">
             <div class="swiper-slide flex justify-center items-center">
-              <div
-                class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
-              >
-                <h3 class="text-2xl font-semibold mb-4">
-                  <span data-lang="zh">多平台支持</span>
-                  <span data-lang="en">Cross-platform Support</span>
+              <div class="preview-slide">
+                <h3>
+                  <span data-lang="zh">连接与设备管理，一目了然。</span
+                  ><span data-lang="en">Connect and manage your devices.</span>
                 </h3>
-                <p class="text-gray-600 text-center">
+                <p class="text-center">
                   <span data-lang="zh"
-                    >全面兼容 Windows、macOS 与 Linux 操作系统。</span
-                  >
-                  <span data-lang="en"
-                    >Compatible with Windows, macOS, and Linux。</span
+                    >本桌面、远程连接和近期设备集中呈现，常用设备随时可达。</span
+                  ><span data-lang="en"
+                    >Your local desk, remote connections, and recent devices in
+                    one place.</span
                   >
                 </p>
-
-                <img
-                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
-                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/cross-platform-iPhone.webp"
-                  data-local="assets/images/cross-platform-iPhone.webp"
-                  alt="CrossDesk 支持 Windows、macOS、Linux 和移动端的跨平台远程桌面界面"
-                  width="3721"
-                  height="1969"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full max-w-4xl h-auto mb-4 object-contain"
-                />
+                <div class="preview-image">
+                  <img
+                    src="assets/images/desktop-main-zh.webp"
+                    data-src-zh="assets/images/desktop-main-zh.webp"
+                    data-src-en="assets/images/desktop-main-en.webp"
+                    alt="CrossDesk 当前桌面主界面，包含连接区、近期设备与分组筛选"
+                    data-alt-zh="CrossDesk 当前桌面主界面，包含连接区、近期设备与分组筛选"
+                    data-alt-en="Current CrossDesk desktop interface with connection controls, recent devices and group filters"
+                    width="1280"
+                    height="944"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
-
             <div class="swiper-slide flex justify-center items-center">
-              <div
-                class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
-              >
-                <h3 class="text-2xl font-semibold mb-4">
-                  <span data-lang="zh">Web 客户端</span>
-                  <span data-lang="en">Web Client Support</span>
-                </h3>
-                <p class="text-gray-600 text-center">
-                  <span data-lang="zh"
-                    >支持 Web 客户端访问，满足多平台多场景远程访问需求。</span
+              <div class="preview-slide">
+                <h3>
+                  <span data-lang="zh">打开浏览器，连接远程桌面。</span
+                  ><span data-lang="en"
+                    >Your remote desktop, in a browser.</span
                   >
-                  <span data-lang="en"
-                    >Support Web client access, meet the needs of multi-platform
-                    multi-scenario remote access.
-                  </span>
+                </h3>
+                <p class="text-center">
+                  <span data-lang="zh"
+                    >当前 Web 客户端连接首页，输入设备 ID
+                    与密码即可发起连接。</span
+                  ><span data-lang="en"
+                    >The current Web connection page. Enter a device ID and
+                    password to start a session.</span
+                  >
                 </p>
-
-                <img
-                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
-                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/web-client.webp"
-                  data-local="assets/images/web-client.webp"
-                  alt="CrossDesk Web 客户端远程访问界面"
-                  width="1003"
-                  height="640"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full max-w-4xl h-auto mb-4 object-contain"
-                />
+                <div class="preview-image">
+                  <img
+                    src="assets/images/web-client-current.webp"
+                    data-src-zh="assets/images/web-client-current.webp"
+                    data-src-en="assets/images/web-client-current.webp"
+                    alt="CrossDesk Web 客户端连接首页，版本 2026.10.17.1，设备 ID 与密码为空"
+                    data-alt-zh="CrossDesk Web 客户端连接首页，版本 2026.10.17.1，设备 ID 与密码为空"
+                    data-alt-en="CrossDesk Web connection page, version 2026.10.17.1, with empty ID and password fields"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
-
             <div class="swiper-slide flex justify-center items-center">
-              <div
-                class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
-              >
-                <h3 class="text-2xl font-semibold mb-4">
-                  <span data-lang="zh">硬件加速支持</span>
-                  <span data-lang="en">Hardware Acceleration</span>
+              <div class="preview-slide">
+                <h3>
+                  <span data-lang="zh">多个远程桌面，同屏掌握。</span
+                  ><span data-lang="en">Multiple desktops. One view.</span>
                 </h3>
-                <p class="text-gray-600 text-center">
+                <p class="text-center">
                   <span data-lang="zh"
-                    >支持 NVIDIA Video Codec、Video Toolbox 硬件加速，支持
-                    H.264、AV1 编码格式。</span
-                  >
-                  <span data-lang="en"
-                    >Supports NVIDIA Video Codec, Video Toolbox acceleration,
-                    and H.264/AV1 formats.</span
+                    >在桌面墙中查看设备预览，通过分组、选择和分页管理连接。</span
+                  ><span data-lang="en"
+                    >View device previews in DeskHub and manage connections with
+                    groups, selection, and pagination.</span
                   >
                 </p>
-
-                <img
-                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
-                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/codecs.webp"
-                  data-local="assets/images/codecs.webp"
-                  alt="CrossDesk 支持 NVIDIA Video Codec、Video Toolbox、H.264 和 AV1 硬件加速"
-                  width="6400"
-                  height="3600"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full max-w-4xl h-auto mb-4 object-contain"
-                />
+                <div class="preview-image">
+                  <img
+                    src="assets/images/desktop-deskhub-zh.webp"
+                    data-src-zh="assets/images/desktop-deskhub-zh.webp"
+                    data-src-en="assets/images/desktop-deskhub-en.webp"
+                    alt="CrossDesk 桌面墙，展示六台使用演示数据的设备"
+                    data-alt-zh="CrossDesk 桌面墙，展示六台使用演示数据的设备"
+                    data-alt-en="CrossDesk DeskHub displaying six demonstration devices"
+                    width="1920"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
-
             <div class="swiper-slide flex justify-center items-center">
-              <div
-                class="bg-white text-gray-800 transition-all p-8 flex flex-col items-center w-full max-w-4xl mx-auto"
-              >
-                <h3 class="text-2xl font-semibold mb-4">
-                  <span data-lang="zh">多设备支持</span>
-                  <span data-lang="en">Multi-device Support</span>
+              <div class="preview-slide">
+                <h3>
+                  <span data-lang="zh">从手机出发，连接你的电脑。</span>
+                  <span data-lang="en">Your computer, within reach.</span>
                 </h3>
-                <p class="text-gray-600 text-center">
+                <p>
                   <span data-lang="zh"
-                    >可同时连接和管理多个远程设备，灵活满足多种使用场景。</span
+                    >支持 iOS 与 Android，随时连接和操作远程桌面。</span
                   >
                   <span data-lang="en"
-                    >Connect and manage multiple remote devices simultaneously,
-                    flexibly meeting diverse use cases.</span
+                    >Connect to and control your remote desktop from iOS or
+                    Android, wherever you are.</span
                   >
                 </p>
-
-                <img
-                  src="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
-                  data-cdn="https://cdn.jsdelivr.net/gh/kunkundi/kunkundi.github.io/assets/images/multi-device.webp"
-                  data-local="assets/images/multi-device.webp"
-                  alt="CrossDesk 同时连接和管理多个远程设备"
-                  width="1280"
-                  height="720"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full max-w-4xl h-auto mb-4 object-contain"
-                />
+                <div class="preview-image">
+                  <img
+                    class="mobile-client-image"
+                    src="assets/images/ios-native-connected-device.webp"
+                    data-src-zh="assets/images/ios-native-connected-device.webp"
+                    data-src-en="assets/images/ios-native-connected-device.webp"
+                    alt="横屏 iPhone 展示 iOS 原生客户端已连接远程 macOS 桌面，悬浮控制窗处于展开状态，来自模拟器实际截图"
+                    data-alt-zh="横屏 iPhone 展示 iOS 原生客户端已连接远程 macOS 桌面，悬浮控制窗处于展开状态，来自模拟器实际截图"
+                    data-alt-en="Landscape iPhone showing the native iOS app connected to a remote macOS desktop with its floating controls expanded, captured in the simulator"
+                    width="963"
+                    height="471"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- pagination -->
-          <div class="swiper-pagination mt-6 mb-12"></div>
+          <div class="swiper-pagination"></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- contact -->
-    <section
-      id="contact"
-      class="bg-gradient-to-b from-blue-50 to-indigo-50 py-20 border-t border-indigo-100"
-    >
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">
-          <span data-lang="zh">反馈与建议</span>
-          <span data-lang="en">Feedback</span>
-        </h2>
-        <p class="text-gray-600 mb-4">
-          <span data-lang="zh"
-            >如需协作、技术咨询或反馈建议，欢迎通过以下方式联系：</span
-          >
-          <span data-lang="en"
-            >For collaboration, technical support, or feedback, please contact
-            me at:</span
-          >
-        </p>
-        <div
-          class="inline-block bg-white px-6 py-3 rounded-xl shadow-sm border border-indigo-100 hover:shadow-md transition-all duration-300"
-        >
-          <a
-            href="mailto:junkun.di@hotmail.com"
-            class="text-lg text-indigo-700 hover:text-indigo-900 transition-colors"
-          >
-            junkun.di@hotmail.com
-          </a>
+      <section
+        id="contact"
+        class="contact-section page-shell"
+        aria-labelledby="contact-title"
+      >
+        <div>
+          <p class="section-kicker">
+            <span data-lang="zh">一起完善 / GET IN TOUCH</span
+            ><span data-lang="en">BUILD WITH US / GET IN TOUCH</span>
+          </p>
+          <h2 id="contact-title">
+            <span data-lang="zh">让每一次连接，都更好。</span
+            ><span data-lang="en">Make every connection better.</span>
+          </h2>
+          <p>
+            <span data-lang="zh"
+              >产品反馈、技术交流或协作建议，欢迎与我们联系。</span
+            ><span data-lang="en"
+              >Share feedback, ask a technical question, or discuss a
+              collaboration.</span
+            >
+          </p>
         </div>
-      </div>
-    </section>
-
-    <!-- footer -->
-    <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
-      <div class="flex flex-wrap justify-center gap-4 px-6">
-        <span>© 2025 CrossDesk</span>
-        <a href="/code-signing-policy.html" class="hover:text-indigo-700"
-          >Code signing policy</a
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:junkun.di@hotmail.com"
+            ><span data-lang="zh">联系开发者</span
+            ><span data-lang="en">Get in touch</span></a
+          ><a class="contact-email" href="mailto:junkun.di@hotmail.com"
+            >junkun.di@hotmail.com</a
+          >
+        </div>
+        <section
+          id="sponsor"
+          class="sponsorship"
+          aria-labelledby="sponsor-title"
         >
-        <a href="/privacy.html" class="hover:text-indigo-700">
-          <span data-lang="zh">隐私政策</span>
-          <span data-lang="en">Privacy policy</span>
-        </a>
+          <div class="sponsorship-copy">
+            <h3 id="sponsor-title">
+              <span data-lang="zh">赞助支持</span
+              ><span data-lang="en">Sponsorship</span>
+            </h3>
+            <p>
+              <span data-lang="zh">支持 CrossDesk 持续开发。</span
+              ><span data-lang="en"
+                >Support the continued development of CrossDesk.</span
+              >
+            </p>
+          </div>
+          <div class="sponsor-links" data-sponsor-links>
+            <a
+              class="button sponsor-link"
+              data-sponsor="afdian"
+              href="https://afdian.com/a/kunkundi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/sponsors/afdian.png"
+                width="22"
+                height="22"
+                alt=""
+                loading="lazy"
+              />
+              <span data-lang="zh">爱发电</span
+              ><span data-lang="en">AFDIAN</span>
+            </a>
+            <a
+              class="button sponsor-link"
+              data-sponsor="kofi"
+              href="https://ko-fi.com/kunkundi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/sponsors/kofi.png"
+                width="22"
+                height="22"
+                alt=""
+                loading="lazy"
+              />
+              <span>Ko-fi</span>
+            </a>
+            <a
+              class="button sponsor-link"
+              data-sponsor="github"
+              href="https://github.com/sponsors/kunkundi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="assets/images/sponsors/github.svg"
+                width="22"
+                height="22"
+                alt=""
+                loading="lazy"
+              />
+              <span>GitHub Sponsors</span>
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="site-footer page-shell">
+      <div class="footer-bottom">
+        <span>© 2026 CrossDesk</span>
+        <nav aria-label="Legal">
+          <a href="/code-signing-policy.html"
+            ><span data-lang="zh">代码签名政策</span
+            ><span data-lang="en">Code signing policy</span></a
+          ><a href="/privacy.html"
+            ><span data-lang="zh">隐私政策</span
+            ><span data-lang="en">Privacy policy</span></a
+          >
+        </nav>
+        <a href="#main"
+          ><span data-lang="zh">回到顶部</span
+          ><span data-lang="en">Back to top</span></a
+        >
       </div>
     </footer>
-
-    <!-- language + menu script -->
-    <script>
-      function switchLanguage(lang) {
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          el.style.display =
-            el.getAttribute("data-lang") === lang ? "" : "none";
-        });
-        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-        localStorage.setItem("lang", lang);
-      }
-
-      document
-        .querySelectorAll(".lang-zh")
-        .forEach((btn) =>
-          btn.addEventListener("click", () => switchLanguage("zh")),
-        );
-      document
-        .querySelectorAll(".lang-en")
-        .forEach((btn) =>
-          btn.addEventListener("click", () => switchLanguage("en")),
-        );
-
-      const savedLang =
-        localStorage.getItem("lang") ||
-        ((navigator.language || "").toLowerCase().startsWith("zh")
-          ? "zh"
-          : "en");
-      switchLanguage(savedLang);
-
-      const menuBtn = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobilePanel = document.getElementById("mobile-panel");
-      const closeBtn = document.getElementById("menu-close");
-
-      function openMenu() {
-        mobileMenu.classList.remove("hidden");
-        requestAnimationFrame(() => {
-          mobilePanel.classList.remove("translate-x-full");
-          menuBtn.setAttribute("aria-expanded", "true");
-          mobileMenu.setAttribute("aria-hidden", "false");
-        });
-      }
-      function closeMenu() {
-        mobilePanel.classList.add("translate-x-full");
-        setTimeout(() => {
-          mobileMenu.classList.add("hidden");
-          menuBtn.setAttribute("aria-expanded", "false");
-          mobileMenu.setAttribute("aria-hidden", "true");
-        }, 300);
-      }
-
-      menuBtn.addEventListener("click", openMenu);
-      closeBtn.addEventListener("click", closeMenu);
-
-      mobileMenu.addEventListener("click", (e) => {
-        if (e.target === mobileMenu) closeMenu();
-      });
-
-      mobileMenu
-        .querySelectorAll("a")
-        .forEach((a) => a.addEventListener("click", closeMenu));
-
-      // image load timeoui, use local image
-      function setupImageFallback(img) {
-        const cdnUrl = img.getAttribute("data-cdn");
-        const localUrl = img.getAttribute("data-local");
-
-        if (!cdnUrl || !localUrl) return;
-
-        const timeout = 1000; // 1 seconds
-        let timeoutId;
-        let loaded = false;
-
-        const testImg = new Image();
-
-        const loadLocal = () => {
-          if (!loaded) {
-            loaded = true;
-            img.src = localUrl;
-          }
-        };
-
-        timeoutId = setTimeout(() => {
-          if (!loaded) {
-            testImg.onload = null;
-            testImg.onerror = null;
-            loadLocal();
-          }
-        }, timeout);
-
-        // check CDN status
-        testImg.onload = () => {
-          if (!loaded) {
-            loaded = true;
-            clearTimeout(timeoutId);
-          }
-        };
-
-        testImg.onerror = () => {
-          if (!loaded) {
-            loadLocal();
-            clearTimeout(timeoutId);
-          }
-        };
-
-        // begin to test loading image
-        testImg.src = cdnUrl;
-
-        // if original image loading failed, also switch to local image
-        img.onerror = () => {
-          if (!loaded) {
-            loadLocal();
-            clearTimeout(timeoutId);
-          }
-        };
-      }
-
-      // setup image fallback
-      document
-        .querySelectorAll("img[data-cdn][data-local]")
-        .forEach(setupImageFallback);
-
-      new Swiper(".mySwiper", {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 20,
-        autoplay: {
-          delay: 3000, // every 3 seconds
-          disableOnInteraction: false,
-        },
-        pagination: { el: ".swiper-pagination", clickable: true },
-        breakpoints: {
-          640: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-        },
-      });
-
-      // realtime stats
-      const STATS_API_URL = "https://api.crossdesk.cn:9099/stats";
-      const STATS_REFRESH_INTERVAL = 10000;
-      const STATS_REQUEST_TIMEOUT = 5000;
-
-      function formatStatsCount(value) {
-        const count = Number(value);
-        return Number.isFinite(count) ? count.toLocaleString() : "--";
-      }
-
-      function updateStatsUI(data) {
-        const onlineDeviceBaseCount = Number(data?.online_device_count);
-        const onlineWebClientCount = Number(data?.online_web_client_count);
-        const onlineDeviceTotalCount = Number.isFinite(onlineDeviceBaseCount)
-          ? onlineDeviceBaseCount +
-            (Number.isFinite(onlineWebClientCount) ? onlineWebClientCount : 0)
-          : data?.online_device_count;
-        const onlineDeviceCount = formatStatsCount(onlineDeviceTotalCount);
-        const activeConnectionCount = formatStatsCount(
-          data?.active_connection_count,
-        );
-
-        document
-          .querySelectorAll("[data-online-device-count]")
-          .forEach((el) => {
-            el.textContent = onlineDeviceCount;
-          });
-        document
-          .querySelectorAll("[data-active-connection-count]")
-          .forEach((el) => {
-            el.textContent = activeConnectionCount;
-          });
-      }
-
-      async function fetchRealtimeStats() {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(
-          () => controller.abort(),
-          STATS_REQUEST_TIMEOUT,
-        );
-
-        try {
-          const response = await fetch(STATS_API_URL, {
-            method: "GET",
-            mode: "cors",
-            cache: "no-store",
-            signal: controller.signal,
-            headers: {
-              Accept: "application/json",
-            },
-          });
-
-          if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
-          }
-
-          const data = await response.json();
-          updateStatsUI(data);
-        } catch (error) {
-          if (error.name === "AbortError") {
-            console.warn("获取在线统计超时");
-          } else {
-            console.warn("获取在线统计失败:", error.message);
-          }
-        } finally {
-          clearTimeout(timeoutId);
-        }
-      }
-
-      fetchRealtimeStats();
-      setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
-
-      // version Management
-      (async function () {
-        const VERSION_API_URL = "https://version.crossdesk.cn/version.json";
-        const CACHE_KEY = "crossdesk_version_cache";
-        const CACHE_TIMESTAMP_KEY = "crossdesk_version_timestamp";
-        const CACHE_DURATION = 60 * 60 * 1000;
-
-        const defaultVersionData = {
-          version: "1.6.0-20260930",
-          releaseDate: "2026-09-30",
-          downloads: {
-            "windows-x64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-v1.6.0-20260930.exe",
-              filename: "crossdesk-win-x64-v1.6.0-20260930.exe",
-            },
-            "windows-x64-portable": {
-              url: "https://downloads.crossdesk.cn/crossdesk-win-x64-portable-v1.6.0-20260930.zip",
-              filename:
-                "crossdesk-win-x64-portable-v1.6.0-20260930.zip",
-            },
-            "macos-x64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.6.0-20260930.pkg",
-              filename: "crossdesk-macos-x64-v1.6.0-20260930.pkg",
-            },
-            "macos-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.6.0-20260930.pkg",
-              filename: "crossdesk-macos-arm64-v1.6.0-20260930.pkg",
-            },
-            "linux-amd64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-linux-amd64-v1.6.0-20260930.deb",
-              filename: "crossdesk-linux-amd64-v1.6.0-20260930.deb",
-            },
-            "linux-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-linux-arm64-v1.6.0-20260930.deb",
-              filename: "crossdesk-linux-arm64-v1.6.0-20260930.deb",
-            },
-            "ios-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
-              filename: "crossdesk-ios-arm64-unsigned-v0.0.1-20260930.zip",
-              version: "0.0.1-20260930",
-            },
-            "android-arm64": {
-              url: "https://downloads.crossdesk.cn/crossdesk-android-arm64-v1.6.0-20261002.apk",
-              filename: "crossdesk-android-arm64-v1.6.0-20261002.apk",
-              version: "1.6.0-20261002",
-            },
-          },
-        };
-
-        let versionData = defaultVersionData;
-
-        // get cached version
-        function getCachedVersion() {
-          try {
-            const cached = localStorage.getItem(CACHE_KEY);
-            const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
-            if (cached && timestamp) {
-              const age = Date.now() - parseInt(timestamp);
-              if (age < CACHE_DURATION) {
-                return JSON.parse(cached);
-              }
-            }
-          } catch (e) {
-            console.warn("读取缓存失败:", e);
-          }
-          return null;
-        }
-
-        // update version ui
-        function updateVersionUI(data) {
-          if (!data) return;
-
-          const versionDisplay = document.getElementById("version-display");
-          if (versionDisplay && data.version) {
-            versionDisplay.textContent = `v${data.version}`;
-          }
-
-          const dateDisplay = document.getElementById("release-date-display");
-          if (dateDisplay && data.releaseDate) {
-            dateDisplay.textContent = data.releaseDate;
-          }
-
-          if (data.downloads) {
-            const downloads = {
-              ...defaultVersionData.downloads,
-              ...data.downloads,
-            };
-            document.querySelectorAll("[data-download]").forEach((link) => {
-              const key = link.dataset.download;
-              const downloadInfo = downloads[key];
-              // Replace links to clear tracking handlers from a prior cache/API update.
-              const newLink = link.cloneNode(true);
-              if (downloadInfo && downloadInfo.url) {
-                newLink.href = downloadInfo.url;
-                newLink.removeAttribute("aria-disabled");
-                if (downloadInfo.filename) {
-                  newLink.title = downloadInfo.filename;
-                }
-
-                // baidu tracking event
-                const trackDownload = function () {
-                  if (typeof _hmt !== "undefined") {
-                    const version =
-                      downloadInfo.version || data.version || "unknown";
-                    _hmt.push([
-                      "_trackEvent",
-                      "下载",
-                      "点击下载",
-                      `${key}-${version}`,
-                    ]);
-                  }
-                };
-
-                newLink.addEventListener("click", trackDownload);
-              } else {
-                // A package becomes downloadable only after it appears in the manifest.
-                newLink.removeAttribute("href");
-                newLink.removeAttribute("title");
-                newLink.setAttribute("aria-disabled", "true");
-              }
-              link.parentNode.replaceChild(newLink, link);
-            });
-          }
-        }
-
-        function saveToCache(data) {
-          try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-            localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
-          } catch (e) {
-            console.warn("保存缓存失败:", e);
-          }
-        }
-
-        const cached = getCachedVersion();
-        if (cached) {
-          versionData = cached;
-          updateVersionUI(versionData);
-        } else {
-          updateVersionUI(versionData);
-        }
-
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-          const response = await fetch(VERSION_API_URL, {
-            method: "GET",
-            mode: "cors",
-            cache: "no-cache",
-            signal: controller.signal,
-            headers: {
-              Accept: "application/json",
-            },
-          });
-
-          clearTimeout(timeoutId);
-
-          if (response.ok) {
-            const data = await response.json();
-            if (data && data.version && data.downloads) {
-              versionData = data;
-              updateVersionUI(versionData);
-              saveToCache(data);
-            } else {
-              console.warn("API 返回的数据格式不正确");
-            }
-          } else {
-            console.warn(
-              "⚠️ API 请求失败:",
-              response.status,
-              response.statusText,
-            );
-          }
-        } catch (error) {
-          if (error.name === "AbortError") {
-            console.warn("请求超时，使用缓存或默认值");
-          } else {
-            console.warn("获取版本信息失败:", error.message);
-          }
-
-          if (!cached) {
-            updateVersionUI(versionData);
-          }
-        }
-      })();
-    </script>
+    <script src="assets/site.js"></script>
   </body>
 </html>
