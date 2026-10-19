@@ -151,11 +151,11 @@
         </a>
         <span class="brand-caption"><span data-lang="en">Open-source remote desktop</span></span>
         <nav id="menu" class="site-desktop-nav" aria-label="Main navigation">
-          <a href="/en/features/"><span data-lang="en">Features</span></a>
-          <a href="/en/download/"><span data-lang="en">Download</span></a>
+          <a href="#features"><span data-lang="en">Features</span></a>
+          <a href="#download"><span data-lang="en">Download</span></a>
           <a href="#screenshot"><span data-lang="en">Preview</span></a>
           <a href="#contact"><span data-lang="en">Contact</span></a>
-          <a href="/en/self-hosting/"><span data-lang="en">Self-hosting</span></a>
+          <a href="#sponsor"><span data-lang="en">Sponsor</span></a>
         </nav>
         <div class="header-actions">
           <div class="language-switch" role="group" aria-label="Language">
@@ -179,8 +179,8 @@
       </div>
       <div id="mobile-menu" hidden>
         <nav class="page-shell" aria-label="Mobile navigation">
-          <a href="/en/features/"><span data-lang="en">Features</span></a>
-          <a href="/en/download/"><span data-lang="en">Download</span></a>
+          <a href="#features"><span data-lang="en">Features</span></a>
+          <a href="#download"><span data-lang="en">Download</span></a>
           <a href="#screenshot"><span data-lang="en">Preview</span></a>
           <a href="#contact"><span data-lang="en">Contact</span></a>
           <a href="#sponsor"><span data-lang="en">Sponsor</span></a>
@@ -189,8 +189,7 @@
           <a class="github-link" href="https://github.com/kunkundi/crossdesk" target="_blank" rel="noopener noreferrer">GitHub
             <span class="github-stars"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z" /></svg><span data-github-stars>Star</span></span></a>
-                  <a href="/en/self-hosting/"><span data-lang="en">Self-hosting</span></a>
-</nav>
+        </nav>
       </div>
     </header>
 
@@ -206,7 +205,7 @@
               <span data-lang="en">CrossDesk is free, open-source remote desktop software for Windows, macOS, Linux, iOS, Android, and the web, with hardware acceleration and self-hosting.</span>
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="/en/download/"><span data-lang="en">Download CrossDesk</span></a>
+              <a class="button button-primary" href="#download"><span data-lang="en">Download CrossDesk</span></a>
               <a class="button button-secondary" href="https://web.crossdesk.cn/" target="_blank" rel="noopener noreferrer"><span data-lang="en">Open web client</span></a>
             </div>
             <div class="hero-links">
@@ -269,6 +268,10 @@
             </p>
           </div>
         </article>
+        <div class="capability-links">
+          <a class="text-link" href="/en/features/"><span data-lang="en">Explore the feature guide →</span></a>
+          <a class="text-link" href="/en/self-hosting/"><span data-lang="en">Read the self-hosting guide →</span></a>
+        </div>
       </section>
 
       <section id="download" class="downloads-section page-shell" aria-labelledby="download-title">
@@ -286,7 +289,6 @@
               remote experience.</span>
           </p>
         </div>
-        <p class="section-guide-link"><a class="text-link" href="/en/download/"><span data-lang="en">All downloads, system requirements, and installation notes →</span></a></p>
         <div class="download-panel">
           <div class="release-meta">
             <div class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3">
@@ -308,6 +310,19 @@
 
                 <span data-lang="en">Release Date</span>
                 <span id="release-date-display" class="font-bold">2026-10-14</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-download-buttons flex flex-wrap justify-center gap-4">
+            <!-- windows dropdown -->
+            <div class="download-dropdown" data-platform="windows">
+              <button type="button" aria-expanded="false" aria-controls="windows-download-menu" class="platform-download-button windows-download-button font-medium px-4 py-2 rounded-xl shadow transition w-40 text-sm flex items-center justify-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewbox="0 0 448 512">
+                  <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                  <path fill="currentColor" d="M0 93.7l183.6-25.3 0 177.4-183.6 0 0-152.1zM0 418.3l183.6 25.3 0-175.2-183.6 0 0 149.9zm203.8 28l244.2 33.7 0-211.6-244.2 0 0 177.9zm0-380.6l0 180.1 244.2 0 0-213.8-244.2 33.7z" />
+                </svg>
+                <span>Windows</span>
                 <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
                   <path d="M19 9l-7 7-7-7" />
                 </svg>
@@ -419,6 +434,9 @@
               installing it on an iPhone or iPad.</span>
           </p>
         </div>
+        <p class="section-guide-link">
+          <a class="text-link" href="/en/download/#requirements"><span data-lang="en">System requirements and installation guide →</span></a>
+        </p>
       </section>
 
       <section id="screenshot" class="preview-section page-shell" aria-labelledby="preview-title">
@@ -561,9 +579,9 @@
       <div class="footer-bottom">
         <span>© 2026 CrossDesk</span>
         <nav aria-label="Site links">
-          <a href="/en/download/"><span data-lang="en">Download</span></a>
-          <a href="/en/features/"><span data-lang="en">Features</span></a>
-          <a href="/en/self-hosting/"><span data-lang="en">Self-hosting</span></a>
+          <a href="/en/download/"><span data-lang="en">Download &amp; install</span></a>
+          <a href="/en/features/"><span data-lang="en">Feature guide</span></a>
+          <a href="/en/self-hosting/"><span data-lang="en">Self-hosting guide</span></a>
           <a href="/en/code-signing-policy.html"><span data-lang="en">Code signing policy</span></a><a href="/en/privacy.html"><span data-lang="en">Privacy policy</span></a>
         </nav>
         <a href="#main"><span data-lang="en">Back to top</span></a>
