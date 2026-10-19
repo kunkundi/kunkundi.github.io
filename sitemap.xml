@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.crossdesk.cn/</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.crossdesk.cn/en/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
     <loc>https://www.crossdesk.cn/code-signing-policy.html</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.crossdesk.cn/en/code-signing-policy.html</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
     <loc>https://www.crossdesk.cn/privacy.html</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.crossdesk.cn/en/privacy.html</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
 </urlset>

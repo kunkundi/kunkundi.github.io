@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrossDesk Code Signing Policy | CrossDesk 代码签名政策</title>
+    <title>CrossDesk 代码签名政策 - Windows 安装包签名与验证</title>
     <meta
       name="description"
-      content="CrossDesk 官方 Windows 发布包的代码签名政策，包括签名服务、证书和审批职责。Code signing policy for official CrossDesk Windows releases."
+      content="了解 CrossDesk 官方 Windows 发布包的代码签名政策，包括 SignPath 签名服务、证书提供方、签名验证及审批职责。"
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="CrossDesk" />
@@ -15,10 +15,53 @@
       rel="canonical"
       href="https://www.crossdesk.cn/code-signing-policy.html"
     />
-    <link href="dist/tailwind.css" rel="stylesheet" />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.crossdesk.cn/code-signing-policy.html" />
+    <link rel="alternate" hreflang="en" href="https://www.crossdesk.cn/en/code-signing-policy.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.crossdesk.cn/code-signing-policy.html" />
+    <script src="/assets/language.js" defer></script>
+    <link href="/dist/tailwind.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CrossDesk" />
+    <meta property="og:title" content="CrossDesk 代码签名政策 - Windows 安装包签名与验证" />
+    <meta property="og:description" content="了解 CrossDesk 官方 Windows 发布包的代码签名政策，包括 SignPath 签名服务、证书提供方、签名验证及审批职责。" />
+    <meta property="og:url" content="https://www.crossdesk.cn/code-signing-policy.html" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp" />
+    <meta property="og:image:alt" content="CrossDesk 多平台远程桌面客户端" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CrossDesk 代码签名政策 - Windows 安装包签名与验证" />
+    <meta name="twitter:description" content="了解 CrossDesk 官方 Windows 发布包的代码签名政策，包括 SignPath 签名服务、证书提供方、签名验证及审批职责。" />
+    <meta name="twitter:image" content="https://www.crossdesk.cn/assets/images/cross-platform-current-zh.webp" />
+    <meta name="twitter:image:alt" content="CrossDesk 多平台远程桌面客户端" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.crossdesk.cn/code-signing-policy.html#webpage",
+        "url": "https://www.crossdesk.cn/code-signing-policy.html",
+        "name": "CrossDesk 代码签名政策 - Windows 安装包签名与验证",
+        "description": "了解 CrossDesk 官方 Windows 发布包的代码签名政策，包括 SignPath 签名服务、证书提供方、签名验证及审批职责。",
+        "inLanguage": "zh-CN",
+        "isPartOf": {
+          "@id": "https://www.crossdesk.cn/#website"
+        },
+        "about": {
+          "@id": "https://www.crossdesk.cn/#software"
+        }
+      }
+    </script>
     <style>
+      html[lang="zh-CN"] [data-lang="en"],
+      html[lang="en"] [data-lang="zh"] {
+        display: none !important;
+      }
+      a[aria-current="page"] {
+        color: #1e3a8a;
+        font-weight: 600;
+      }
       .site-header-inner {
         max-width: 90rem;
         gap: 2rem;
@@ -261,18 +304,23 @@
             <span data-lang="en">Privacy Policy</span>
           </a>
           <div class="flex items-center space-x-2 border-l pl-4">
-            <button
-              type="button"
+            <a
               class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
+              href="/code-signing-policy.html"
+              hreflang="zh-CN"
+              lang="zh-CN"
+              aria-current="page"
             >
               中文
-            </button>
-            <button
-              type="button"
+            </a>
+            <a
               class="lang-en text-sm text-gray-500 hover:text-indigo-500"
+              href="/en/code-signing-policy.html"
+              hreflang="en"
+              lang="en"
             >
               English
-            </button>
+            </a>
           </div>
           <div
             class="realtime-stats realtime-stats--desktop"
@@ -372,18 +420,23 @@
               <span data-lang="en">Privacy Policy</span>
             </a>
             <div class="flex space-x-2 pt-4 border-t">
-              <button
-                type="button"
+              <a
                 class="lang-zh text-sm text-gray-500 hover:text-indigo-500"
+                href="/code-signing-policy.html"
+                hreflang="zh-CN"
+                lang="zh-CN"
+                aria-current="page"
               >
                 中文
-              </button>
-              <button
-                type="button"
+              </a>
+              <a
                 class="lang-en text-sm text-gray-500 hover:text-indigo-500"
+                href="/en/code-signing-policy.html"
+                hreflang="en"
+                lang="en"
               >
                 English
-              </button>
+              </a>
             </div>
             <div class="flex space-x-2 pt-4 border-t">
               <a
@@ -593,55 +646,6 @@
     </footer>
 
     <script>
-      function switchLanguage(lang) {
-        document.querySelectorAll("[data-lang]").forEach((element) => {
-          element.style.display =
-            element.getAttribute("data-lang") === lang ? "" : "none";
-        });
-        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-        localStorage.setItem("lang", lang);
-      }
-
-      function selectLanguage(lang) {
-        switchLanguage(lang);
-        window.history.replaceState(
-          null,
-          "",
-          lang === "zh" ? "#中文" : "#english",
-        );
-      }
-
-      document
-        .querySelectorAll(".lang-zh")
-        .forEach((button) =>
-          button.addEventListener("click", () => selectLanguage("zh")),
-        );
-      document
-        .querySelectorAll(".lang-en")
-        .forEach((button) =>
-          button.addEventListener("click", () => selectLanguage("en")),
-        );
-
-      function getHashLanguage() {
-        const hash = decodeURIComponent(window.location.hash).toLowerCase();
-        if (hash === "#中文") return "zh";
-        if (hash === "#english") return "en";
-        return null;
-      }
-
-      const selectedLanguage =
-        getHashLanguage() ||
-        localStorage.getItem("lang") ||
-        ((navigator.language || "").toLowerCase().startsWith("zh")
-          ? "zh"
-          : "en");
-      switchLanguage(selectedLanguage);
-
-      window.addEventListener("hashchange", () => {
-        const hashLanguage = getHashLanguage();
-        if (hashLanguage) switchLanguage(hashLanguage);
-      });
-
       const menuButton = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
       const mobilePanel = document.getElementById("mobile-panel");

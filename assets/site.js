@@ -1,57 +1,13 @@
-// Language preference is optional; storage restrictions must not break controls.
-function switchLanguage(lang) {
-  const language = lang === "en" ? "en" : "zh";
-  document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
-  document
-    .querySelectorAll("img[data-src-zh][data-src-en]")
-    .forEach((image) => {
-      const source = image.getAttribute(`data-src-${language}`);
-      if (image.getAttribute("src") !== source)
-        image.setAttribute("src", source);
-      const description = image.getAttribute(`data-alt-${language}`);
-      if (description) image.alt = description;
-    });
-  document.querySelectorAll(".lang-zh, .lang-en").forEach((button) => {
-    button.setAttribute(
-      "aria-pressed",
-      String(button.classList.contains(`lang-${language}`)),
-    );
-  });
-  const sponsorLinks = document.querySelector("[data-sponsor-links]");
-  const sponsorOrder =
-    language === "zh"
-      ? ["afdian", "kofi", "github"]
-      : ["kofi", "github", "afdian"];
-  sponsorOrder.forEach((platform) => {
-    const link = sponsorLinks?.querySelector(`[data-sponsor="${platform}"]`);
-    if (link) sponsorLinks.appendChild(link);
-  });
-  try {
-    localStorage.setItem("lang", language);
-  } catch (_) {
-    /* Private storage may be unavailable. */
-  }
-}
-let savedLang;
-try {
-  savedLang = localStorage.getItem("lang");
-} catch (_) {
-  /* Use browser language. */
-}
-switchLanguage(
-  savedLang ||
-    ((navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en"),
-);
-document
-  .querySelectorAll(".lang-zh")
-  .forEach((button) =>
-    button.addEventListener("click", () => switchLanguage("zh")),
-  );
-document
-  .querySelectorAll(".lang-en")
-  .forEach((button) =>
-    button.addEventListener("click", () => switchLanguage("en")),
-  );
+// Each language has a stable URL and static metadata and images.
+const sponsorLinks = document.querySelector("[data-sponsor-links]");
+const sponsorOrder =
+  document.documentElement.lang === "en"
+    ? ["kofi", "github", "afdian"]
+    : ["afdian", "kofi", "github"];
+sponsorOrder.forEach((platform) => {
+  const link = sponsorLinks?.querySelector(`[data-sponsor="${platform}"]`);
+  if (link) sponsorLinks.appendChild(link);
+});
 
 const menuButton = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");

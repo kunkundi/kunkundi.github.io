@@ -3,14 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrossDesk - 开源跨平台远程桌面软件，支持 Web 客户端</title>
+    <title>CrossDesk - 免费开源远程桌面软件，支持跨平台与 Web 远程控制</title>
     <meta
       name="description"
-      content="CrossDesk 是免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。"
-    />
-    <meta
-      name="keywords"
-      content="CrossDesk,远程桌面,远程控制,开源远程桌面,跨平台远程桌面,Web 远程桌面,自托管远程桌面,Windows 远程桌面,macOS 远程桌面,Linux 远程桌面"
+      content="CrossDesk 是免费、轻量的开源远程桌面软件，支持 Windows、macOS、Linux 桌面端，iOS、Android 移动端及 Web 客户端，提供硬件加速、自托管部署与多设备管理。"
     />
     <meta
       name="robots"
@@ -20,19 +16,23 @@
     <meta name="application-name" content="CrossDesk" />
     <meta name="theme-color" content="#255397" />
     <link rel="canonical" href="https://www.crossdesk.cn/" />
-    <link href="dist/tailwind.css" rel="stylesheet" />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="stylesheet" href="assets/swiper/swiper-bundle.min.css" />
-    <script src="assets/swiper/swiper-bundle.min.js"></script>
+    <link rel="alternate" hreflang="zh-CN" href="https://www.crossdesk.cn/" />
+    <link rel="alternate" hreflang="en" href="https://www.crossdesk.cn/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.crossdesk.cn/" />
+    <script src="/assets/language.js" defer></script>
+    <link href="/dist/tailwind.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/assets/swiper/swiper-bundle.min.css" />
+    <script src="/assets/swiper/swiper-bundle.min.js" defer></script>
     <!-- OpenGraph Meta -->
     <meta
       property="og:title"
-      content="CrossDesk - 开源跨平台远程桌面软件，支持 Web 客户端"
+      content="CrossDesk - 免费开源远程桌面软件，支持跨平台与 Web 远程控制"
     />
     <meta
       property="og:description"
-      content="免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。"
+      content="CrossDesk 是免费、轻量的开源远程桌面软件，支持 Windows、macOS、Linux 桌面端，iOS、Android 移动端及 Web 客户端，提供硬件加速、自托管部署与多设备管理。"
     />
     <meta
       property="og:image"
@@ -59,11 +59,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="CrossDesk - 开源跨平台远程桌面软件，支持 Web 客户端"
+      content="CrossDesk - 免费开源远程桌面软件，支持跨平台与 Web 远程控制"
     />
     <meta
       name="twitter:description"
-      content="免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端。"
+      content="CrossDesk 是免费、轻量的开源远程桌面软件，支持 Windows、macOS、Linux 桌面端，iOS、Android 移动端及 Web 客户端，提供硬件加速、自托管部署与多设备管理。"
     />
     <meta
       name="twitter:image"
@@ -85,7 +85,10 @@
             "name": "CrossDesk",
             "url": "https://www.crossdesk.cn/",
             "description": "CrossDesk 是免费、轻量且易用的开源跨平台远程桌面软件。",
-            "inLanguage": ["zh-CN", "en"],
+            "inLanguage": [
+              "zh-CN",
+              "en"
+            ],
             "publisher": {
               "@id": "https://www.crossdesk.cn/#organization"
             }
@@ -95,15 +98,18 @@
             "@id": "https://www.crossdesk.cn/#organization",
             "name": "CrossDesk",
             "url": "https://www.crossdesk.cn/",
-            "sameAs": ["https://github.com/kunkundi/crossdesk"]
+            "sameAs": [
+              "https://github.com/kunkundi/crossdesk"
+            ],
+            "logo": "https://www.crossdesk.cn/apple-touch-icon.png"
           },
           {
             "@type": "SoftwareApplication",
             "@id": "https://www.crossdesk.cn/#software",
             "name": "CrossDesk",
             "url": "https://www.crossdesk.cn/",
-            "description": "免费、轻量且易用的开源远程桌面软件，支持 Windows、macOS、Linux 和 Web 客户端，提供硬件加速、自托管和多设备连接。",
-            "applicationCategory": "RemoteAccessApplication",
+            "description": "CrossDesk 是免费、轻量的开源远程桌面软件，支持 Windows、macOS、Linux 桌面端，iOS、Android 移动端及 Web 客户端，提供硬件加速、自托管部署与多设备管理。",
+            "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Windows, macOS, Linux, iOS, Android, Web",
             "creator": {
               "@id": "https://www.crossdesk.cn/#organization"
@@ -126,7 +132,27 @@
             "sameAs": [
               "https://github.com/kunkundi/crossdesk",
               "https://web.crossdesk.cn/"
-            ]
+            ],
+            "applicationSubCategory": "Remote desktop software",
+            "inLanguage": [
+              "zh-CN",
+              "en"
+            ],
+            "isAccessibleForFree": true
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://www.crossdesk.cn/#webpage",
+            "url": "https://www.crossdesk.cn/",
+            "name": "CrossDesk - 免费开源远程桌面软件，支持跨平台与 Web 远程控制",
+            "description": "CrossDesk 是免费、轻量的开源远程桌面软件，支持 Windows、macOS、Linux 桌面端，iOS、Android 移动端及 Web 客户端，提供硬件加速、自托管部署与多设备管理。",
+            "inLanguage": "zh-CN",
+            "isPartOf": {
+              "@id": "https://www.crossdesk.cn/#website"
+            },
+            "about": {
+              "@id": "https://www.crossdesk.cn/#software"
+            }
           }
         ]
       }
@@ -138,7 +164,7 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/site.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
     <script>
       var _hmt = _hmt || [];
       (function () {
@@ -158,7 +184,7 @@
     <header class="site-header">
       <div class="site-header-inner page-shell">
         <a href="/" class="brand" aria-label="CrossDesk">
-          <img src="apple-touch-icon.png" width="36" height="36" alt="" />
+          <img src="/apple-touch-icon.png" width="36" height="36" alt="" />
           <span>Cross<span class="brand-desk">Desk</span></span>
         </a>
         <span class="brand-caption"
@@ -193,13 +219,13 @@
             role="group"
             aria-label="Language / 语言"
           >
-            <button type="button" class="lang-zh" aria-pressed="true">
+            <a class="lang-zh" href="/" hreflang="zh-CN" lang="zh-CN" aria-current="page">
               中
-            </button>
+            </a>
             <span aria-hidden="true">/</span>
-            <button type="button" class="lang-en" aria-pressed="false">
+            <a class="lang-en" href="/en/" hreflang="en" lang="en">
               EN
-            </button>
+            </a>
           </div>
           <a
             class="button header-cta"
@@ -314,19 +340,16 @@
                   >随时连接你的设备。</span
                 ></span
               ><span data-lang="en"
-                >Your desktop.<br /><span class="text-blue"
+                >Remote desktop.<br /><span class="text-blue"
                   >Anywhere you are.</span
                 ></span
               >
             </h1>
             <p class="hero-description">
               <span data-lang="zh"
-                >免费、轻量、易用。跨越 Windows、macOS 与
-                Linux，支持硬件加速与多设备连接，让远程工作回归简单。</span
+                >CrossDesk 是免费、轻量的开源远程桌面软件。支持 Windows、macOS、Linux、iOS、Android 与 Web 客户端，提供硬件加速与自托管部署。</span
               ><span data-lang="en"
-                >Free, lightweight, and easy to use. Connect across Windows,
-                macOS, and Linux with hardware acceleration and support for
-                multiple devices.</span
+                >CrossDesk is free, open-source remote desktop software for Windows, macOS, Linux, iOS, Android, and the web, with hardware acceleration and self-hosting.</span
               >
             </p>
             <div class="hero-actions">
@@ -368,9 +391,9 @@
           </div>
           <figure class="hero-visual">
             <img
-              src="assets/images/cross-platform-current-zh.webp"
-              data-src-zh="assets/images/cross-platform-current-zh.webp"
-              data-src-en="assets/images/cross-platform-current-en.webp"
+              src="/assets/images/cross-platform-current-zh.webp"
+              data-src-zh="/assets/images/cross-platform-current-zh.webp"
+              data-src-en="/assets/images/cross-platform-current-en.webp"
               width="3721"
               height="1969"
               alt="CrossDesk 多设备展示：Windows 桌面客户端、MacBook 上展开被控状态栏的 macOS 桌面、Linux 笔记本上的 Web 客户端，以及一台横屏 iPhone，展示 iOS 原生客户端已连接远程桌面并展开悬浮控制窗的模拟器实截"
@@ -464,8 +487,8 @@
               ><span data-lang="en">GET STARTED / DOWNLOAD</span>
             </p>
             <h2 id="download-title">
-              <span data-lang="zh">你的设备，即刻连接。</span
-              ><span data-lang="en">Your next connection starts here.</span>
+              <span data-lang="zh">下载 CrossDesk 远程桌面客户端</span
+              ><span data-lang="en">Download CrossDesk</span>
             </h2>
           </div>
           <p class="section-summary">
@@ -499,7 +522,7 @@
                 </svg>
                 <span data-lang="zh">最新版本</span>
                 <span data-lang="en">Latest Version</span>
-                <span id="version-display" class="font-bold">v0.0.0</span>
+                <span id="version-display" class="font-bold">v1.6.0-20260930</span>
               </div>
 
               <div
@@ -520,7 +543,7 @@
                 <span data-lang="zh">发布日期</span>
                 <span data-lang="en">Release Date</span>
                 <span id="release-date-display" class="font-bold"
-                  >2023-11-20</span
+                  >2026-09-30</span
                 >
               </div>
             </div>
@@ -562,13 +585,13 @@
               </button>
               <div id="windows-download-menu" class="download-menu" hidden>
                 <a
-                  href="#"
+                  href="https://downloads.crossdesk.cn/crossdesk-win-x64-v1.6.0-20260930.exe"
                   data-download="windows-x64"
                   class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
                   >Windows x64</a
                 >
                 <a
-                  href="#"
+                  href="https://downloads.crossdesk.cn/crossdesk-win-x64-portable-v1.6.0-20260930.zip"
                   data-download="windows-x64-portable"
                   class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 rounded-xl"
                 >
@@ -693,13 +716,13 @@
               </button>
               <div id="macos-download-menu" class="download-menu" hidden>
                 <a
-                  href="#"
+                  href="https://downloads.crossdesk.cn/crossdesk-macos-x64-v1.6.0-20260930.pkg"
                   data-download="macos-x64"
                   class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 rounded-xl"
                   >macOS x64</a
                 >
                 <a
-                  href="#"
+                  href="https://downloads.crossdesk.cn/crossdesk-macos-arm64-v1.6.0-20260930.pkg"
                   data-download="macos-arm64"
                   class="download-link block px-4 py-2 text-xs text-gray-700 hover:bg-gray-50 rounded-xl"
                   >macOS arm64</a
@@ -760,6 +783,12 @@
               <span>Android</span>
             </a>
           </div>
+          <noscript>
+            <p class="mobile-download-note">
+              <span data-lang="zh">下载菜单需要 JavaScript，也可前往 <a href="https://github.com/kunkundi/crossdesk/releases/latest">GitHub Releases 下载 CrossDesk</a>。</span>
+              <span data-lang="en">You can also <a href="https://github.com/kunkundi/crossdesk/releases/latest">download CrossDesk from GitHub Releases</a> without JavaScript.</span>
+            </p>
+          </noscript>
           <p id="linux-download-note" class="mobile-download-note text-xs">
             <span data-lang="zh"
               >Linux：已有桌面选标准版；无桌面环境或需独立桌面选虚拟桌面版（Xfce）。</span
@@ -852,9 +881,9 @@
                 </p>
                 <div class="preview-image">
                   <img
-                    src="assets/images/desktop-main-zh.webp"
-                    data-src-zh="assets/images/desktop-main-zh.webp"
-                    data-src-en="assets/images/desktop-main-en.webp"
+                    src="/assets/images/desktop-main-zh.webp"
+                    data-src-zh="/assets/images/desktop-main-zh.webp"
+                    data-src-en="/assets/images/desktop-main-en.webp"
                     alt="CrossDesk 当前桌面主界面，包含连接区、近期设备与分组筛选"
                     data-alt-zh="CrossDesk 当前桌面主界面，包含连接区、近期设备与分组筛选"
                     data-alt-en="Current CrossDesk desktop interface with connection controls, recent devices and group filters"
@@ -885,9 +914,9 @@
                 </p>
                 <div class="preview-image">
                   <img
-                    src="assets/images/web-client-current.webp"
-                    data-src-zh="assets/images/web-client-current.webp"
-                    data-src-en="assets/images/web-client-current.webp"
+                    src="/assets/images/web-client-current.webp"
+                    data-src-zh="/assets/images/web-client-current.webp"
+                    data-src-en="/assets/images/web-client-current.webp"
                     alt="CrossDesk Web 客户端连接首页，版本 2026.10.17.1，设备 ID 与密码为空"
                     data-alt-zh="CrossDesk Web 客户端连接首页，版本 2026.10.17.1，设备 ID 与密码为空"
                     data-alt-en="CrossDesk Web connection page, version 2026.10.17.1, with empty ID and password fields"
@@ -915,9 +944,9 @@
                 </p>
                 <div class="preview-image">
                   <img
-                    src="assets/images/desktop-deskhub-zh.webp"
-                    data-src-zh="assets/images/desktop-deskhub-zh.webp"
-                    data-src-en="assets/images/desktop-deskhub-en.webp"
+                    src="/assets/images/desktop-deskhub-zh.webp"
+                    data-src-zh="/assets/images/desktop-deskhub-zh.webp"
+                    data-src-en="/assets/images/desktop-deskhub-en.webp"
                     alt="CrossDesk 桌面墙，展示六台使用演示数据的设备"
                     data-alt-zh="CrossDesk 桌面墙，展示六台使用演示数据的设备"
                     data-alt-en="CrossDesk DeskHub displaying six demonstration devices"
@@ -947,9 +976,9 @@
                 <div class="preview-image">
                   <img
                     class="mobile-client-image"
-                    src="assets/images/ios-native-connected-device.webp"
-                    data-src-zh="assets/images/ios-native-connected-device.webp"
-                    data-src-en="assets/images/ios-native-connected-device.webp"
+                    src="/assets/images/ios-native-connected-device.webp"
+                    data-src-zh="/assets/images/ios-native-connected-device.webp"
+                    data-src-en="/assets/images/ios-native-connected-device.webp"
                     alt="横屏 iPhone 展示 iOS 原生客户端已连接远程 macOS 桌面，悬浮控制窗处于展开状态，来自模拟器实际截图"
                     data-alt-zh="横屏 iPhone 展示 iOS 原生客户端已连接远程 macOS 桌面，悬浮控制窗处于展开状态，来自模拟器实际截图"
                     data-alt-en="Landscape iPhone showing the native iOS app connected to a remote macOS desktop with its floating controls expanded, captured in the simulator"
@@ -1023,7 +1052,7 @@
               rel="noopener noreferrer"
             >
               <img
-                src="assets/images/sponsors/afdian.png"
+                src="/assets/images/sponsors/afdian.png"
                 width="22"
                 height="22"
                 alt=""
@@ -1040,7 +1069,7 @@
               rel="noopener noreferrer"
             >
               <img
-                src="assets/images/sponsors/kofi.png"
+                src="/assets/images/sponsors/kofi.png"
                 width="22"
                 height="22"
                 alt=""
@@ -1056,7 +1085,7 @@
               rel="noopener noreferrer"
             >
               <img
-                src="assets/images/sponsors/github.svg"
+                src="/assets/images/sponsors/github.svg"
                 width="22"
                 height="22"
                 alt=""
@@ -1086,6 +1115,6 @@
         >
       </div>
     </footer>
-    <script src="assets/site.js"></script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>

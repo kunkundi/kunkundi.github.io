@@ -155,14 +155,17 @@ img {
   font-size: 12px;
   white-space: nowrap;
 }
-.language-switch button {
+.language-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 32px;
   min-height: 44px;
   color: var(--muted);
   background: transparent;
   border: 0;
 }
-.language-switch button[aria-pressed="true"] {
+.language-switch a[aria-current="page"] {
   color: var(--blue);
   font-weight: 600;
 }
