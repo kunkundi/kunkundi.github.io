@@ -119,6 +119,8 @@ class EnglishPage(HTMLParser):
             attrs["href"] = self.url
         elif tag == "img":
             attrs["src"] = attrs.get("data-src-en", attrs.get("src", ""))
+            if "srcset" in attrs:
+                attrs["srcset"] = english_image(attrs["srcset"])
             attrs["alt"] = attrs.get("data-alt-en", attrs.get("alt", ""))
         elif tag == "a":
             classes = attrs.get("class", "").split()
