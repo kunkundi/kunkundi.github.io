@@ -4,11 +4,11 @@
 
 ## CLI 终端画面
 
-`cli-ansi-overview.webp` 和 `cli-kitty-overview.webp` 复用 CrossDesk 工程 `b361533d` 提交中 `docs/images/` 下的同名 PNG，使用 `cwebp -lossless -m 6` 无损转换，保留 1280 × 800 原始尺寸、完整状态栏与快捷键提示，未重绘画面。中英文页面使用同一素材，替代文本与图注分别本地化。
+`cli-ansi-overview.webp` 和 `cli-kitty-overview.webp` 复用 CrossDesk 工程 `docs/images/` 下于 2026-10-31 05:17–05:18 更新的同名 PNG，使用 `cwebp -lossless -m 6` 无损转换，保留 1280 × 800 原始尺寸、完整状态栏与快捷键提示，未重绘画面。中英文页面使用同一素材，替代文本与图注分别本地化。
 
-源图于 2026-10-31 04:56（Asia/Shanghai）使用从 `22796368` 构建的 macOS arm64 release CLI 采集，来自同一授权设备播放动画时的两次实际只读连接。工程外的 POSIX 伪终端采集器以 128 × 40 字符、每格 10 × 20 像素还原实际输出：ANSI 图恢复字符与颜色；Kitty 图通过 `mmap` 复制完整的共享内存 RGB 帧后确认接收，保存时按协议 placement 显示。图示不含连接密码或真实设备 ID。
+源图于 2026-10-31 05:17–05:18（Asia/Shanghai）使用从 `1b716f36` 及当时工作区 ANSI 优化重新构建的 macOS arm64 release CLI 采集，来自同一授权设备播放动画时的两次实际只读连接。工程外的 POSIX 伪终端采集器以 128 × 40 字符、每格 10 × 20 像素还原实际输出：ANSI 图恢复字符与颜色，支持行内多片段差分，并等待完整帧结束后保存；Kitty 图通过 `mmap` 复制完整的共享内存 RGB 帧后确认接收，保存时按协议 placement 显示。图示不含连接密码或真实设备 ID。
 
-这些是实际 CLI 协议输出的渲染图，并非原生终端窗口截图。字体、缩放与显示时序由采集器处理，图中 FPS 不代表 Ghostty 或其他终端的实际显示性能。首页与功能页均标注输出渲染来源，图片可点击查看原尺寸。
+这些是实际 CLI 协议输出的渲染图，并非原生终端窗口截图。字体、缩放与显示时序由采集器处理，图中 FPS 不代表 Ghostty 或其他终端的实际显示性能；两次连接的源分辨率与画面内容不同，也不能据此直接比较后端性能。首页与功能页均标注输出渲染来源，图片可点击查看原尺寸。
 
 来源说明：https://github.com/kunkundi/crossdesk/blob/cli/docs/images/README.md#cli-captures
 
