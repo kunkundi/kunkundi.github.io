@@ -121,7 +121,9 @@
               "https://www.crossdesk.cn/assets/images/desktop-deskhub-zh.webp",
               "https://www.crossdesk.cn/assets/images/macos-controlled-desktop.webp",
               "https://www.crossdesk.cn/assets/images/ios-native-connected-landscape.webp",
-              "https://www.crossdesk.cn/assets/images/ios-native-connected-device.webp"
+              "https://www.crossdesk.cn/assets/images/ios-native-connected-device.webp",
+              "https://www.crossdesk.cn/assets/images/cli-ansi-overview.webp",
+              "https://www.crossdesk.cn/assets/images/cli-kitty-overview.webp"
             ],
             "downloadUrl": "https://www.crossdesk.cn/download/",
             "offers": {
@@ -863,6 +865,10 @@
             <span data-lang="zh">移动客户端</span
             ><span data-lang="en">Mobile client</span>
           </button>
+          <button type="button" data-slide="4" aria-pressed="false">
+            <span data-lang="zh">CLI 客户端</span
+            ><span data-lang="en">CLI client</span>
+          </button>
         </div>
         <div
           id="product-preview"
@@ -992,6 +998,53 @@
                     decoding="async"
                   />
                 </div>
+              </div>
+            </div>
+            <div class="swiper-slide flex justify-center items-center">
+              <div class="preview-slide">
+                <h3>
+                  <span data-lang="zh">留在终端，也能连接桌面。</span
+                  ><span data-lang="en">Your remote desktop, in the terminal.</span>
+                </h3>
+                <p>
+                  <span data-lang="zh">通过设备 ID 连接，默认只读、静音。支持 ANSI 字符与 Kitty 像素画面，可按需开启键鼠控制。</span
+                  ><span data-lang="en">Connect by device ID in read-only, silent mode. View ANSI or Kitty graphics, and enable keyboard and mouse control when needed.</span>
+                </p>
+                <div class="cli-gallery">
+                  <figure>
+                    <a href="/assets/images/cli-ansi-overview.webp" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="/assets/images/cli-ansi-overview.webp"
+                        alt="CrossDesk CLI 的 ANSI 字符全景，包含只读状态栏和操作快捷键，来自实际终端协议输出"
+                        data-alt-en="CrossDesk CLI ANSI overview with a read-only status bar and keyboard shortcuts, rendered from actual terminal output"
+                        width="1280"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                    <figcaption><span data-lang="zh">ANSI · 普通终端中的字符画面</span><span data-lang="en">ANSI · Character graphics for standard terminals</span></figcaption>
+                  </figure>
+                  <figure>
+                    <a href="/assets/images/cli-kitty-overview.webp" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="/assets/images/cli-kitty-overview.webp"
+                        alt="CrossDesk CLI 的 Kitty 像素全景，显示同一远程桌面，来自实际终端协议输出"
+                        data-alt-en="CrossDesk CLI Kitty pixel overview of the same remote desktop, rendered from actual terminal output"
+                        width="1280"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                    <figcaption><span data-lang="zh">Kitty · 支持图形协议的终端像素画面</span><span data-lang="en">Kitty · Pixel graphics in compatible terminals</span></figcaption>
+                  </figure>
+                </div>
+                <p class="cli-capture-note">
+                  <span data-lang="zh">实际只读连接的协议输出渲染图。点击图片查看原图。</span
+                  ><span data-lang="en">Rendered protocol output from real read-only sessions. Select an image to view it at full size.</span>
+                </p>
+                <a class="text-link" href="/features/#cli"><span data-lang="zh">安装与使用 CLI →</span><span data-lang="en">Install and use the CLI →</span></a>
               </div>
             </div>
           </div>

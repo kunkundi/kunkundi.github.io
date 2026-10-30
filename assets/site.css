@@ -642,7 +642,7 @@ h2 {
 }
 .preview-tabs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   margin-bottom: 24px;
   border-bottom: 1px solid var(--line);
 }
@@ -730,6 +730,46 @@ h2 {
   max-height: none;
   border: 0;
   box-shadow: none;
+}
+
+.cli-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-block: 24px 12px;
+}
+.cli-gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+.cli-gallery a {
+  display: block;
+}
+.cli-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border: 1px solid var(--line);
+}
+.cli-gallery figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.preview-slide .cli-capture-note {
+  min-height: 0;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+@media (max-width: 680px) {
+  .cli-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
 }
 
 .mySwiper .swiper-pagination-bullet {

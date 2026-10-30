@@ -147,6 +147,9 @@
 .guide-prose li {
   margin-block: 8px;
 }
+.cli-usage h3 {
+  margin-top: 32px;
+}
 .guide-code {
   overflow-x: auto;
   padding: 22px;

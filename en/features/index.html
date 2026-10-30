@@ -151,7 +151,7 @@
             your devices within reach.</span>
         </p>
         <div class="guide-actions">
-          <a class="button button-primary" href="/en/download/"><span data-lang="en">Download clients</span></a><a class="button" href="/en/self-hosting/"><span data-lang="en">Self-hosting</span></a>
+          <a class="button button-primary" href="/en/download/"><span data-lang="en">Download clients</span></a><a class="button" href="/en/self-hosting/"><span data-lang="en">Self-hosting</span></a><a class="button" href="#cli"><span data-lang="en">Terminal CLI</span></a>
         </div>
       </section>
       <section id="desktop" class="guide-section page-shell" aria-labelledby="desktop-title">
@@ -225,6 +225,76 @@
           <figure>
             <img src="/assets/images/web-client-current.webp" data-src-zh="/assets/images/web-client-current.webp" data-src-en="/assets/images/web-client-current.webp" alt="CrossDesk Web client device connection page" data-alt-zh="CrossDesk Web 客户端设备连接页面" data-alt-en="CrossDesk Web client device connection page" width="1280" height="720" loading="lazy" decoding="async" />
           </figure>
+        </div>
+      </section>
+      <section id="cli" class="guide-section page-shell" aria-labelledby="cli-title">
+        <h2 id="cli-title">
+          <span data-lang="en">Terminal CLI: connect from the command line</span>
+        </h2>
+        <div class="guide-prose">
+          <p>
+            <span data-lang="en"><code>crossdesk-cli</code> connects to a computer by its 9-digit device ID and starts in read-only, silent mode. Select a monitor, adjust quality, zoom and pan, or enable keyboard and mouse control when needed.</span>
+          </p>
+          <p>
+            <span data-lang="en">Standard terminals display the desktop as ANSI characters. Terminals supporting the Kitty graphics protocol can show pixel graphics. The CLI detects Kitty support automatically and falls back to ANSI.</span>
+          </p>
+        </div>
+        <div class="cli-gallery">
+          <figure>
+            <a href="/assets/images/cli-ansi-overview.webp" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/images/cli-ansi-overview.webp" alt="CrossDesk CLI ANSI overview with a read-only status bar and keyboard shortcuts, rendered from actual terminal output" data-alt-en="CrossDesk CLI ANSI overview with a read-only status bar and keyboard shortcuts, rendered from actual terminal output" width="1280" height="800" loading="lazy" decoding="async" />
+            </a>
+            <figcaption><span data-lang="en">ANSI character graphics · See the desktop overview; press d to inspect details.</span></figcaption>
+          </figure>
+          <figure>
+            <a href="/assets/images/cli-kitty-overview.webp" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/images/cli-kitty-overview.webp" alt="CrossDesk CLI Kitty pixel overview of the same remote desktop, rendered from actual terminal output" data-alt-en="CrossDesk CLI Kitty pixel overview of the same remote desktop, rendered from actual terminal output" width="1280" height="800" loading="lazy" decoding="async" />
+            </a>
+            <figcaption><span data-lang="en">Kitty pixel graphics · For terminals supporting the Kitty graphics protocol.</span></figcaption>
+          </figure>
+        </div>
+        <p class="guide-note">
+          <span data-lang="en">Captured on October 31, 2026 from real read-only sessions with the same host, using a 128 × 40-cell pseudo-terminal to capture and render protocol output. Appearance varies with terminal fonts, window size, and protocol support. Select an image to view it at full size.</span>
+        </p>
+        <div class="guide-prose cli-usage">
+          <h3><span data-lang="en">Install and connect</span></h3>
+          <p>
+            <span data-lang="en">Install Node.js 22 or later and npm. Installation selects the native executable for your operating system and CPU architecture; no local compilation is required.</span>
+          </p>
+          <pre class="guide-code"><code>npm install -g @chunkdash/crossdesk-cli@latest
+crossdesk-cli doctor --json
+crossdesk-cli 123456789</code></pre>
+          <p>
+            <span data-lang="en">Replace <code>123456789</code> with the host’s 9-digit device ID and enter its password at the hidden prompt. <code>doctor</code> checks the local environment without connecting. The host must run CrossDesk with a capturable graphical session, and both ends must use a signaling service that supports temporary CLI identities.</span>
+          </p>
+          <h3><span data-lang="en">Choose a renderer</span></h3>
+          <p>
+            <span data-lang="en">Select ANSI or Kitty explicitly. Use <code>--zoom native</code> to inspect fine detail in ANSI mode.</span>
+          </p>
+          <pre class="guide-code"><code>crossdesk-cli 123456789 --renderer ansi --zoom native
+crossdesk-cli 123456789 --renderer kitty</code></pre>
+          <h3><span data-lang="en">View, control, and exit</span></h3>
+          <div class="guide-table-wrap">
+            <table class="guide-table">
+              <thead>
+                <tr><th scope="col"><span data-lang="en">Action</span></th><th scope="col"><span data-lang="en">Keys</span></th></tr>
+              </thead>
+              <tbody>
+                <tr><td><span data-lang="en">Enable keyboard and mouse control</span></td><td><span data-lang="en">Press <code>c</code> in read-only mode</span></td></tr>
+                <tr><td><span data-lang="en">Inspect detail / fit the desktop</span></td><td><code>d</code> / <code>f</code></td></tr>
+                <tr><td><span data-lang="en">Zoom / pan</span></td><td><span data-lang="en"><code>+</code>, <code>-</code> / arrow keys</span></td></tr>
+                <tr><td><span data-lang="en">Pause remote input and enter local command mode</span></td><td><code>Ctrl+]</code></td></tr>
+                <tr><td><span data-lang="en">End the session</span></td><td><span data-lang="en">Press <code>q</code> in read-only mode; in control mode, press <code>Ctrl+]</code>, then <code>q</code></span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="guide-note">
+            <span data-lang="en">Zoom and pan shortcuts apply in read-only or local command mode. In control mode, ordinary keys are sent to the host; press <code>Esc</code> in local command mode to return to the session. The CLI acts only as a controller and currently does not provide audio playback, file transfer, or clipboard sync.</span>
+          </p>
+          <div class="related-links">
+            <a class="text-link" href="https://www.npmjs.com/package/@chunkdash/crossdesk-cli"><span data-lang="en">View npm package →</span></a>
+            <a class="text-link" href="https://github.com/kunkundi/crossdesk/blob/cli/apps/cli/docs/terminal-client.md"><span data-lang="en">Full terminal guide (Chinese) →</span></a>
+          </div>
         </div>
       </section>
       <section id="performance" class="guide-section page-shell" aria-labelledby="performance-title">
