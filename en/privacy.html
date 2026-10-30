@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CrossDesk Privacy Policy - Data and Network Services</title>
-    <meta name="description" content="Learn how the CrossDesk desktop client and default network services handle information, network communications, data storage, user choices, and privacy inquiries." />
+    <meta name="description" content="Learn how CrossDesk desktop, iOS, Android and HarmonyOS clients and default services handle information, local storage, mobile permissions, consent and data deletion requests." />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="CrossDesk" />
-    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="theme-color" content="#255397" />
     <link rel="canonical" href="https://www.crossdesk.cn/en/privacy.html" />
     <link rel="alternate" hreflang="zh-CN" href="https://www.crossdesk.cn/privacy.html" />
     <link rel="alternate" hreflang="en" href="https://www.crossdesk.cn/en/privacy.html" />
@@ -20,7 +20,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CrossDesk" />
     <meta property="og:title" content="CrossDesk Privacy Policy - Data and Network Services" />
-    <meta property="og:description" content="Learn how the CrossDesk desktop client and default network services handle information, network communications, data storage, user choices, and privacy inquiries." />
+    <meta property="og:description" content="Learn how CrossDesk desktop, iOS, Android and HarmonyOS clients and default services handle information, local storage, mobile permissions, consent and data deletion requests." />
     <meta property="og:url" content="https://www.crossdesk.cn/en/privacy.html" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_CN" />
@@ -28,7 +28,7 @@
     <meta property="og:image:alt" content="CrossDesk remote desktop clients across desktop, mobile, and web" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CrossDesk Privacy Policy - Data and Network Services" />
-    <meta name="twitter:description" content="Learn how the CrossDesk desktop client and default network services handle information, network communications, data storage, user choices, and privacy inquiries." />
+    <meta name="twitter:description" content="Learn how CrossDesk desktop, iOS, Android and HarmonyOS clients and default services handle information, local storage, mobile permissions, consent and data deletion requests." />
     <meta name="twitter:image" content="https://www.crossdesk.cn/assets/images/cross-platform-current-en.webp" />
     <meta name="twitter:image:alt" content="CrossDesk remote desktop clients across desktop, mobile, and web" />
     <script type="application/ld+json">
@@ -38,7 +38,7 @@
   "@id": "https://www.crossdesk.cn/en/privacy.html#webpage",
   "url": "https://www.crossdesk.cn/en/privacy.html",
   "name": "CrossDesk Privacy Policy - Data and Network Services",
-  "description": "Learn how the CrossDesk desktop client and default network services handle information, network communications, data storage, user choices, and privacy inquiries.",
+  "description": "Learn how CrossDesk desktop, iOS, Android and HarmonyOS clients and default services handle information, local storage, mobile permissions, consent and data deletion requests.",
   "inLanguage": "en",
   "isPartOf": {
     "@id": "https://www.crossdesk.cn/#website"
@@ -48,562 +48,196 @@
   }
 }
     </script>
-    <style>
-      html[lang="zh-CN"] [data-lang="en"],
-      html[lang="en"] [data-lang="zh"] {
-        display: none !important;
-      }
-      a[aria-current="page"] {
-        color: #1e3a8a;
-        font-weight: 600;
-      }
-      .site-header-inner {
-        max-width: 90rem;
-        gap: 2rem;
-      }
-      #menu-toggle {
-        display: block;
-        flex: 0 0 auto;
-      }
-      #menu {
-        display: none;
-      }
-      .site-desktop-nav {
-        align-items: center;
-        gap: 1rem;
-      }
-      .site-desktop-nav > a,
-      .site-desktop-nav > div {
-        flex: 0 0 auto;
-      }
-      .site-desktop-nav > a {
-        white-space: nowrap;
-      }
-      @media (min-width: 1360px) {
-        .site-header-inner {
-          width: fit-content;
-          max-width: calc(100% - 3rem);
-          justify-content: flex-start;
-          gap: 3rem;
-        }
-        #menu-toggle {
-          display: none;
-        }
-        #menu {
-          display: flex;
-        }
-      }
-      .privacy-glass-section {
-        position: relative;
-        isolation: isolate;
-        min-height: calc(100vh - 4.5rem);
-        overflow: hidden;
-        background: #c8c8c8;
-        color: #1f2937;
-      }
-
-      .privacy-glass-section::before {
-        content: "CrossDesk";
-        position: absolute;
-        top: 9rem;
-        left: 50%;
-        z-index: 0;
-        transform: translateX(-50%);
-        color: rgba(0, 0, 0, 1);
-        font-family:
-          Verdana,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Arial Black",
-          "Helvetica Neue",
-          sans-serif;
-        font-size: 4rem;
-        font-weight: 900;
-        letter-spacing: 0.05em;
-        line-height: 1;
-        white-space: nowrap;
-        pointer-events: none;
-      }
-
-      .privacy-glass-section::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        pointer-events: none;
-      }
-
-      .privacy-glass-content {
-        position: relative;
-        z-index: 2;
-      }
-
-      .privacy-glass-card {
-        border: 1px solid rgba(255, 255, 255, 0.45);
-        background: rgba(255, 255, 255, 0.72);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.16);
-      }
-
-      @media (min-width: 768px) {
-        .privacy-glass-section::before {
-          top: 12rem;
-          font-size: 7rem;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .privacy-glass-section::before {
-          top: 15rem;
-          font-size: 20rem;
-        }
-      }
-
-      .policy-content h2 {
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: #1f2937;
-        font-size: 1.125rem;
-        font-weight: 600;
-      }
-
-      .policy-content p {
-        margin-bottom: 0.75rem;
-      }
-
-      .policy-content ul {
-        margin-bottom: 1rem;
-        padding-left: 1.5rem;
-        list-style: disc;
-      }
-
-      .policy-content li {
-        margin-bottom: 0.5rem;
-      }
-
-      .policy-content a {
-        color: #4f46e5;
-      }
-
-      .policy-content a:hover {
-        color: #3730a3;
-        text-decoration: underline;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="/assets/policies.css" />
   </head>
 
-  <body class="bg-white text-gray-800 font-sans leading-relaxed">
-    <!-- Header -->
-    <header class="bg-white shadow sticky top-0 z-50">
-      <div class="site-header-inner mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/en/" class="text-2xl font-bold text-blue-900" aria-label="CrossDesk home">CrossDesk</a>
-
-        <!-- mobile menu toggle -->
-        <button id="menu-toggle" class="md:hidden text-gray-600" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewbox="0 0 448 512">
-            <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
-          </svg>
-        </button>
-
-        <!-- desktop navigation -->
-        <nav id="menu" class="site-desktop-nav">
-          <a href="/en/#features" class="text-gray-700 hover:text-indigo-500">
-
-            <span data-lang="en">Features</span>
-          </a>
-          <a href="/en/#download" class="text-gray-700 hover:text-indigo-500">
-
-            <span data-lang="en">Download</span>
-          </a>
-          <a href="/en/#screenshot" class="text-gray-700 hover:text-indigo-500">
-
-            <span data-lang="en">Screenshots</span>
-          </a>
-          <a href="/en/#contact" class="text-gray-700 hover:text-indigo-500">
-
-            <span data-lang="en">Feedback</span>
-          </a>
-          <a href="/en/code-signing-policy.html" class="text-gray-700 hover:text-indigo-500">
-
-            <span data-lang="en">Code Signing Policy</span>
-          </a>
-          <a href="/en/#sponsor" class="text-gray-700 hover:text-indigo-500"><span data-lang="en">Sponsor</span></a>
-          <a href="/en/privacy.html" class="text-gray-700 hover:text-indigo-500">
-
-            <span data-lang="en">Privacy Policy</span>
-          </a>
-          <div class="flex items-center space-x-2 border-l pl-4">
-            <a class="lang-zh text-sm text-gray-500 hover:text-indigo-500" href="/privacy.html" hreflang="zh-CN" lang="zh-CN">
-              中文
+  <body class="policy-page">
+    <a class="skip-link" href="#main"><span data-lang="en">Skip to content</span></a>
+    <header class="site-header">
+      <div class="site-header-inner page-shell">
+        <a href="/en/" class="brand" aria-label="CrossDesk">
+          <img src="/apple-touch-icon.png" width="36" height="36" alt="" />
+          <span>Cross<span class="brand-desk">Desk</span></span>
+        </a>
+        <span class="brand-caption"><span data-lang="en">Open-source remote desktop</span></span>
+        <nav id="menu" class="site-desktop-nav" aria-label="Main navigation">
+          <a href="/en/#features"><span data-lang="en">Features</span></a>
+          <a href="/en/#download"><span data-lang="en">Download</span></a>
+          <a href="/en/#screenshot"><span data-lang="en">Preview</span></a>
+          <a href="/en/#contact"><span data-lang="en">Contact</span></a>
+          <a href="/en/#sponsor"><span data-lang="en">Sponsor</span></a>
+        </nav>
+        <div class="header-actions">
+          <div class="language-switch" role="group" aria-label="Language">
+            <a class="lang-zh" href="/privacy.html" hreflang="zh-CN" lang="zh-CN">
+              中
             </a>
-            <a class="lang-en text-sm text-gray-500 hover:text-indigo-500" href="/en/privacy.html" hreflang="en" lang="en" aria-current="page">
-              English
+            <span aria-hidden="true">/</span>
+            <a class="lang-en" href="/en/privacy.html" hreflang="en" lang="en" aria-current="page">
+              EN
             </a>
           </div>
-          <div class="realtime-stats realtime-stats--desktop" aria-live="polite">
-            <span class="realtime-stat-item">
-              <span class="realtime-stat-label">
-
-                <span data-lang="en">Online Devices</span>
-              </span>
-              <strong class="realtime-stat-value" data-online-device-count>--</strong>
-            </span>
-            <span class="realtime-stat-divider" aria-hidden="true"></span>
-            <span class="realtime-stat-item">
-              <span class="realtime-stat-label">
-
-                <span data-lang="en">Ongoing Sessions</span>
-              </span>
-              <strong class="realtime-stat-value" data-active-connection-count>--</strong>
-            </span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <a href="https://github.com/kunkundi/crossdesk" target="_blank" rel="noopener noreferrer" class="inline-block cursor-pointer">
-              <img src="https://img.shields.io/github/stars/kunkundi/crossdesk?style=social" alt="GitHub Stars" style="height: 22px; width: auto" class="github-badge-hover" />
-            </a>
-          </div>
+          <a class="button header-cta" href="https://github.com/kunkundi/crossdesk" target="_blank" rel="noopener noreferrer">GitHub
+            <span class="github-stars"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z" /></svg><span data-github-stars>Star</span></span></a>
+          <button id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+            <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" hidden>
+        <nav class="page-shell" aria-label="Mobile navigation">
+          <a href="/en/#features"><span data-lang="en">Features</span></a>
+          <a href="/en/#download"><span data-lang="en">Download</span></a>
+          <a href="/en/#screenshot"><span data-lang="en">Preview</span></a>
+          <a href="/en/#contact"><span data-lang="en">Contact</span></a>
+          <a href="/en/#sponsor"><span data-lang="en">Sponsor</span></a>
+          <a href="/en/code-signing-policy.html"><span data-lang="en">Code signing policy</span></a>
+          <a href="/en/privacy.html"><span data-lang="en">Privacy policy</span></a>
+          <a class="github-link" href="https://github.com/kunkundi/crossdesk" target="_blank" rel="noopener noreferrer">GitHub
+            <span class="github-stars"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m12 3 2.78 5.63L21 9.54l-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.93 1.06-6.2L3 9.54l6.22-.91L12 3Z" /></svg><span data-github-stars>Star</span></span></a>
         </nav>
       </div>
-
-      <!-- mobile navigation -->
-      <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" aria-hidden="true">
-        <div id="mobile-panel" class="absolute right-0 top-0 h-full w-72 sm:w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out">
-          <div class="flex justify-between items-center p-4 border-b">
-            <h2 class="text-lg font-bold text-blue-900">
-
-              <span data-lang="en">Menu</span>
-            </h2>
-            <button id="menu-close" class="text-gray-600 text-xl" aria-label="Close menu">
-              <svg xmlns="http://www.w3.org/2000/svg" height="20" width="12.5" viewbox="0 0 320 512">
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path d="M311.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L243.2 256 73.9 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
-              </svg>
-            </button>
-          </div>
-          <nav class="flex flex-col p-4 space-y-4">
-            <a href="/en/#features" class="text-gray-700 hover:text-indigo-500">
-
-              <span data-lang="en">Features</span>
-            </a>
-            <a href="/en/#download" class="text-gray-700 hover:text-indigo-500">
-
-              <span data-lang="en">Download</span>
-            </a>
-            <a href="/en/#screenshot" class="text-gray-700 hover:text-indigo-500">
-
-              <span data-lang="en">Screenshots</span>
-            </a>
-            <a href="/en/#contact" class="text-gray-700 hover:text-indigo-500">
-
-              <span data-lang="en">Feedback</span>
-            </a>
-            <a href="/en/code-signing-policy.html" class="text-gray-700 hover:text-indigo-500">
-
-              <span data-lang="en">Code Signing Policy</span>
-            </a>
-            <a href="/en/#sponsor" class="text-gray-700 hover:text-indigo-500"><span data-lang="en">Sponsor</span></a>
-          <a href="/en/privacy.html" class="text-gray-700 hover:text-indigo-500">
-
-              <span data-lang="en">Privacy Policy</span>
-            </a>
-            <div class="flex space-x-2 pt-4 border-t">
-              <a class="lang-zh text-sm text-gray-500 hover:text-indigo-500" href="/privacy.html" hreflang="zh-CN" lang="zh-CN">
-                中文
-              </a>
-              <a class="lang-en text-sm text-gray-500 hover:text-indigo-500" href="/en/privacy.html" hreflang="en" lang="en" aria-current="page">
-                English
-              </a>
-            </div>
-            <div class="flex space-x-2 pt-4 border-t">
-              <a href="https://github.com/kunkundi/crossdesk" target="_blank" rel="noopener noreferrer" class="inline-block cursor-pointer">
-                <img src="https://img.shields.io/github/stars/kunkundi/crossdesk?style=social" alt="GitHub Stars" style="height: 22px; width: auto" class="github-badge-hover" />
-              </a>
-            </div>
-            <div class="realtime-stats realtime-stats--mobile pt-4 border-t" aria-live="polite">
-              <span class="realtime-stat-item">
-                <span class="realtime-stat-label">
-
-                  <span data-lang="en">Online Devices</span>
-                </span>
-                <strong class="realtime-stat-value" data-online-device-count>--</strong>
-              </span>
-              <span class="realtime-stat-divider" aria-hidden="true"></span>
-              <span class="realtime-stat-item">
-                <span class="realtime-stat-label">
-
-                  <span data-lang="en">Ongoing Sessions</span>
-                </span>
-                <strong class="realtime-stat-value" data-active-connection-count>--</strong>
-              </span>
-            </div>
-          </nav>
-        </div>
-      </div>
     </header>
-
-    <main class="privacy-glass-section py-12">
-      <div class="privacy-glass-content max-w-4xl mx-auto px-6">
-        <div class="privacy-glass-card rounded-xl p-8">
-          <header class="border-b border-gray-200 pb-6">
-            <h1 class="text-3xl font-bold text-blue-900 mb-3">
-
-              <span data-lang="en">CrossDesk Privacy Policy</span>
-            </h1>
-            <p class="text-sm text-gray-500 mb-3">
-
-              <span data-lang="en">Last updated: August 8, 2026</span>
-            </p>
-          </header>
-
-
-
-          <article id="english" data-lang="en" lang="en" class="policy-content">
-            <h2>Scope</h2>
-            <p>
-              This Privacy Policy applies to the CrossDesk desktop client and
-              the default network services provided by the project. Servers
-              deployed or selected by users are operated by their respective
-              administrators, and their data-processing practices are outside
-              the control of this policy.
-            </p>
-
-            <h2>Network communications</h2>
-            <p>
-              CrossDesk is remote desktop software and requires network
-              communications for device discovery, connection negotiation, and
-              remote sessions. The client may perform the following
-              communications:
-            </p>
-            <ul>
-              <li>
-                <strong>Default services:</strong> Unless self-hosting is
-                enabled, the client connects to preconfigured CrossDesk services
-                (<code>api.crossdesk.cn</code>) for device registration,
-                signaling, network address translation (NAT) traversal, and
-                relay when a direct connection cannot be established.
-              </li>
-              <li>
-                <strong>Update checks:</strong> On startup, the client retrieves
-                current release information from the CrossDesk version service
-                (<code>version.crossdesk.cn</code>). Update checks currently
-                continue to use the CrossDesk version service even when
-                self-hosting is enabled.
-              </li>
-              <li>
-                <strong>Remote sessions:</strong> After a user initiates or
-                accepts a remote connection, CrossDesk transmits the data
-                required by enabled features between devices. This may include
-                screen content, audio, keyboard and mouse input, clipboard text,
-                and files selected by the user. Clipboard text may be
-                synchronized automatically during a remote session. Data may
-                travel over a direct connection or through the configured relay
-                server when necessary.
-              </li>
-              <li>
-                <strong>Self-hosting:</strong> Users may configure their own
-                signaling and relay servers. Logging, retention, and access
-                policies for a self-hosted server are determined by its
-                operator.
-              </li>
-            </ul>
-
-            <h2>Information processed</h2>
-            <p>To provide these functions, CrossDesk may process:</p>
-            <ul>
-              <li>
-                device identifiers and authentication information required for
-                connections;
-              </li>
-              <li>
-                necessary network metadata, such as IP addresses, ports,
-                connection times, and connection status;
-              </li>
-              <li>
-                standard network request information generated by update checks;
-                and
-              </li>
-              <li>
-                screen, audio, control, clipboard, and file content processed
-                during a remote session authorized by the user.
-              </li>
-            </ul>
-
-            <h2>Use and storage of information</h2>
-            <ul>
-              <li>
-                Device identifiers, connection settings, and user preferences
-                are stored locally for subsequent use.
-              </li>
-              <li>
-                Information processed by the official signaling and relay
-                services is used only to establish, maintain, and relay
-                CrossDesk connections and for service operation, security, and
-                troubleshooting.
-              </li>
-              <li>
-                Remote-session content passing through a relay is used only for
-                real-time forwarding and is not used for advertising or user
-                profiling.
-              </li>
-              <li>
-                The CrossDesk desktop client does not contain advertising
-                functionality and does not intentionally upload diagnostic logs,
-                crash reports, or behavioral analytics.
-              </li>
-              <li>
-                Logs and data that may be retained by self-hosted servers are
-                controlled by their operators. Contact the relevant operator for
-                its privacy and retention practices.
-              </li>
-            </ul>
-
-            <h2>User choices</h2>
-            <p>Users may:</p>
-            <ul>
-              <li>
-                configure a self-hosted server instead of the default signaling
-                and relay services;
-              </li>
-              <li>choose whether to initiate or accept a remote session;</li>
-              <li>choose whether to select and transfer files;</li>
-              <li>
-                end a remote session to stop session-data transmission; and
-              </li>
-              <li>
-                remove local CrossDesk configuration, cache, and log files.
-              </li>
-            </ul>
-
-            <h2>Changes and contact</h2>
-            <p>
-              This policy may be updated as CrossDesk features or network
-              services change. Updates will be published in this file. For
-              privacy-related questions, contact
-              <a href="mailto:junkun.di@hotmail.com">junkun.di@hotmail.com</a>.
-            </p>
-          </article>
+    <main id="main">
+      <header class="policy-hero page-shell">
+        <nav class="policy-breadcrumbs" aria-label="Breadcrumb">
+          <a href="/en/"><span data-lang="en">Home</span></a>
+          <span aria-hidden="true">/</span>
+          <span><span data-lang="en">Privacy Policy</span></span>
+        </nav>
+        <p class="policy-eyebrow"><span data-lang="en">POLICIES &amp; INFORMATION</span></p>
+        <h1><span data-lang="en">Privacy Policy</span></h1>
+        <p class="policy-lead"><span data-lang="en">CrossDesk respects your privacy. This policy explains how information is processed when we provide remote desktop services and how you can manage consent, locally saved content and data requests. Please read this policy before using the software.
+</span></p>
+        <div class="policy-meta">
+          <span><span data-lang="en">Last updated: </span><time datetime="2026-10-15"><span data-lang="en">October 15, 2026</span></time></span>
+          <a href="https://github.com/kunkundi/crossdesk/blob/cli/PRIVACY.md" target="_blank" rel="noopener noreferrer"><span data-lang="en">Read the source on GitHub</span> <span aria-hidden="true">↗</span></a>
         </div>
+        <nav class="policy-tabs" aria-label="Policy navigation">
+          <a href="/en/privacy.html" aria-current="page"><span data-lang="en">Privacy policy</span></a>
+          <a href="/en/code-signing-policy.html"><span data-lang="en">Code signing policy</span></a>
+        </nav>
+      </header>
+      <div class="policy-layout page-shell">
+        <aside class="policy-sidebar">
+          <nav class="policy-toc" aria-label="On this page">
+            <p class="policy-toc-title"><span data-lang="en">ON THIS PAGE</span></p>
+            <ol>
+                <li><a href="#scope"><span class="policy-toc-number" aria-hidden="true">01</span><span data-lang="en">Scope</span></a></li>
+                <li><a href="#information"><span class="policy-toc-number" aria-hidden="true">02</span><span data-lang="en">Information processed and its purposes</span></a></li>
+                <li><a href="#transmission"><span class="policy-toc-number" aria-hidden="true">03</span><span data-lang="en">Data transmission and related services</span></a></li>
+                <li><a href="#storage"><span class="policy-toc-number" aria-hidden="true">04</span><span data-lang="en">Storage and security measures</span></a></li>
+                <li><a href="#permissions"><span class="policy-toc-number" aria-hidden="true">05</span><span data-lang="en">Mobile permissions and consent choices</span></a></li>
+                <li><a href="#requests"><span class="policy-toc-number" aria-hidden="true">06</span><span data-lang="en">Access and deletion requests</span></a></li>
+                <li><a href="#contact"><span class="policy-toc-number" aria-hidden="true">07</span><span data-lang="en">Policy changes and contact</span></a></li>
+            </ol>
+          </nav>
+          <div class="policy-help">
+            <p><span data-lang="en">Questions about this policy?</span></p>
+            <a href="mailto:junkun.di@hotmail.com">junkun.di@hotmail.com</a>
+          </div>
+        </aside>
+        <article class="policy-content">
+            <section class="policy-section" id="scope" aria-labelledby="scope-title">
+              <h2 id="scope-title"><span data-lang="en">1. Scope</span></h2>
 
-        <p class="text-center text-sm text-gray-500 mt-6">
-          <a href="/en/code-signing-policy.html" class="hover:text-indigo-700"><span data-lang="en">Code signing policy</span></a>
-        </p>
+              <div data-lang="en" lang="en">
+                <p>This policy applies to the CrossDesk desktop, iOS, Android and HarmonyOS mobile clients and the default network services provided by the CrossDesk project maintainers ("we" or "us").</p>
+                <p>If you deploy your own server or choose a server provided by another operator, that operator is responsible for its data processing, retention and security practices. Please review its privacy policy before use. The descriptions of local client data processing in this policy still apply.</p>
+              </div>
+            </section>
+            <section class="policy-section" id="information" aria-labelledby="information-title">
+              <h2 id="information-title"><span data-lang="en">2. Information processed and its purposes</span></h2>
+
+              <div data-lang="en" lang="en">
+                <p><strong>Device connections and authentication.</strong> To register devices, verify connection permissions, query availability and establish remote connections, the clients and server process device IDs, authentication information and presence. The server also retains device identity and authentication verification records, online and offline times, client versions and platforms, and device associations. Necessary operational and security logs support service operation, troubleshooting and abuse prevention.</p>
+                <p><strong>Necessary network information.</strong> Connections, network address translation traversal and relay forwarding require IP addresses, ports and other network information. This supports communication and network diagnostics and does not involve reading the device's location permission. Connection services, relay services and network requests may generate related logs.</p>
+                <p><strong>Remote-session content.</strong> After you initiate or accept a remote connection, the software transfers content between participating devices according to the features used. This includes screens, audio, keyboard and mouse input, clipboard text and files. Such content may contain personal or work information. Connect only to devices you own or are authorized to access, and manage shared content accordingly.</p>
+                <p><strong>Version checks.</strong> The desktop client retrieves release information after startup. After connecting and receiving the remote host's version, the iOS and Android clients retrieve the latest desktop release information to suggest updates. These requests do not contain device IDs or the remote host's version, but the service processes network information necessary to complete the request.</p>
+                <p>CrossDesk does not integrate advertising, advertising tracking or behavioral analytics. The clients do not proactively upload diagnostic logs, crash reports or behavioral analytics data. If you choose to submit an issue or logs, remove unrelated personal information and connection credentials first.</p>
+              </div>
+            </section>
+            <section class="policy-section" id="transmission" aria-labelledby="transmission-title">
+              <h2 id="transmission-title"><span data-lang="en">3. Data transmission and related services</span></h2>
+
+              <div data-lang="en" lang="en">
+                <p>We provide device registration, connection negotiation, relay forwarding and version checks. Even when you use a self-hosted connection service, the client still accesses our version service under the conditions described above.</p>
+                <p>Remote-session content is transmitted directly between participating devices where possible, or through the configured relay server when needed. The relay service forwards content in real time and does not provide session recording or file archiving. Locally saved previews and received files are handled as described in this policy.</p>
+                <p>Self-hosted servers are managed by the operator you choose. If you change the connection server, the corresponding operator will process device registration, connection negotiation and relay data.</p>
+              </div>
+            </section>
+            <section class="policy-section" id="storage" aria-labelledby="storage-title">
+              <h2 id="storage-title"><span data-lang="en">4. Storage and security measures</span></h2>
+
+              <div data-lang="en" lang="en">
+                <p><strong>Local client data.</strong> The software stores connection settings, preferences, recent connections and necessary operational logs on the device for subsequent use and troubleshooting. On iOS, local login credentials and remote connection passwords you choose to remember are stored in the system Keychain without iCloud Keychain synchronization. Legacy local login credentials in preferences are removed after successful migration to the Keychain.</p>
+                <p>On Android, device identities and access passwords you choose to save are encrypted with Android Keystore keys and stored locally. The app's local data is excluded from device backups.</p>
+                <p><strong>Remote desktop previews.</strong> Saving previews is off by default on iOS and Android. Only after you separately enable and confirm it in Settings → Privacy will the app save one remote frame per connection, starting with the next connection, for recent-connection previews. Previews remain local, are not uploaded and are marked as excluded from device backups. You can clear them separately. Disabling saving or withdrawing network consent also clears them. Previews saved by older versions without this choice are cleared on upgrade.</p>
+                <p><strong>Received files.</strong> Received files on iOS are stored in the app's file directory and can be managed or deleted through Files. Clearing previews does not delete received files or recent-connection records.</p>
+                <p><strong>Server records.</strong> Device identities, presence, associations and operational logs may remain after a connection ends to support reconnection, service operation and security troubleshooting. Their scope and retention depend on operational needs, deployment rules and applicable retention requirements. You can contact us below to ask about records and retention periods related to your device or request deletion. Withdrawing network consent, deleting local records or uninstalling the client does not automatically delete existing server records. Logs, backups and snapshots require separate review and handling.</p>
+                <p>On iOS, the system Keychain and file protection mechanisms protect the relevant local data, and default signaling connections validate TLS certificates. Keep your devices and connection credentials secure and avoid sharing access passwords with unrelated people.</p>
+                <p>Default signaling connections on Android and HarmonyOS mobile also validate TLS certificates.</p>
+                <p>HarmonyOS mobile uses the system Asset Store to encrypt device identities and saved access passwords, with cross-device credential synchronization disabled. Settings and connection records are scoped to the server. Remote previews are off by default. After separate confirmation, one 640×360 preview is saved per connection starting with the next connection. Previews remain in private app cache, are never uploaded, can be cleared and may be reclaimed by the system. Disabling previews or withdrawing network consent clears them. Received files remain in private app storage and can be exported through the system document picker during the session.</p>
+              </div>
+            </section>
+            <section class="policy-section" id="permissions" aria-labelledby="permissions-title">
+              <h2 id="permissions-title"><span data-lang="en">5. Mobile permissions and consent choices</span></h2>
+
+              <div data-lang="en" lang="en">
+                <p><strong>Privacy authorization.</strong> On first use of iOS, Android or HarmonyOS mobile, or when upgrading from a version without this choice, you must read this policy, actively select the checkbox and agree before the client registers a local identity, connects to signaling or queries device presence. If you decline, settings, the offline policy and local connection history remain available, while remote connections are unavailable. Without consent, reopening the app or returning from the background presents the notice again.</p>
+                <p><strong>Withdrawal.</strong> You can review the privacy policy and your authorization status or withdraw consent in Settings → Privacy → Privacy and Authorization. The client stops remote sessions, signaling and version checks, disables preview saving and clears local previews. Consent is required again before reconnecting. Agreeing again does not automatically enable preview saving. Withdrawal does not undo processing that already occurred or delete server data.</p>
+                <p><strong>System permissions and session features.</strong> The iOS client receives remote computer screens and audio as a controller; it does not capture the local screen, camera or microphone. Local network access supports connections to devices on your network and can be managed in system settings. File sending uses the system document picker without requiring access to the entire file library. The current iOS interface does not read or send local clipboard text. Text sent by the remote device may be written to the local clipboard during a session.</p>
+                <p>The Android client also receives remote screens and audio as a controller and does not capture the local screen, camera or microphone. Sending and saving files uses the system document picker without requiring access to the entire file library. Clipboard text is transmitted or written locally only when you explicitly send text or copy remote text. The app clears cached remote clipboard text when the session ends.</p>
+                <p>Android remote sessions prefer system picture-in-picture to continue displaying video when you switch apps. If picture-in-picture is unavailable, a foreground service and connection notification maintain the remote connection you have established. Local video rendering and audio playback pause in the background; no overlay permission is requested. Notification permission provides return and disconnect actions. A CPU wake lock helps maintain the connection while the session is backgrounded and is released on foreground return or session end. You can disconnect in the app or its connection notification; removing the app task also ends the session and its foreground service.</p>
+                <p>HarmonyOS phones and tablets act only as controllers and do not request local screen recording, input injection, camera or microphone permissions. File selection and clipboard actions are user initiated. An established session prefers system picture-in-picture with a mute control when backgrounded. If unavailable, the app requests a data-transfer background task with a system notification. The session ends if the system disallows or stops that task while picture-in-picture is unavailable. Backgrounding releases remote keys; idle background sessions do not retain signaling. After network consent, the foreground app checks the local HarmonyOS version and checks the remote version after connection. These requests contain neither device identity nor the remote version.</p>
+                <p>The app and its communication components use local file metadata, preferences and timing APIs for file transfer, settings and network timing, not for device fingerprinting or advertising tracking.</p>
+              </div>
+            </section>
+            <section class="policy-section" id="requests" aria-labelledby="requests-title">
+              <h2 id="requests-title"><span data-lang="en">6. Access and deletion requests</span></h2>
+
+              <div data-lang="en" lang="en">
+                <p>You can manage local recent connections, saved previews and received files. Removing a recent connection also removes its preview and remembered remote connection password.</p>
+                <p>To request access to information, a data summary or deletion of records associated with your device in the default service, contact the email address below with the device ID and scope of your request. We verify the requester's authority to avoid unauthorized disclosure or deletion. Do not send access passwords, private keys or other sensitive credentials by email.</p>
+                <p>Deleting a server-side device identity invalidates that identity and its credentials; reconnecting may register a new device. Deleting database records does not mean that logs, backups or content already received by other devices are also deleted. For a self-hosted service, direct server-side data requests to its operator.</p>
+              </div>
+            </section>
+            <section class="policy-section" id="contact" aria-labelledby="contact-title">
+              <h2 id="contact-title"><span data-lang="en">7. Policy changes and contact</span></h2>
+
+              <div data-lang="en" lang="en">
+                <p>This policy may be updated as features and services change. Updated text and its date will be published in the privacy policy. You can review the policy bundled with your app in its settings at any time.</p>
+                <p>For questions about this policy or the processing of personal information, contact:</p>
+                <p>Email: <a href="mailto:junkun.di@hotmail.com">junkun.di@hotmail.com</a></p>
+              </div>
+            </section>
+          <nav class="policy-end" aria-label="Related links">
+            <a href="/en/code-signing-policy.html"><span data-lang="en">Code signing policy</span> <span aria-hidden="true">→</span></a>
+            <a href="#main"><span data-lang="en">Back to top</span> <span aria-hidden="true">↑</span></a>
+          </nav>
+        </article>
       </div>
     </main>
-
-    <footer class="bg-gray-200 py-6 text-center text-sm text-gray-600">
-      © 2025 CrossDesk
+    <footer class="site-footer page-shell">
+      <div class="footer-bottom">
+        <span>© 2026 CrossDesk</span>
+        <nav aria-label="Site links">
+          <a href="/en/download/"><span data-lang="en">Download &amp; install</span></a>
+          <a href="/en/features/"><span data-lang="en">Feature guide</span></a>
+          <a href="/en/self-hosting/"><span data-lang="en">Self-hosting guide</span></a>
+          <a href="/en/code-signing-policy.html"><span data-lang="en">Code signing policy</span></a><a href="/en/privacy.html"><span data-lang="en">Privacy policy</span></a>
+        </nav>
+        <a href="#main"><span data-lang="en">Back to top</span></a>
+      </div>
     </footer>
-
-    <!-- menu + realtime stats script -->
-    <script>
-      const menuBtn = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobilePanel = document.getElementById("mobile-panel");
-      const closeBtn = document.getElementById("menu-close");
-
-      function openMenu() {
-        mobileMenu.classList.remove("hidden");
-        requestAnimationFrame(() => {
-          mobilePanel.classList.remove("translate-x-full");
-          menuBtn.setAttribute("aria-expanded", "true");
-          mobileMenu.setAttribute("aria-hidden", "false");
-        });
-      }
-      function closeMenu() {
-        mobilePanel.classList.add("translate-x-full");
-        setTimeout(() => {
-          mobileMenu.classList.add("hidden");
-          menuBtn.setAttribute("aria-expanded", "false");
-          mobileMenu.setAttribute("aria-hidden", "true");
-        }, 300);
-      }
-
-      menuBtn.addEventListener("click", openMenu);
-      closeBtn.addEventListener("click", closeMenu);
-
-      mobileMenu.addEventListener("click", (event) => {
-        if (event.target === mobileMenu) closeMenu();
-      });
-
-      mobileMenu
-        .querySelectorAll("a")
-        .forEach((link) => link.addEventListener("click", closeMenu));
-
-      const STATS_API_URL = "https://api.crossdesk.cn:9099/stats";
-      const STATS_REFRESH_INTERVAL = 10000;
-      const STATS_REQUEST_TIMEOUT = 5000;
-
-      function formatStatsCount(value) {
-        const count = Number(value);
-        return Number.isFinite(count) ? count.toLocaleString() : "--";
-      }
-
-      function updateStatsUI(data) {
-        const onlineDeviceBaseCount = Number(data?.online_device_count);
-        const onlineWebClientCount = Number(data?.online_web_client_count);
-        const onlineDeviceTotalCount = Number.isFinite(onlineDeviceBaseCount)
-          ? onlineDeviceBaseCount +
-            (Number.isFinite(onlineWebClientCount) ? onlineWebClientCount : 0)
-          : data?.online_device_count;
-        const onlineDeviceCount = formatStatsCount(onlineDeviceTotalCount);
-        const activeConnectionCount = formatStatsCount(
-          data?.active_connection_count,
-        );
-
-        document
-          .querySelectorAll("[data-online-device-count]")
-          .forEach((el) => {
-            el.textContent = onlineDeviceCount;
-          });
-        document
-          .querySelectorAll("[data-active-connection-count]")
-          .forEach((el) => {
-            el.textContent = activeConnectionCount;
-          });
-      }
-
-      async function fetchRealtimeStats() {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(
-          () => controller.abort(),
-          STATS_REQUEST_TIMEOUT,
-        );
-
-        try {
-          const response = await fetch(STATS_API_URL, {
-            method: "GET",
-            mode: "cors",
-            cache: "no-store",
-            signal: controller.signal,
-            headers: {
-              Accept: "application/json",
-            },
-          });
-
-          if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
-          }
-
-          const data = await response.json();
-          updateStatsUI(data);
-        } catch (error) {
-          if (error.name === "AbortError") {
-            console.warn("获取在线统计超时");
-          } else {
-            console.warn("获取在线统计失败:", error.message);
-          }
-        } finally {
-          clearTimeout(timeoutId);
-        }
-      }
-
-      fetchRealtimeStats();
-      setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
-    </script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>

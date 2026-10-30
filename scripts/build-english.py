@@ -22,7 +22,7 @@ PAGES = {
     },
     "privacy.html": {
         "title": "CrossDesk Privacy Policy - Data and Network Services",
-        "description": "Learn how the CrossDesk desktop client and default network services handle information, network communications, data storage, user choices, and privacy inquiries.",
+        "description": "Learn how CrossDesk desktop, iOS, Android and HarmonyOS clients and default services handle information, local storage, mobile permissions, consent and data deletion requests.",
     },
     "code-signing-policy.html": {
         "title": "CrossDesk Code Signing Policy - Windows Releases",
@@ -139,6 +139,8 @@ class EnglishPage(HTMLParser):
             "功能特点 / Features": "Features",
             "界面预览 / Product previews": "Product previews",
             "Language / 语言": "Language",
+            "政策导航 / Policy navigation": "Policy navigation",
+            "本页目录 / On this page": "On this page",
         }
         if attrs.get("aria-label") in labels:
             attrs["aria-label"] = labels[attrs["aria-label"]]
