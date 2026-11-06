@@ -454,21 +454,20 @@
             <h3>iOS / iPadOS</h3>
             <p>
               <span data-lang="zh"
-                >从 iPhone 或 iPad 连接电脑。发布包为未签名
-                ZIP，需要自行签名后安装。</span
+                >从 App Store 免费下载安装，使用 iPhone 或 iPad 连接并控制电脑。</span
               ><span data-lang="en"
-                >Connect to your computer from an iPhone or iPad. The unsigned
-                ZIP requires signing before installation.</span
+                >Download for free from the App Store to connect to and control
+                your computer from an iPhone or iPad.</span
               >
             </p>
             <div class="package-links">
               <a
                 class="button download-link"
-                data-download="ios-arm64"
-                href="https://downloads.crossdesk.cn/crossdesk-ios-arm64-unsigned-v1.7.0-20261014.zip"
-                title="crossdesk-ios-arm64-unsigned-v1.7.0-20261014.zip"
-                ><span data-lang="zh">下载 iOS 未签名 ZIP</span
-                ><span data-lang="en">Download unsigned iOS ZIP</span></a
+                data-download="ios-app-store"
+                href="https://apps.apple.com/cn/app/crossdesk-%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/id6828859211"
+                title="CrossDesk · App Store"
+                ><span data-lang="zh">在 App Store 下载</span
+                ><span data-lang="en">Download on the App Store</span></a
               >
             </div>
           </article>
@@ -579,13 +578,23 @@
                 </td>
               </tr>
               <tr>
-                <th scope="row">iOS / Android</th>
+                <th scope="row">iOS / iPadOS</th>
                 <td>
                   <span data-lang="zh"
-                    >移动端用于控制远端电脑；iOS 未签名包不能直接安装。</span
+                    >iOS 17.0 / iPadOS 17.0 或更高版本，从 App Store 安装，用于控制远端电脑。</span
                   ><span data-lang="en"
-                    >Mobile clients control a remote computer; the unsigned iOS
-                    package cannot be installed directly.</span
+                    >Requires iOS 17.0 / iPadOS 17.0 or later. Install from the
+                    App Store to control a remote computer.</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Android</th>
+                <td>
+                  <span data-lang="zh"
+                    >使用 arm64 APK 安装，用于控制远端电脑。</span
+                  ><span data-lang="en"
+                    >Install the arm64 APK to control a remote computer.</span
                   >
                 </td>
               </tr>
@@ -659,12 +668,13 @@
           </summary>
           <p>
             <span data-lang="zh"
-              >先核对操作系统与 CPU 架构。iOS ZIP 需要自行签名；macOS
+              >先核对操作系统与 CPU 架构。iPhone / iPad 请通过 App Store
+              安装，并确认系统为 iOS 17.0 / iPadOS 17.0 或更高版本。macOS
               的远控权限需要按系统提示授予。</span
             ><span data-lang="en"
-              >Check your operating system and CPU architecture. The iOS ZIP
-              needs signing; macOS remote control permissions must be granted in
-              system settings.</span
+              >Check your operating system and CPU architecture. On iPhone or
+              iPad, install from the App Store with iOS 17.0 / iPadOS 17.0 or
+              later. Grant macOS remote control permissions in system settings.</span
             >
           </p>
         </details>

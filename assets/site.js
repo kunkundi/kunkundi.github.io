@@ -288,7 +288,9 @@ if (document.querySelector("[data-online-device-count]")) {
       };
       document.querySelectorAll("[data-download]").forEach((link) => {
         const key = link.dataset.download;
-        const downloadInfo = downloads[key];
+        // The App Store link stays independent of release packages and cached manifests.
+        const downloadInfo =
+          key === "ios-app-store" ? defaultVersionData.downloads[key] : downloads[key];
         // Replace links to clear tracking handlers from a prior cache/API update.
         const newLink = link.cloneNode(true);
         if (downloadInfo && downloadInfo.url) {
