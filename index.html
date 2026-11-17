@@ -167,7 +167,7 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="/assets/site.css?v=a6d07a3643" />
     <script>
       var _hmt = _hmt || [];
       (function () {
@@ -843,27 +843,27 @@
           aria-label="界面预览 / Product previews"
         >
           <button type="button" data-slide="0" aria-pressed="true">
+            Agent / MCP
+          </button>
+          <button type="button" data-slide="1" aria-pressed="false">
             <span data-lang="zh">桌面客户端</span
             ><span data-lang="en">Desktop app</span>
           </button>
-          <button type="button" data-slide="1" aria-pressed="false">
+          <button type="button" data-slide="2" aria-pressed="false">
             <span data-lang="zh">Web 客户端</span
             ><span data-lang="en">Web client</span>
           </button>
-          <button type="button" data-slide="2" aria-pressed="false">
+          <button type="button" data-slide="3" aria-pressed="false">
             <span data-lang="zh">桌面墙</span
             ><span data-lang="en">DeskHub</span>
           </button>
-          <button type="button" data-slide="3" aria-pressed="false">
+          <button type="button" data-slide="4" aria-pressed="false">
             <span data-lang="zh">移动客户端</span
             ><span data-lang="en">Mobile client</span>
           </button>
-          <button type="button" data-slide="4" aria-pressed="false">
+          <button type="button" data-slide="5" aria-pressed="false">
             <span data-lang="zh">CLI 客户端</span
             ><span data-lang="en">CLI client</span>
-          </button>
-          <button type="button" data-slide="5" aria-pressed="false">
-            Agent / MCP
           </button>
         </div>
         <div
@@ -871,6 +871,35 @@
           class="swiper mySwiper overflow-hidden w-full"
         >
           <div class="swiper-wrapper">
+            <div class="swiper-slide flex justify-center items-center">
+              <div class="preview-slide">
+                <h3>
+                  <span data-lang="zh">从一句话，到任务完成。</span>
+                  <span data-lang="en">From a request to a completed task.</span>
+                </h3>
+                <p>
+                  <span data-lang="zh">通过 MCP 授权 Agent 查看和操作远程电脑，实时监看，随时暂停或接管。</span>
+                  <span data-lang="en">Use MCP to let an authorized Agent view and control a remote computer. Watch live, pause, or take over at any time.</span>
+                </p>
+                <figure class="preview-image">
+                  <picture class="mcp-demo-media">
+                    <source media="(prefers-reduced-motion: reduce)" srcset="/assets/images/mcp-remote-minesweeper.webp" />
+                    <img
+                      class="mcp-demo"
+                      src="/assets/images/mcp-remote-minesweeper-animated.webp"
+                      alt="AI 通过 CrossDesk MCP 在远程电脑上完成一局扫雷的完整演示"
+                      data-alt-en="An AI completing a game of Minesweeper on a remote computer through CrossDesk MCP"
+                      width="1280"
+                      height="862"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <figcaption id="mcp-demo-caption" class="preview-caption"><span data-lang="zh">远程任务演示：完成一局扫雷</span><span data-lang="en">A remote task in action: completing a game of Minesweeper</span></figcaption>
+                </figure>
+                <a class="text-link" href="/features/#mcp"><span data-lang="zh">了解 MCP 功能与接入 →</span><span data-lang="en">Explore MCP features and setup →</span></a>
+              </div>
+            </div>
             <div class="swiper-slide flex justify-center items-center">
               <div class="preview-slide">
                 <h3>
@@ -1041,35 +1070,6 @@
                   ><span data-lang="en">Rendered protocol output from real read-only sessions. Select an image to view it at full size.</span>
                 </p>
                 <a class="text-link" href="/features/#cli"><span data-lang="zh">安装与使用 CLI →</span><span data-lang="en">Install and use the CLI →</span></a>
-              </div>
-            </div>
-            <div class="swiper-slide flex justify-center items-center">
-              <div class="preview-slide">
-                <h3>
-                  <span data-lang="zh">从一句话，到任务完成。</span>
-                  <span data-lang="en">From a request to a completed task.</span>
-                </h3>
-                <p>
-                  <span data-lang="zh">通过 MCP 授权 Agent 查看和操作远程电脑，实时监看，随时暂停或接管。</span>
-                  <span data-lang="en">Use MCP to let an authorized Agent view and control a remote computer. Watch live, pause, or take over at any time.</span>
-                </p>
-                <figure class="preview-image">
-                  <picture class="mcp-demo-media">
-                    <source media="(prefers-reduced-motion: reduce)" srcset="/assets/images/mcp-remote-minesweeper.webp" />
-                    <img
-                      class="mcp-demo"
-                      src="/assets/images/mcp-remote-minesweeper-animated.webp"
-                      alt="AI 通过 CrossDesk MCP 在远程电脑上完成一局扫雷的完整演示"
-                      data-alt-en="An AI completing a game of Minesweeper on a remote computer through CrossDesk MCP"
-                      width="1280"
-                      height="862"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <figcaption id="mcp-demo-caption" class="preview-caption"><span data-lang="zh">远程任务演示：完成一局扫雷</span><span data-lang="en">A remote task in action: completing a game of Minesweeper</span></figcaption>
-                </figure>
-                <a class="text-link" href="/features/#mcp"><span data-lang="zh">了解 MCP 功能与接入 →</span><span data-lang="en">Explore MCP features and setup →</span></a>
               </div>
             </div>
           </div>
