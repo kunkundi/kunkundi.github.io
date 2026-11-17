@@ -1,6 +1,16 @@
 # 官网图片来源
 
-更新日期：2026-10-31。
+更新日期：2026-11-18。
+
+## MCP 远程任务演示
+
+`mcp-remote-minesweeper-animated.webp` 来自用户提供并指定用于官网的 `/Users/dijunkun/Desktop/12-2-trim1s.gif`，于 2026-11-18 转换。原动图为 1280 × 862、20 fps、18.95 秒，展示在 AI 客户端中提出任务、通过 CrossDesk MCP 连接远端并完成一局扫雷的过程。
+
+保留用户素材的完整构图、播放速度及内容，不额外剪辑、不重绘界面。转换时合并相邻重复帧，由 379 帧优化为 359 帧，总时长仍为 18.95 秒。使用 `gif2webp -q 85 -m 6 -min_size` 转成无损动画 WebP（未启用 `-lossy`）；原 GIF 约 3.38 MB，WebP 约 2.52 MB。`mcp-remote-minesweeper.webp` 为原动图第 13 秒画面，以 `cwebp -q 88 -m 6 -sharp_yuv` 转换，供减少动态效果偏好及结构化截图使用。
+
+中英文首页与功能页使用同一循环动图，配以本地化图注。按用户要求采用图片展示，不显示进度条或暂停控件；图片延迟加载，启用减少动态效果时显示静态画面。此片段仅展示任务流程，不作为运行速度或性能承诺。
+
+该演示替换此前的 DeepSeek 客户端播放视频截图。MCP 特性及接入说明依据本地 CrossDesk `apps/mcp/README.md`、项目 README 与已公开的 https://github.com/kunkundi/crossdesk/blob/mcp/apps/mcp/README.md 。页面标注开发版，并保留宿主、远端版本及系统权限限制。
 
 ## CLI 终端画面
 

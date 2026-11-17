@@ -642,7 +642,7 @@ h2 {
 }
 .preview-tabs {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-bottom: 24px;
   border-bottom: 1px solid var(--line);
 }
@@ -730,6 +730,30 @@ h2 {
   max-height: none;
   border: 0;
   box-shadow: none;
+}
+
+.preview-caption {
+  margin-block: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.mcp-demo-media {
+  display: block;
+  width: 100%;
+  max-width: 742px;
+}
+
+.mcp-demo {
+  display: block;
+  width: 100%;
+  max-width: 742px;
+  height: auto;
+  margin-inline: auto;
+  background: #080808;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 26px #2553970a;
 }
 
 .cli-gallery {

@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://www.crossdesk.cn"
 PAGES = {
     "index.html": {
-        "title": "CrossDesk - Free, Open-Source Remote Desktop Software",
-        "description": "Free, open-source remote desktop for Windows, macOS, Linux, iOS, Android, and the web. Connect with hardware acceleration, self-hosting, and multi-device management.",
+        "title": "CrossDesk - Free, Open-Source Remote Desktop with AI Assistance",
+        "description": "Free, open-source remote desktop for computers, phones, and browsers. Manage devices, self-host your services, and use MCP to give AI remote tasks in plain language.",
     },
     "privacy.html": {
         "title": "CrossDesk Privacy Policy - Data and Network Services",
@@ -35,7 +35,7 @@ PAGES = {
     },
     "features/index.html": {
         "title": "CrossDesk Features - Remote Desktop, Web Access and DeskHub",
-        "description": "Explore CrossDesk remote desktop features: cross-platform connections, browser and mobile access, DeskHub device management, hardware acceleration, and self-hosting.",
+        "description": "Explore CrossDesk cross-platform connections, browser and mobile access, DeskHub, hardware acceleration, self-hosting, and Agent / MCP assistance.",
         "label": "Features",
     },
     "self-hosting/index.html": {
