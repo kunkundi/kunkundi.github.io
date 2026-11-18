@@ -34,7 +34,7 @@
 
 首屏只保留一台移动设备。旧手机由当前 iPhone 模拟器外框替换；其遮挡的 MacBook 底座边缘使用同一设备可见的左侧边缘镜像补齐。移动客户端预览同样仅展示横屏 iPhone 设备图；原有 iOS 与 Android 首页素材保留归档。
 
-首屏加载 `cross-platform-current-{640,1280,1920}-{zh,en}.webp`，由上述 3721 × 1969 原图等比缩小并采用有损 WebP 压缩生成，保留完整构图。使用 `cwebp` 1.6.0，参数为 `-q 82 -m 6 -sharp_yuv -resize <宽度> 0`。三个尺寸分别约为 15、40、70 KB，通过 `srcset` 和与首屏布局对应的 `sizes` 按显示宽度及像素密度选择；默认图宽为 1280，保留高加载优先级。原图保留用于后续生成及分享元数据，首页不再直接加载原图。英文页面生成脚本同步转换 `src` 和 `srcset` 的语言后缀。
+首屏加载 `cross-platform-current-{640,1280,1920}-{zh,en}.webp`，由上述 3721 × 1969 原图等比缩小并采用有损 WebP 压缩生成，保留完整构图。使用 `cwebp` 1.6.0，参数为 `-q 82 -m 6 -sharp_yuv -resize <宽度> 0`。三个尺寸分别约为 16–17、44–46、78–81 KB，通过 `srcset` 和与首屏布局对应的 `sizes` 按显示宽度及像素密度选择；默认图宽为 1280，保留高加载优先级。原图保留用于后续生成及分享元数据，首页不再直接加载原图。英文页面生成脚本同步转换 `src` 和 `srcset` 的语言后缀。
 
 ## iOS 横屏远程会话
 
@@ -46,17 +46,17 @@
 
 `macos-controlled-desktop.webp` 采集于 2026-10-19 16:20（Asia/Shanghai），来自同一真实 iOS 远控会话中接收到的 macOS 桌面，保留远端已展开的「被控中」状态面板。先收起移动端控制窗，再上下移动移动端悬浮按钮各采集一张；使用两张截图中各自未被按钮遮挡的桌面像素拼合，裁去手机黑边，得到 1930 × 1206 的桌面画面。未生成或重绘桌面内容。MacBook 屏幕以此图等比缩放并微量裁切适配。
 
-`desktop-main-{zh,en}.webp`、`desktop-deskhub-{zh,en}.webp` 和 `desktop-settings-deskhub-{zh,en}.webp` 来自 CrossDesk 工程 `docs/images/` 中的同名 PNG，以无损 WebP 保存，未重绘界面。
+`desktop-main-{zh,en}.webp`、`desktop-deskhub-{zh,en}.webp` 和 `desktop-settings-deskhub-{zh,en}.webp` 于 2026-11-18 使用 CrossDesk 源码 `def4ee6e` 的 Slint 组件，在 macOS 上以 2× 软件渲染生成，并保存为无损 WebP。渲染时启用客户端在 Windows 使用的标题栏，包含产品图标、窗口名、最小化与关闭按钮。主窗口和设置图为 1280 × 1006，桌面墙为 1920 × 1062。
 
-源图于 2026-10-19 从 UI 源代码 `1ef372d2` 的 Slint 组件渲染，使用演示数据。桌面墙及近期设备中的网页缩略图属于源图自带演示素材，不代表实时远程连接；其中网页内容不应理解为最新发布信息。
+六个桌面墙预览依次使用 CrossDesk 文档中的公开代码页截图（`docs/images/fixtures/source.png`）、本次采集的 Web 客户端、已归档的 macOS 被控桌面、按示例数据绘制的风能与太阳能日发电图、[OpenStreetMap 威尼斯地图](https://www.openstreetmap.org/#map=14/45.4364/12.3345)的浏览器截图（[© OpenStreetMap 贡献者，ODbL](https://www.openstreetmap.org/copyright)）以及 CLI 视频预览（`cli-kitty-overview.png`）。对应的演示设备名称依次为 `DESKTOP-TRE8SVA`、`DESKTOP-9R4G2KC`、`MacBook Pro`、`DESKTOP-F3N7Q5M`、`MacBook Air` 和 `Mac mini`。其中第一台沿用用户提供的 Windows 设备名，第三台使用本机的 macOS 电脑名称。中英文界面使用同一组设备名，近期设备显示前三台。设备名称、ID、密码与在线状态均为演示数据，本次渲染没有连接远端。
 
-来源说明：https://github.com/kunkundi/crossdesk/blob/deskhub/docs/images/README.md
+捕获方法复用 CrossDesk 工程 `docs/images/README.md` 与 `apps/desktop/tests/slint_ui_smoke_test.cpp` 的组件渲染流程。
 
 ## Web 客户端
 
-`web-client-current.webp` 于 2026-10-19 从 https://web.crossdesk.cn/ 的真实 1280 × 720 浏览器视口采集，页面显示版本 `2026.10.17.1`，设备 ID 和密码均为空，未建立远程连接。首屏将完整截图原尺寸嵌入 Ubuntu 笔记本显示区域，保留屏幕周围的系统顶栏与启动栏，不拉伸控件。
+`web-client-current.webp` 于 2026-11-18 使用 Microsoft Edge 从 https://web.crossdesk.cn/ 采集，浏览器视口为 1280 × 720，截图以无损 WebP 保存。页面显示版本 `2026.11.18.1`。截图取自初始化完成后的连接首页，左侧显示产品介绍和资源链接，右侧显示空白的设备 ID 与密码输入框，未发起远程会话。中英文首页和功能页共用这张截图。
 
-Web 页面当前显示中文，因此官网切换至英文时保留该真实截图；其替代文本随语言切换。
+中英文首屏组图均将截图原尺寸嵌入 Ubuntu 笔记本屏幕，保留系统顶栏、启动栏和前景 iPhone 的遮挡及阴影，再由各自的组图原图生成三个响应式尺寸。Web 客户端界面为中文，官网提供中英文替代文本。
 
 ## 历史文件
 
