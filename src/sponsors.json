@@ -1,0 +1,23 @@
+[
+  {
+    "name": "HuaLongAI",
+    "tier": "special",
+    "name_zh": "华龙算力",
+    "logo": "/assets/images/sponsors/hualongai.webp",
+    "url": "https://crossdesk.hualong-ai.com/",
+    "zh": {
+      "summary": "提供 Codex、0 注入 Kiro 与 Claude 系列模型的 API 中转服务。",
+      "description": [
+        "稳定、高效的 API 中转服务商，主营 Codex、0 注入 Kiro 与 Claude 系列模型。100% 官方源直供、不掺假、高可用，平均 SLA 高于 99.2%。",
+        "计费透明，Token 级账单可逐笔核验，支持企业合同与发票。"
+      ]
+    },
+    "en": {
+      "summary": "API relay for Codex, zero-injection Kiro, and Claude models.",
+      "description": [
+        "A stable, efficient API relay for Codex, zero-injection Kiro, and Claude models. HuaLongAI sources 100% of its models directly from official providers, with no substitutions. It offers high availability and reports an average SLA above 99.2%.",
+        "Token-level billing lets you verify each charge. Enterprise contracts and invoices are available."
+      ]
+    }
+  }
+]

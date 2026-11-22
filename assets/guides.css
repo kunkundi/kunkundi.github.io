@@ -39,6 +39,7 @@
   margin-top: 26px;
 }
 .guide-toc {
+  align-items: center;
   gap: 12px 24px;
   font-size: 13px;
 }
@@ -63,50 +64,6 @@
   margin-block: 12px;
 }
 .guide-note {
-  color: var(--muted);
-  font-size: 13px;
-}
-.download-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-.download-card {
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: #fff;
-}
-.download-card .platform-index {
-  color: var(--brand-cross);
-  font-size: 12px;
-  margin-bottom: 16px;
-}
-.download-card p {
-  color: var(--muted);
-  font-size: 13px;
-}
-.package-links {
-  display: grid;
-  gap: 10px;
-  margin-top: 22px;
-}
-.package-links a {
-  justify-content: flex-start;
-  gap: 8px;
-  padding: 12px 15px;
-  min-height: 44px;
-}
-.package-links a[aria-disabled="true"] {
-  color: var(--muted);
-  background: var(--paper);
-}
-.release-summary {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  margin-bottom: 24px;
   color: var(--muted);
   font-size: 13px;
 }
@@ -204,25 +161,16 @@
   color: var(--blue);
   font-weight: 600;
 }
-@media (max-width: 1100px) {
-  .download-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
 @media (max-width: 680px) {
   .guide-page .page-intro,
   .guide-section {
     padding-block: 32px;
   }
-  .download-grid,
   .guide-split {
     grid-template-columns: minmax(0, 1fr);
   }
   .guide-split {
     gap: 24px;
-  }
-  .download-card {
-    padding: 22px;
   }
   .guide-table th,
   .guide-table td {

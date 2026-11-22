@@ -1,13 +1,15 @@
 // Each language has a stable URL and static metadata and images.
-const sponsorLinks = document.querySelector("[data-sponsor-links]");
 const sponsorOrder =
   document.documentElement.lang === "en"
     ? ["kofi", "github", "afdian"]
     : ["afdian", "kofi", "github"];
-sponsorOrder.forEach((platform) => {
-  const link = sponsorLinks?.querySelector(`[data-sponsor="${platform}"]`);
-  if (link) sponsorLinks.appendChild(link);
-});
+function orderSponsorLinks(links) {
+  sponsorOrder.forEach((platform) => {
+    const link = links.querySelector(`[data-sponsor="${platform}"]`);
+    if (link) links.append(link);
+  });
+}
+document.querySelectorAll("[data-sponsor-links]").forEach(orderSponsorLinks);
 
 const menuButton = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -28,61 +30,81 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 960) closeMenu();
 });
 
-const dropdowns = [...document.querySelectorAll(".download-dropdown")];
-function closeDownloadMenus(except = null) {
-  dropdowns.forEach((dropdown) => {
-    if (dropdown === except) return;
-    dropdown.querySelector("button").setAttribute("aria-expanded", "false");
-    dropdown.querySelector(".download-menu").hidden = true;
-  });
-}
-dropdowns.forEach((dropdown) => {
-  const button = dropdown.querySelector("button");
-  const menu = dropdown.querySelector(".download-menu");
-  button.addEventListener("click", () => {
-    const open = menu.hidden;
-    closeDownloadMenus();
-    menu.hidden = !open;
-    button.setAttribute("aria-expanded", String(open));
-  });
-  button.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowDown") {
-      event.preventDefault();
-      closeDownloadMenus(dropdown);
-      menu.hidden = false;
-      button.setAttribute("aria-expanded", "true");
-      menu.querySelector("a[href]")?.focus();
-    }
-  });
-  // Delegation also handles links replaced by release-manifest updates.
-  menu.addEventListener("click", (event) => {
-    if (event.target.closest("a[href]")) closeDownloadMenus();
-  });
-  dropdown.addEventListener("focusout", (event) => {
-    if (!dropdown.contains(event.relatedTarget)) {
-      menu.hidden = true;
-      button.setAttribute("aria-expanded", "false");
-    }
-  });
-});
 document.addEventListener("click", (event) => {
-  if (!event.target.closest(".download-dropdown")) closeDownloadMenus();
   if (!event.target.closest(".site-header")) closeMenu();
 });
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
-  const openDropdown = dropdowns.find(
-    (dropdown) => !dropdown.querySelector(".download-menu").hidden,
-  );
-  if (openDropdown) {
-    closeDownloadMenus();
-    openDropdown.querySelector("button").focus();
-  }
-  if (!mobileMenu.hidden) closeMenu(true);
+  if (event.key === "Escape" && !mobileMenu.hidden) closeMenu(true);
 });
 
-// Manual previews stay still until the visitor selects a view or swipes.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const sponsorList = document.getElementById("hero-sponsor-list");
+const sponsorGroup = sponsorList?.querySelector(".hero-sponsor-group");
+if (sponsorGroup) {
+  const canHover = window.matchMedia("(hover: hover)");
+  const pixelsPerSecond = 40;
+  let copy;
+  let loopWidth = 0;
+  let inView = false;
+  let frame;
+  let lastTime;
+  let position = 0;
+
+  function advance(time) {
+    if (lastTime !== undefined) {
+      // Keep subpixel progress between frames, including after a touch scroll.
+      if (Math.abs(sponsorList.scrollLeft - position) > 1) position = sponsorList.scrollLeft;
+      position = (position + pixelsPerSecond * Math.min(time - lastTime, 64) / 1000) % loopWidth;
+      sponsorList.scrollLeft = position;
+    }
+    lastTime = time;
+    frame = requestAnimationFrame(advance);
+  }
+
+  function updatePlayback() {
+    cancelAnimationFrame(frame);
+    lastTime = undefined;
+    position = sponsorList.scrollLeft;
+    const interacting = sponsorList.matches(":focus-within, :active") ||
+      (canHover.matches && sponsorList.matches(":hover"));
+    if (copy && inView && !document.hidden && !interacting) frame = requestAnimationFrame(advance);
+  }
+
+  function measureSponsors() {
+    const overflow = sponsorGroup.getBoundingClientRect().width > sponsorList.clientWidth + 1;
+    if (overflow && !reducedMotion.matches) {
+      if (!copy) {
+        // Continue into an identical row before wrapping back to the originals.
+        copy = sponsorGroup.cloneNode(true);
+        copy.setAttribute("aria-hidden", "true");
+        copy.querySelectorAll("a").forEach(link => { link.tabIndex = -1; });
+        sponsorList.append(copy);
+      }
+      loopWidth = copy.getBoundingClientRect().left - sponsorGroup.getBoundingClientRect().left;
+    } else if (copy) {
+      copy.remove();
+      copy = null;
+    }
+    sponsorList.classList.toggle("is-scrolling", Boolean(copy));
+    updatePlayback();
+  }
+
+  const sizeObserver = new ResizeObserver(measureSponsors);
+  sizeObserver.observe(sponsorList);
+  sizeObserver.observe(sponsorGroup);
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    updatePlayback();
+  }).observe(sponsorList);
+  reducedMotion.addEventListener("change", measureSponsors);
+  document.addEventListener("visibilitychange", updatePlayback);
+  for (const event of ["pointerenter", "pointerleave", "focusin", "focusout", "pointerup", "pointercancel"]) {
+    sponsorList.addEventListener(event, () => queueMicrotask(updatePlayback));
+  }
+  sponsorList.addEventListener("pointerdown", () => cancelAnimationFrame(frame));
+}
+
+// Manual previews stay still until the visitor selects a view or swipes.
 const previewButtons = [...document.querySelectorAll("[data-slide]")];
 if (typeof Swiper !== "undefined" && document.querySelector(".mySwiper")) {
   const preview = new Swiper(".mySwiper", {
@@ -228,19 +250,17 @@ if (document.querySelector("[data-online-device-count]")) {
   setInterval(fetchRealtimeStats, STATS_REFRESH_INTERVAL);
 }
 
-// version Management
-(async function () {
-  if (!document.querySelector("[data-download]")) return;
+async function loadDownloadVersion(dialog) {
   const VERSION_API_URL = "https://version.crossdesk.cn/version.json";
   const CACHE_KEY = "crossdesk_version_cache";
   const CACHE_TIMESTAMP_KEY = "crossdesk_version_timestamp";
   const CACHE_DURATION = 60 * 60 * 1000;
 
   const defaultVersionData = {
-    version: document.getElementById("version-display")?.textContent.trim().replace(/^v/, ""),
-    releaseDate: document.getElementById("release-date-display")?.textContent.trim(),
+    version: dialog.querySelector("#version-display")?.textContent.trim().replace(/^v/, ""),
+    releaseDate: dialog.querySelector("#release-date-display")?.textContent.trim(),
     downloads: Object.fromEntries(
-      [...document.querySelectorAll("a[data-download][href]")].map((link) => [
+      [...dialog.querySelectorAll("a[data-download][href]")].map((link) => [
         link.dataset.download,
         { url: link.href, filename: link.getAttribute("title") || "" },
       ]),
@@ -270,12 +290,12 @@ if (document.querySelector("[data-online-device-count]")) {
   function updateVersionUI(data) {
     if (!data) return;
 
-    const versionDisplay = document.getElementById("version-display");
+    const versionDisplay = dialog.querySelector("#version-display");
     if (versionDisplay && data.version) {
       versionDisplay.textContent = `v${data.version}`;
     }
 
-    const dateDisplay = document.getElementById("release-date-display");
+    const dateDisplay = dialog.querySelector("#release-date-display");
     if (dateDisplay && data.releaseDate) {
       dateDisplay.textContent = data.releaseDate;
       if (dateDisplay.tagName === "TIME") dateDisplay.dateTime = data.releaseDate;
@@ -286,22 +306,20 @@ if (document.querySelector("[data-online-device-count]")) {
         ...defaultVersionData.downloads,
         ...data.downloads,
       };
-      document.querySelectorAll("[data-download]").forEach((link) => {
+      dialog.querySelectorAll("[data-download]").forEach((link) => {
         const key = link.dataset.download;
         // The App Store link stays independent of release packages and cached manifests.
         const downloadInfo =
           key === "ios-app-store" ? defaultVersionData.downloads[key] : downloads[key];
-        // Replace links to clear tracking handlers from a prior cache/API update.
-        const newLink = link.cloneNode(true);
         if (downloadInfo && downloadInfo.url) {
-          newLink.href = downloadInfo.url;
-          newLink.removeAttribute("aria-disabled");
+          link.href = downloadInfo.url;
+          link.removeAttribute("aria-disabled");
           if (downloadInfo.filename) {
-            newLink.title = downloadInfo.filename;
+            link.title = downloadInfo.filename;
           }
 
           // baidu tracking event
-          const trackDownload = function () {
+          link.onclick = function () {
             if (typeof _hmt !== "undefined") {
               const version = downloadInfo.version || data.version || "unknown";
               _hmt.push([
@@ -312,15 +330,13 @@ if (document.querySelector("[data-online-device-count]")) {
               ]);
             }
           };
-
-          newLink.addEventListener("click", trackDownload);
         } else {
           // A package becomes downloadable only after it appears in the manifest.
-          newLink.removeAttribute("href");
-          newLink.removeAttribute("title");
-          newLink.setAttribute("aria-disabled", "true");
+          link.onclick = null;
+          link.removeAttribute("href");
+          link.removeAttribute("title");
+          link.setAttribute("aria-disabled", "true");
         }
-        link.parentNode.replaceChild(newLink, link);
       });
     }
   }
@@ -381,4 +397,4 @@ if (document.querySelector("[data-online-device-count]")) {
       updateVersionUI(versionData);
     }
   }
-})();
+}

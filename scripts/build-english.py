@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate /en/ pages from bilingual HTML using only Python's stdlib.
 
-After editing source pages or their data-lang="en" text, run:
+After editing source pages, their data-lang="en" text, or src/sponsors.json, run:
     python3 scripts/build-english.py
 Commit the generated en/ files along with the source changes. GitHub Pages can
 serve them directly; no build service or browser-side translation is required.
@@ -12,6 +12,7 @@ import re
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
+from textwrap import indent
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://www.crossdesk.cn"
@@ -179,7 +180,173 @@ class EnglishPage(HTMLParser):
         self.handle_data(f"<!{decl}>")
 
 
+SPONSOR_TIERS = {
+    "special": ("特别赞助", "Special sponsors"),
+    "gold": ("金牌赞助", "Gold sponsors"),
+    "silver": ("银牌赞助", "Silver sponsors"),
+    "community": ("社区支持", "Community supporters"),
+}
+
+
+def tier_label(tier):
+    zh, en = SPONSOR_TIERS[tier]
+    return f'<span data-lang="zh">{zh}</span><span data-lang="en">{en}</span>'
+
+
+def sponsor_group(tier, cards, heading_level):
+    title = f"h{heading_level}"
+    content = indent("\n".join(cards), "    ")
+    return f'''<section class="sponsor-tier" data-tier="{tier}">
+  <{title} class="sponsor-tier-title">{tier_label(tier)}</{title}>
+  <div class="sponsor-tier-cards">
+{content}
+  </div>
+</section>'''
+
+
+def sponsor_name(sponsor):
+    name = escape(sponsor["name"])
+    if sponsor.get("name_zh"):
+        name += f' <span lang="zh-CN">{escape(sponsor["name_zh"])}</span>'
+    return name
+
+
+def sponsor_description(sponsor):
+    return "\n".join(
+        f'<p data-lang="{lang}">{escape(paragraph)}</p>'
+        for lang in ("zh", "en")
+        for paragraph in sponsor[lang]["description"]
+    )
+
+
+def sponsor_card(sponsor, single, preview):
+    name = sponsor_name(sponsor)
+    url = escape(sponsor["url"])
+    logo = escape(sponsor["logo"])
+    profile_id = ' id="sponsor-profiles"' if single else ""
+    preview_attr = " data-preview" if preview else ""
+    return f'''<article class="project-sponsor"{preview_attr}>
+  <a class="project-sponsor-identity"{profile_id} href="{url}" target="_blank" rel="sponsored noopener noreferrer">
+    <img src="{logo}" width="72" height="72" alt="" loading="lazy" />
+    <h5>{name}&nbsp;<span aria-hidden="true">↗</span></h5>
+  </a>
+  <div class="project-sponsor-description">
+{indent(sponsor_description(sponsor), "    ")}
+  </div>
+</article>'''
+
+
+def homepage_primary_sponsors(primary):
+    if not primary:
+        return ""
+    links = []
+    for sponsor in primary:
+        full_name = escape(f'{sponsor["name"]} {sponsor.get("name_zh") or ""}'.strip())
+        links.append(f'''<a class="hero-sponsor" href="{escape(sponsor["url"])}" target="_blank" rel="sponsored noopener noreferrer" title="{full_name}">
+  <img src="{escape(sponsor["logo"])}" width="48" height="48" alt="" />
+  <strong>{sponsor_name(sponsor)}</strong>
+</a>''')
+    cards = indent("\n".join(links), "        ")
+    return f'''<section class="hero-sponsors page-shell" aria-labelledby="hero-sponsors-title">
+  <h2 id="hero-sponsors-title">{tier_label("special")}</h2>
+  <div class="hero-sponsor-track">
+    <div id="hero-sponsor-list">
+      <div class="hero-sponsor-group">
+{cards}
+      </div>
+    </div>
+  </div>
+</section>'''
+
+
+def homepage_sponsor_card(sponsor):
+    return f'''<article class="home-sponsor-card">
+  <a class="home-sponsor-brand" href="{escape(sponsor["url"])}" target="_blank" rel="sponsored noopener noreferrer">
+    <img src="{escape(sponsor["logo"])}" width="120" height="120" alt="" loading="lazy" decoding="async" />
+    <h4>{sponsor_name(sponsor)}&nbsp;<span aria-hidden="true">↗</span></h4>
+  </a>
+  <div class="home-sponsor-description">
+{indent(sponsor_description(sponsor), "    ")}
+  </div>
+</article>'''
+
+
+def homepage_sponsor_wall(preview, total):
+    if not total:
+        return ""
+    groups = [sponsor_group(tier, map(homepage_sponsor_card, members), 3)
+              for tier, members in preview.items()]
+    brands = indent("\n".join(groups), "  ")
+    directory = ""
+    if total > 1:
+        directory = f'''
+  <a class="text-link home-sponsors-more" data-open-sponsors href="/download/#sponsor-profiles">
+    <span data-lang="zh">查看全部 {total} 家赞助商</span><span data-lang="en">View all {total} sponsors</span><span aria-hidden="true">→</span>
+  </a>'''
+    return f'''<section class="home-sponsors" aria-labelledby="home-sponsor-title">
+  <h2 id="home-sponsor-title"><span data-lang="zh">项目赞助商</span><span data-lang="en">Project sponsors</span></h2>
+{brands}{directory}
+</section>'''
+
+
+def replace_sponsor_block(page, content, marker="<!-- Generated from src/sponsors.json -->"):
+    source = page.read_text(encoding="utf-8")
+    marker_start = source.index(marker)
+    padding = source[source.rfind("\n", 0, marker_start) + 1:marker_start]
+    start = marker_start + len(marker) + 1
+    end = source.index(padding + "<!-- End project sponsors -->", start)
+    updated = source[:start] + indent(content, padding) + "\n" + source[end:]
+    if updated != source:
+        page.write_text(updated, encoding="utf-8")
+
+
+def sync_sponsor_catalog():
+    sponsors = json.loads((ROOT / "src/sponsors.json").read_text(encoding="utf-8"))
+    groups = {tier: [] for tier in SPONSOR_TIERS}
+    for sponsor in sponsors:
+        tier = sponsor.get("tier", "special" if sponsor.get("primary") else "community")
+        if tier not in groups:
+            raise ValueError(f"Unknown sponsor tier {tier!r} for {sponsor['name']}")
+        groups[tier].append(sponsor)
+
+    # Give each populated tier a place in the four-card preview.
+    preview = {}
+    extra_slots = 4 - sum(bool(members) for members in groups.values())
+    for tier, members in groups.items():
+        if members:
+            preview[tier] = members[:1 + extra_slots]
+            extra_slots -= len(preview[tier]) - 1
+
+    home = ROOT / "index.html"
+    replace_sponsor_block(home, homepage_primary_sponsors(groups["special"]), "<!-- Primary sponsors from src/sponsors.json -->")
+    replace_sponsor_block(home, homepage_sponsor_wall(preview, len(sponsors)))
+    parts = []
+    if len(sponsors) > 1:
+        parts.append(f'''<details class="sponsor-directory">
+  <summary aria-controls="project-sponsor-list">
+    <span class="directory-open"><span data-lang="zh">查看全部 {len(sponsors)} 家赞助商 →</span><span data-lang="en">View all {len(sponsors)} sponsors →</span></span>
+    <span class="directory-back"><span data-lang="zh">← 返回下载选项</span><span data-lang="en">← Back to downloads</span></span>
+  </summary>
+  <div id="sponsor-profiles" tabindex="-1">
+    <label class="sponsor-search" hidden>
+      <span data-lang="zh">按名称搜索赞助商</span><span data-lang="en">Search sponsors by name</span>
+      <input type="search" autocomplete="off" />
+    </label>
+    <p role="status" class="sponsor-results"></p>
+  </div>
+</details>''')
+    directory_groups = []
+    for tier, shown in preview.items():
+        cards = [sponsor_card(member, len(sponsors) == 1, i < len(shown))
+                 for i, member in enumerate(groups[tier])]
+        directory_groups.append(sponsor_group(tier, cards, 4))
+    directory = indent("\n".join(directory_groups), "  ")
+    parts.append(f'<div class="project-sponsor-list" id="project-sponsor-list">\n{directory}\n</div>')
+    replace_sponsor_block(ROOT / "download/index.html", "\n".join(parts))
+
+
 def main():
+    sync_sponsor_catalog()
     destination = ROOT / "en"
     destination.mkdir(exist_ok=True)
     for name, metadata in PAGES.items():
